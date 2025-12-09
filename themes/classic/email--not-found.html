@@ -1,0 +1,35 @@
+{% extends "subscriber_facing/base.html" %}
+{% load mutable_url %}
+{% load tz %}
+{% load localize %}
+{% block extra_head %}
+    {% if "whitelabeling" in newsletter.enabled_features %}
+        <title>{% localized "web.message.error.email_not_found" newsletter.locale %}</title>
+    {% else %}
+        <title>{% localized "web.message.error.email_not_found" newsletter.locale %} • Buttondown</title>
+    {% endif %}
+    {% localized "web.message.error.email_not_found" newsletter.locale as localized_title %}
+    {% include "subscriber_facing/snippets/email--not-found_meta_tags.html" with title=localized_title %}
+{% endblock extra_head %}
+{% block content %}
+    <div class="app">
+        <div class="email-detail email-detail--not-found">
+            {% include "subscriber_facing/snippets/email_detail_header.html" with newsletter=newsletter %}
+            <div class="email-detail__footer">
+                <p>
+                    <strong>{% localized "web.message.error.email_not_found" newsletter.locale %}</strong>
+                </p>
+                <p>
+                    {% localized "web.navigation.browse_full_archives" newsletter.locale %} <a href="{% mutable_url 'public-archive' newsletter.username %}">{% localized "web.navigation.full_archives" newsletter.locale %}</a> {% localized "web.navigation.of_this_newsletter" newsletter.locale %}
+                    {% if not subscriber %}
+                        {% localized "email.footer.or_subscribe_below" newsletter.locale %}
+                    {% endif %}
+                    .
+                </p>
+            </div>
+            {% if not newsletter.should_be_private %}
+                {% include "subscriber_facing/snippets/subscribe_form.html" with newsletter=newsletter %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

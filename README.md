@@ -10,3 +10,10 @@ In particular, what we have planned for the next two weeks are the following:
 - [ ] Unified context variables across all templates.
 
 In time, if you have questions, concerns, or bugs to report about the markup, feel free to file an issue!
+
+## Organization
+
+The repository is organized into the following directories:
+
+- `base`: The base styles for the themes.
+- `themes`: The themes themselves.

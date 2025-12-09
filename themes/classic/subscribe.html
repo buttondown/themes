@@ -1,0 +1,61 @@
+{% extends "subscriber_facing/base.html" %}
+{% load fqdn %}
+{% load mdw %}
+{% load mutable_url %}
+{% load localize %}
+{% block extra_head %}
+    {% include "subscriber_facing/snippets/metadata/subscribe.html" %}
+{% endblock extra_head %}
+{% block content %}
+    <div class="app page--subscribe">
+        <h1 class="subscribe__name">
+            {% if newsletter.icon %}<img class="newsletter-icon" src="{{ newsletter.icon_url }}">{% endif %}
+            {{ newsletter.name }}
+        </h1>
+        {% if referring_subscriber %}
+            <div class="widget">{% localized 'web.subscription.message.referral_notice' newsletter.locale %}</div>
+        {% endif %}
+        {% if newsletter.description %}
+            <div class="newsletter-description">{{ newsletter.description|mdw:newsletter|safe }}</div>
+        {% endif %}
+        {% include "subscriber_facing/snippets/dormant_callout.html" with css_class="widget" %}
+        {% if newsletter.should_be_private %}
+            <div class="widget">
+                {% localized 'web.subscription.message.private_notice' newsletter.locale %}
+                {% localized 'web.navigation.browse_full_archives' newsletter.locale %}
+                <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.full_archives' newsletter.locale %}</a>
+                {% localized 'web.navigation.of_this_newsletter' newsletter.locale %}
+            </div>
+        {% elif newsletter.status != 'dormant' %}
+            {% include "subscriber_facing/snippets/subscribe_form.html" with newsletter=newsletter %}
+            <div class="subscribe-page-extras">
+                {% if latest_public_email %}
+                    <p>
+                        {% localized 'web.subscription.message.read_latest_edition' newsletter.locale %}:
+                        {% if newsletter.should_hide_issue_numbers %}
+                            <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject }}</a>.
+                        {% else %}
+                            {% if latest_public_email.secondary_id %}
+                                <a href="{{ latest_public_email.get_absolute_url }}">#{{ latest_public_email.secondary_id }} — {{ latest_public_email.subject }}</a>.
+                            {% else %}
+                                <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject }}</a>.
+                            {% endif %}
+                        {% endif %}
+                    </p>
+                    <p>
+                        {% localized 'web.navigation.browse_full_archives' newsletter.locale %}
+                        <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.full_archives' newsletter.locale %}</a>
+                        {% localized 'web.navigation.of_this_newsletter' newsletter.locale %}
+                    </p>
+                {% endif %}
+                {% include "subscriber_facing/muromachi/partials/sponsorships.html" %}
+                {% if newsletter.should_expose_rss and "archives" in newsletter.enabled_features %}
+                    <p class="rss-suggestion">
+                        {% localized "email.rss.suggestion_prefix" newsletter.locale %}
+                        <a href='{% mutable_url "rss" newsletter.username %}'>{% localized "email.rss.suggestion_link" newsletter.locale %}</a>.
+                    </p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}

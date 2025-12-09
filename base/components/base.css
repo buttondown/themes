@@ -1,0 +1,333 @@
+a {
+  color: var(--tint-color);
+}
+
+a:hover {
+  background-color: color-mix(in srgb, var(--tint-color) 20%, transparent);
+}
+
+.app-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+blockquote p:first-child {
+  margin-top: 0;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-prose);
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+.card {
+  background-color: var(--color-background-card);
+  border: 1px solid var(--color-background-offset);
+  border-radius: calc(var(--space) / 2);
+  font-family: var(--font-brand);
+  margin-bottom: calc(var(--space) * 2);
+  margin-top: calc(var(--space) * 2);
+  padding: var(--space);
+
+  input,
+  a[type="button"],
+  select {
+    border-radius: 0;
+    border: 1px solid var(--color-background-offset);
+  }
+
+  select {
+    padding: calc(var(--space) / 2);
+  }
+
+  svg {
+    height: 24px;
+  }
+}
+
+.card-container {
+  color: var(--color-foreground-offset);
+  font-family: var(--font-brand);
+}
+
+/* Do not need margin-top because they should be close to the header. */
+.card-container .card {
+  margin-top: 0;
+}
+
+.card-container-header {
+  color: var(--color-foreground-offset);
+  font-family: var(--font-brand);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-top: calc(var(--space) * 2);
+  padding-bottom: calc(var(--space));
+  text-align: center;
+}
+
+.card--takeover {
+  background: var(--color-background);
+  left: 10%;
+  position: fixed;
+  right: 10%;
+  text-align: center;
+  top: 30%;
+}
+
+.card ~ .card {
+  margin-top: calc(var(--space));
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+date {
+  color: var(--color-foreground-offset);
+  display: block;
+  font-family: var(--font-brand);
+  font-size: var(--font-size-small);
+  text-align: var(--text-header-alignment);
+  margin-bottom: calc(var(--space) / 4);
+}
+
+.email-body-paywall {
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.email-image {
+  display: var(--email-image-display);
+}
+
+.empty-line {
+  height: calc(var(--font-size-base) * 2);
+}
+
+.empty-state {
+  display: grid;
+  flex: 1;
+  font-family: var(--font-brand);
+  gap: calc(var(--space));
+  margin: calc(var(--space) * 2) 0;
+  place-items: center;
+  text-align: center;
+}
+
+.empty-state-message {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space));
+}
+
+figure {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: calc(var(--space) * 2);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc(var(--space) * 2);
+}
+
+figcaption {
+  margin-top: calc(var(--space) / 2);
+  text-align: center;
+}
+
+/* Always-on transition */
+figure img {
+  border-radius: calc(var(--space) / 2);
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Just the “zoomed” values, no transition here */
+figure[data-full-width="true"] img {
+  border-radius: 0;
+  max-width: 100vw;
+  width: 100vw;
+  margin: 0 0;
+  cursor: zoom-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.footer {
+  color: var(--color-foreground-offset-2);
+  font-family: var(--font-brand);
+  font-size: var(--font-size-small);
+  padding: var(--space);
+  text-align: center;
+  text-wrap: pretty;
+
+  a {
+    color: var(--color-foreground-offset);
+  }
+}
+
+h1 {
+  margin-bottom: calc(var(--space) / 2);
+  margin-top: calc(var(--space) * 2);
+}
+
+h2 {
+  margin-bottom: calc(var(--space) / 2);
+  margin-top: calc(var(--space) * 2);
+}
+
+h3 {
+  margin-bottom: calc(var(--space) / 2);
+  margin-top: calc(var(--space) * 2);
+  font-size: var(--font-size-large-2);
+}
+
+h4 {
+  margin-bottom: calc(var(--space) / 2);
+  margin-top: calc(var(--space) * 2);
+  font-size: var(--font-size-large);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img.newsletter-image,
+.email-detail--teaser img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  transition: border-radius 0.2s ease-in-out, width 0.2s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  img.newsletter-image {
+    max-width: 100vw;
+    margin-left: calc(var(--space) * -1);
+    margin-right: calc(var(--space) * -1);
+    border-radius: 0;
+  }
+}
+
+img.zoomable {
+  cursor: zoom-in;
+}
+
+p,
+li {
+  color: var(--color-foreground);
+  font-family: var(--font-prose);
+  font-size: var(--font-size-large);
+  line-height: 1.6;
+  margin-bottom: var(--space);
+  margin-top: 0;
+  overflow-wrap: break-word;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+ul,
+ol {
+  /* Override some weird default Chrome styles */
+  margin-block-start: 0;
+  padding-inline-start: 0;
+
+  margin-left: 1.7em;
+  margin-top: 1em;
+}
+
+.social-networks {
+  display: flex;
+  font-family: var(--font-brand);
+  gap: 1em;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1em;
+
+  > div:last-child {
+    display: flex;
+    gap: 1em;
+  }
+
+  a {
+    display: block;
+    min-width: 24px;
+  }
+
+  svg {
+    fill: var(--color-foreground);
+    max-width: 20px;
+
+    &:hover {
+      fill: var(--tint-color);
+    }
+  }
+}
+
+.subject {
+  text-align: var(--text-header-alignment);
+  margin-top: 0;
+}
+
+table.buttondown-block-styled {
+  border-collapse: collapse;
+  margin: 0;
+  overflow: hidden;
+  table-layout: fixed;
+  width: 100%;
+
+  td,
+  th {
+    border: 2px solid var(--color-background-offset);
+    box-sizing: border-box;
+    min-width: 1em;
+    padding: calc(var(--space) / 2);
+    position: relative;
+    vertical-align: top;
+
+    > * {
+      margin-bottom: 0;
+    }
+  }
+
+  th {
+    background-color: var(--color-background-offset);
+    font-weight: bold;
+    text-align: left;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+video {
+  border-radius: var(--space);
+  corner-shape: var(--corner-shape);
+  max-width: 100%;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-background-offset);
+}

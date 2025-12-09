@@ -1,0 +1,78 @@
+{% extends "subscriber_facing/base.html" %}
+{% load fqdn %}
+{% load mutable_url %}
+{% load localize %}
+{% load tz %}
+{% load i18n %}
+{% block extra_head %}
+    {% include "subscriber_facing/snippets/metadata/archive.html" %}
+{% endblock extra_head %}
+{% block content %}
+    <div class="email-list-container">
+        <div class="email-list-header">
+            <h2>
+                {% if newsletter.icon %}
+                    <img class="newsletter-icon"
+                         src="{{ newsletter.icon_url }}"
+                         width="24"
+                         height="24"
+                         alt="{{ newsletter.name }}" />
+                {% endif %}
+                {{ newsletter.name }}
+            </h2>
+            <h1>{% localized 'web.navigation.archive' newsletter.locale %}</h1>
+        </div>
+        <div class="email-list">
+            {% for email in public_emails %}
+                <div class="email{% if email.featured %} featured{% endif %}">
+                    <a href="{% if newsletter.domain %}/archive/{{ email.slug }}{% else %}/{{ newsletter.username }}/archive/{{ email.slug }}{% endif %}">
+                        <h2>{{ email.subject }}</h2>
+                    </a>
+                    <div class="email-detail--teaser email-detail">{{ email.rendered_html_for_teaser|safe }}</div>
+                    <div class="email-metadata">
+                        {% if newsletter.paid_subscriptions_status == 'active' %}
+                            {% if email.is_premium %}
+                                <div class="email-metadata-price">
+                                    {% include "subscriber_facing/svg/currency-dollar.svg" %}
+                                    <div class="email-metadata-price-text">{% localized 'web.post.label.premium' newsletter.locale %}</div>
+                                </div>
+                            {% else %}
+                                <div class="email-metadata-price">
+                                    {% include "subscriber_facing/svg/check-circle.svg" %}
+                                    <div class="email-metadata-price-text">{% localized 'web.post.label.free' newsletter.locale %}</div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        {% if not newsletter.should_hide_issue_numbers %}
+                            <div class="email-metadata-issue-number">
+                                {% include "subscriber_facing/svg/newspaper.svg" %}
+                                <div class="email-metadata-issue-number-text">#{{ email.secondary_id }}</div>
+                            </div>
+                        {% endif %}
+                        <div class="email-metadata-publish-date">
+                            {% include "subscriber_facing/svg/calendar.svg" %}
+                            <div class="email-metadata-publish-date-text">
+                                {% localtime on %}
+                                {% language newsletter.locale %}
+                                    {{ email.publish_date|timezone:newsletter.timezone|date:"F j, Y" }}
+                                {% endlanguage %}{% endlocaltime %}
+                            </div>
+                        </div>
+                        <div class="email-metadata-divider"></div>
+                        <div class="email-metadata-read-more">
+                            <a href="{{ email.slug }}" class="email-metadata-read-more-link">
+                            {% localized 'web.button.read_more' newsletter.locale %}</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                {% if not subscriber_id %}
+                    <div class="card">{% include "subscriber_facing/snippets/subscribe_form.html" %}</div>
+                {% else %}
+                    <div class="card">{% localized 'web.message.empty.author_no_emails' newsletter.locale %}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% include "subscriber_facing/snippets/pagination.html" with public_emails=public_emails newsletter=newsletter %}
+    </div>
+{% endblock content %}

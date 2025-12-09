@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap");
+
+:root {
+  --width-content: 600px;
+  --space: 20px;
+
+  /* Typography */
+  --font-brand: "Hex Franklin";
+  --font-prose: "Source Serif 4", ui-serif, Georgia, Cambria, "Times New Roman",
+    Times, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono",
+    Consolas, "Liberation Mono", Menlo, monospace;
+
+  /* Light mode colors. */
+  --color-background: oklch(98.5% 0 0);
+  --color-background-card: oklch(96.7% 0.001 286.375);
+  --color-background-offset: oklch(87.1% 0.006 286.286);
+  --color-foreground: #404040;
+  --color-foreground-offset: #525252;
+  --color-foreground-offset-2: #737373;
+  --color-action: var(--tint-color, oklch(42.4% 0.199 265.638));
+
+  --color-background-dark: oklch(14.1% 0.005 285.823);
+  --color-background-card-dark: oklch(21% 0.006 285.885);
+  --color-background-offset-dark: oklch(37% 0.013 285.805);
+  --color-foreground-dark: oklch(90% 0 0);
+  --color-foreground-offset-dark: oklch(75% 0 0);
+  --color-foreground-offset-2-dark: oklch(65% 0 0);
+  --color-action-dark: var(--tint-color, oklch(54.6% 0.245 262.881));
+
+  --font-size-extra-small: 12px;
+  --font-size-small: 14px;
+  --font-size-base: 16px;
+  --font-size-large: 20px;
+  --font-size-large-2: 24px;
+  --font-size-large-3: 32px;
+
+  --text-header-alignment: center;
+  --email-image-display: none;
+  --corner-shape: round;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.supports-dark-mode {
+    /* Colors */
+    --color-background: var(--color-background-dark);
+    --color-background-card: var(--color-background-card-dark);
+    --color-background-offset: var(--color-background-offset-dark);
+    --color-foreground: var(--color-foreground-dark);
+    --color-foreground-offset: var(--color-foreground-offset-dark);
+    --color-foreground-offset-2: var(--color-foreground-offset-2-dark);
+    --color-action: var(--color-action-dark);
+  }
+}
+
+@font-face {
+  font-family: "Hex Franklin";
+  src: url("https://d33wubrfki0l68.cloudfront.net/409516e806160febfc4d1d7902107ae378404d3f/fd4dc/fonts/hex-franklin/hex-franklin-0.2.woff2")
+    format("woff2");
+  font-weight: 1 999;
+  font-stretch: 0% 100%;
+}
