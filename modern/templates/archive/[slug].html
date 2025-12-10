@@ -10,7 +10,6 @@
 {% endblock extra_head %}
 {% block content %}
     {% include "subscriber_facing/snippets/email-deleted-callout.html" with newsletter=newsletter email=email %}
-    {% include "subscriber_facing/snippets/email-paywalled-callout.html" with newsletter=newsletter email=email %}
     <div class="email-body-container">
         <article class="email-body">
             {% if show_teaser %}

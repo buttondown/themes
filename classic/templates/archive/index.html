@@ -28,7 +28,7 @@
                     <a href="{% if newsletter.domain %}/archive/{{ email.slug }}{% else %}/{{ newsletter.username }}/archive/{{ email.slug }}{% endif %}">
                         <h2>{{ email.subject }}</h2>
                     </a>
-                    <div class="email-detail--teaser email-detail">{{ email.rendered_html_for_teaser|safe }}</div>
+                    <div class="email-teaser">{{ email.rendered_html_for_teaser|safe }}</div>
                     <div class="email-metadata">
                         {% if newsletter.paid_subscriptions_status == 'active' %}
                             {% if email.is_premium %}

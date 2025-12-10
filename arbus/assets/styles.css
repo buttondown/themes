@@ -1,0 +1,71 @@
+@import "../../modern/assets/styles.css";
+
+:root {
+  --email-image-display: block;
+}
+
+.email-title {
+  font-weight: bold;
+  margin-bottom: calc(var(--space) / 4);
+}
+
+.email-image img {
+  height: 300px;
+  object-fit: cover;
+  border-radius: calc(var(--space) / 2);
+  overflow: hidden;
+  border: 1px solid var(--color-foreground-offset-2);
+  object-fit: cover;
+}
+
+.email-image-placeholder,
+.email-image img {
+  margin-bottom: calc(var(--space) / 2);
+}
+
+/* Instagram theme. */
+.email-description {
+  display: none;
+}
+
+.email-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(var(--space));
+  width: calc(100vw - 2rem);
+  max-width: none;
+}
+.email-list hr {
+  display: none;
+}
+.email-image-placeholder {
+  height: 300px;
+  background-color: var(--color-background-offset);
+  border-radius: calc(var(--space) / 2);
+}
+
+.email-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.email-link:hover {
+  background-color: inherit;
+}
+
+.email-image {
+  display: block !important;
+}
+.email-image img {
+  transition: all 0.2s ease-in-out;
+}
+.email-link:hover .email-header {
+  color: var(--tint-color);
+}
+.email-link:hover .email-image img {
+  outline: calc(var(--space) / 4) solid var(--tint-color);
+}
