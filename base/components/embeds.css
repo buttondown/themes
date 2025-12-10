@@ -1,0 +1,43 @@
+.embedded-link {
+  background: var(--color-background-offset);
+}
+
+.tiktok-embed {
+  font-style: normal;
+  background: none;
+  padding: 0;
+}
+
+/* https://github.com/buttondown/roadmap/issues/711 */
+.littlefoot-footnote__content {
+  word-break: break-word;
+}
+
+/* Override properties that are set on `button` elements but break littlefoot. */
+.littlefoot__button {
+  max-width: max-content;
+  z-index: 0;
+}
+
+.littlefoot__button {
+  margin-left: calc(var(--space) / 2);
+  margin-top: calc(var(--space) / 2);
+}
+
+.littlefoot__content p:last-child {
+  margin-bottom: 0;
+}
+
+.littlefoot__content {
+  background-color: var(--color-background-card) !important;
+  margin: 0 auto !important;
+  border-color: var(--color-background-offset) !important;
+  padding: calc(var(--space)) !important;
+  max-width: var(--width-content) !important;
+  color: var(--color-foreground-offset) !important;
+}
+
+.littlefoot__popover {
+  background-color: var(--color-background-card) !important;
+  border-color: var(--color-background-offset) !important;
+}

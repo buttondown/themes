@@ -1,0 +1,8 @@
+.codehilite {
+  pre {
+    overflow-x: auto;
+    padding: calc(var(--space) / 2);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+  }
+}

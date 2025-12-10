@@ -1,0 +1,110 @@
+@import "../../../subscriber_facing/styles/components/base.css";
+
+:root {
+  --header-navigation-display: none;
+  --text-header-alignment: left;
+}
+
+.app-container {
+  flex: 1 0 auto;
+  margin: 0 auto;
+  max-width: calc(100% - var(--space) * 2);
+  width: var(--width-content);
+}
+
+blockquote {
+  font-style: italic;
+}
+
+.email-detail__header {
+  margin-bottom: calc(var(--space) * 2);
+  margin-top: calc(var(--space) * 2);
+}
+
+.email-metadata {
+  align-items: center;
+  border-top: 1px var(--color-background-offset) solid;
+  color: var(--color-foreground-offset);
+  display: flex;
+  font-family: var(--font-brand);
+  gap: calc(var(--space));
+  padding-top: calc(var(--space) / 2);
+}
+
+.email-metadata > div {
+  align-items: center;
+  display: flex;
+  gap: calc(var(--space) / 4);
+}
+
+.email-metadata-divider {
+  flex: 1;
+}
+
+.email-metadata-read-more-link {
+  align-items: center;
+  background: var(--tint-color);
+  border-radius: var(--space);
+  color: #fff;
+  corner-shape: var(--corner-shape);
+  cursor: pointer;
+  display: flex;
+  padding: calc(var(--space) / 4) calc(var(--space) / 2);
+  text-decoration: none;
+  transition: background 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.email-metadata-read-more-link:hover {
+  background: color-mix(in srgb, var(--tint-color) 80%, transparent);
+}
+
+.email-metadata svg {
+  width: 20px;
+}
+
+.newsletter {
+  align-items: center;
+  color: var(--color-foreground);
+  display: flex;
+  font-family: var(--font-brand);
+  font-size: var(--font-size-small);
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  gap: calc(var(--space) / 2);
+  text-decoration: none;
+}
+
+.newsletter .newsletter-icon {
+  border: 1px solid var(--color-background-offset);
+  margin: 0;
+  width: 24px;
+}
+
+.pagination {
+  background: var(--color-background-offset);
+  border-radius: calc(var(--space));
+  font-size: var(--font-size-small);
+  padding: calc(var(--space) / 2);
+  text-align: center;
+}
+
+.pagination svg {
+  display: block;
+  margin-left: calc(var(--space) / 4);
+  margin-right: calc(var(--space) / 4);
+  width: 24px;
+}
+
+.response-freeform-label {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 8px;
+  margin-top: 64px;
+}
+
+@media (max-width: 600px) {
+  .email-metadata svg {
+    display: none;
+  }
+}

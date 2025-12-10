@@ -1,0 +1,286 @@
+@import "./variables.css";
+
+h1 {
+  font-family: var(--font-brand);
+  font-size: var(--font-size-large-3) !important;
+  font-weight: 700 !important;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
+.manage-subscription {
+  font-family: var(--font-brand);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.section-title {
+  font-size: var(--font-size-large-2);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-foreground);
+}
+
+.section-subtitle {
+  font-size: var(--font-size-large);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-foreground-offset);
+  margin-bottom: calc(var(--space) * 1.2);
+}
+
+.input-label {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-foreground);
+  margin-bottom: calc(var(--space) / 2);
+  display: block;
+}
+
+input[type="text"].input-field,
+input[type="email"].input-field {
+  width: 100%;
+  height: calc(var(--space) * 2.5);
+  padding: 0 calc(var(--space) / 2);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-background-offset);
+  border-radius: calc(var(--space) / 4);
+  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: var(--color-action);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-action) 10%, transparent);
+}
+
+.input-field:disabled {
+  background-color: var(--color-background-offset);
+  color: var(--color-foreground-offset-2);
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  text-transform: uppercase;
+  justify-content: center;
+}
+
+.btn-primary.success {
+  background-color: var(--color-action);
+  color: var(--color-background);
+}
+
+.btn-primary.success:hover {
+  background-color: color-mix(in srgb, var(--color-action) 90%, black);
+}
+
+.btn-primary.error {
+  background-color: var(--color-action);
+  color: var(--color-background);
+}
+
+.btn-primary.error:hover {
+  background-color: color-mix(in srgb, var(--color-action) 90%, black);
+}
+
+.btn-primary.default {
+  background-color: var(--color-action);
+  color: var(--color-background);
+}
+
+.btn-primary.default:hover {
+  background-color: color-mix(in srgb, var(--color-action) 90%, black);
+}
+
+.btn-primary:disabled {
+  background-color: var(--color-background-offset);
+  color: var(--color-foreground-offset-2);
+  cursor: not-allowed;
+}
+
+.field-group {
+  margin-bottom: calc(var(--space) * 1.5);
+}
+
+.field-group--buttons {
+  display: flex;
+  gap: calc(var(--space) / 2);
+}
+
+.field-group--buttons .archive__button {
+  width: fit-content;
+  display: inline-block;
+}
+
+.field-group.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checkbox-field {
+  width: calc(var(--space) / 1.25);
+  height: calc(var(--space) / 1.25);
+  margin-right: calc(var(--space) / 2);
+  cursor: pointer;
+  accent-color: var(--color-action);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.section-divider {
+  margin: calc(var(--space) * 1.5) 0;
+  border-top: 1px solid var(--color-background-offset);
+  width: 100%;
+}
+
+.invoices-list {
+  margin-bottom: var(--space);
+  color: var(--color-foreground);
+}
+
+.invoice-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    text-decoration: underline;
+    color: var(--color-action);
+  }
+}
+
+h3 {
+  font-size: var(--font-size-large-2);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  margin-bottom: calc(var(--space) / 2);
+  color: var(--color-foreground);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  backdrop-filter: blur(2px);
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  background-color: color-mix(in srgb, black 50%, transparent);
+}
+
+.modal-content {
+  background-color: var(--color-background);
+  border-radius: calc(var(--space) / 1.67);
+  box-shadow: 0 calc(var(--space) * 1.25) calc(var(--space) * 1.25)
+      calc(var(--space) * -0.25) color-mix(in srgb, black 10%, transparent),
+    0 calc(var(--space) / 2) calc(var(--space) / 2) calc(var(--space) * -0.25)
+      color-mix(in srgb, black 4%, transparent);
+  max-width: 400px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.8) translateY(var(--space));
+  transition: transform 0.2s ease-out;
+  border: 1px solid var(--color-background-offset);
+}
+
+.modal-overlay.show .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+.modal-header {
+  padding: calc(var(--space) * 1.2) calc(var(--space) * 1.2) 0
+    calc(var(--space) * 1.2);
+}
+
+.modal-title {
+  font-size: var(--font-size-base);
+  color: var(--color-foreground);
+  font-family: var(--font-brand);
+  font-weight: 600;
+  margin: 0 0 calc(var(--space) / 2.5) 0;
+}
+
+.modal-body {
+  padding: 0 calc(var(--space) * 1.2);
+}
+
+.modal-body p,
+.modal-body label {
+  font-size: var(--font-size-base) !important;
+  line-height: 1.5;
+  color: var(--color-foreground-offset);
+  font-family: var(--font-brand);
+  margin: 0 0 calc(var(--space) * 1.2) 0;
+}
+
+.modal-body label {
+  display: flex;
+  align-items: center;
+  margin-bottom: calc(var(--space) / 2.5);
+}
+
+.modal-footer {
+  padding: 0 calc(var(--space) * 1.2) calc(var(--space) * 1.2)
+    calc(var(--space) * 1.2);
+  display: flex;
+  gap: calc(var(--space) / 1.67);
+  justify-content: flex-end;
+}
+
+.modal-footer .btn-primary {
+  min-width: 80px;
+}
+
+.unsubscription-reasons-list {
+  margin-bottom: calc(var(--space) * 1.2);
+}
+
+.unsubscription-reasons-list input[type="radio"] {
+  margin-right: calc(var(--space) / 2.5);
+}
+
+.helper-text {
+  font-size: var(--font-size-extra-small);
+  color: var(--color-foreground-offset);
+  margin-top: calc(var(--space) / 5);
+}
+
+.checkbox-label .input-label {
+  margin-bottom: 0;
+}
+
+.btn-primary.update-button {
+  margin-top: var(--space);
+}
+
+.modal-body p:not(:first-child) {
+  margin-top: calc(var(--space) / 1.25);
+}
