@@ -5,7 +5,7 @@
     {% include "subscriber_facing/snippets/metadata/subscribe.html" %}
 {% endblock extra_head %}
 {% block content %}
-    {{ jsonld }}
+    {{ newsletter_jsonld }}
     <div class="subscribe-container">
         <div class="subscribe">
             {% if newsletter.icon %}

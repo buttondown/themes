@@ -11,7 +11,7 @@
     <div class="app{% if email.status == 'suppressed' %} suppressed{% endif %}">
         <article class="email-body">
             {% include "subscriber_facing/snippets/email_detail_header.html" with newsletter=newsletter %}
-            {% if show_teaser %}
+            {% if email.show_teaser %}
                 <div class="email-body-paywall">{{ email.rendered_html_for_teaser|safe }}</div>
                 <div class="card-container card-container--paywalled">
                     <div class="card-container-header">{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</div>

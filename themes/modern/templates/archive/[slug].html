@@ -12,7 +12,7 @@
     {% include "subscriber_facing/snippets/email-deleted-callout.html" with newsletter=newsletter email=email %}
     <div class="email-body-container">
         <article class="email-body">
-            {% if show_teaser %}
+            {% if email.show_teaser %}
                 {% include "subscriber_facing/snippets/email_frontmatter.html" with newsletter=newsletter email=email %}
                 {% if newsletter.web_header %}{{ newsletter.web_header|md:newsletter|safe }}{% endif %}
                 <div class="email-body-paywall">{{ email.rendered_html_for_teaser|safe }}</div>
@@ -53,7 +53,7 @@
             {% endif %}
         </article>
     </div>
-    {% if not show_teaser %}
+    {% if not email.show_teaser %}
         {% include "subscriber_facing/snippets/footnotes.html" %}
         {% include "subscriber_facing/snippets/bluesky_embeds.html" %}
         {% vite_asset "subscriber_facing/image-lightbox.js" %}

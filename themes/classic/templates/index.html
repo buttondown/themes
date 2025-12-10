@@ -29,6 +29,7 @@
         {% elif newsletter.status != 'dormant' %}
             {% include "subscriber_facing/snippets/subscribe_form.html" with newsletter=newsletter %}
             <div class="subscribe-page-extras">
+                {% with latest_public_email=public_emails.object_list.first %}
                 {% if latest_public_email %}
                     <p>
                         {% localized 'web.subscription.message.read_latest_edition' newsletter.locale %}:
@@ -55,6 +56,7 @@
                         <a href='{% mutable_url "rss" newsletter.username %}'>{% localized "email.rss.suggestion_link" newsletter.locale %}</a>.
                     </p>
                 {% endif %}
+                {% endwith %}
             </div>
         {% endif %}
     </div>
