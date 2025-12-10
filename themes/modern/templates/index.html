@@ -1,6 +1,5 @@
 {% extends "subscriber_facing/base.html" %}
 {% load mdw %}
-{% load localize %}
 {% block extra_head %}
     {% include "subscriber_facing/snippets/metadata/subscribe.html" %}
 {% endblock extra_head %}
@@ -15,13 +14,9 @@
                      height="24"
                      alt="">
             {% endif %}
-            <h1 class="subscribe__name">{{ newsletter.name }}</h1>
-            <div class="subscribe__description">{{ newsletter.description|mdw:newsletter|safe }}</div>
-            {% if newsletter.should_be_private %}
-                <div class="card card--private">{% localized 'web.subscription.message.private_notice' newsletter.locale %}</div>
-            {% else %}
-                {% include "subscriber_facing/snippets/subscribe_form.html" %}
-            {% endif %}
+            <h1 class="newsletter-name">{{ newsletter.name }}</h1>
+            <div class="newsletter-description">{{ newsletter.description|mdw:newsletter|safe }}</div>
+            {% include "subscriber_facing/snippets/subscribe_form.html" %}
         </div>
     </div>
 {% endblock content %}

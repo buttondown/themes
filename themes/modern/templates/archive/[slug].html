@@ -25,27 +25,25 @@
                 {% include "subscriber_facing/snippets/email--content.html" with newsletter=newsletter email=email subscriber=subscriber %}
                 {% include "subscriber_facing/snippets/related_emails.html" %}
                 {% include "subscriber_facing/snippets/attachments.html" %}
-                {% if not newsletter.should_be_private %}
-                    <div class="card-container">
-                        <div class="card-container-header">
-                            {% if not newsletter.subscription_form_text %}
-                                {% localized 'web.email.subscription.form_text' newsletter.locale %}
-                            {% endif %}
-                        </div>
-                        {% include "subscriber_facing/snippets/subscribe_form.html" %}
-                        {% with bluesky_url=email.bluesky_url twitter_url=email.twitter_url %}
-                            {% if bluesky_url or twitter_url %}
-                                <div class="card-container-header">{% localized 'web.email.social.links_header' newsletter.locale %}</div>
-                                <div class="social-embeds">
-                                    {% if bluesky_url %}
-                                        {% include "bluesky_web.html" with at_uri=bluesky_url %}
-                                    {% endif %}
-                                    {% include "subscriber_facing/snippets/email-twitter-url.html" with email=email %}
-                                </div>
-                            {% endif %}
-                        {% endwith %}
+                <div class="card-container">
+                    <div class="card-container-header">
+                        {% if not newsletter.subscription_form_text %}
+                            {% localized 'web.email.subscription.form_text' newsletter.locale %}
+                        {% endif %}
                     </div>
-                {% endif %}
+                    {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                    {% with bluesky_url=email.bluesky_url twitter_url=email.twitter_url %}
+                        {% if bluesky_url or twitter_url %}
+                            <div class="card-container-header">{% localized 'web.email.social.links_header' newsletter.locale %}</div>
+                            <div class="social-embeds">
+                                {% if bluesky_url %}
+                                    {% include "bluesky_web.html" with at_uri=bluesky_url %}
+                                {% endif %}
+                                {% include "subscriber_facing/snippets/email-twitter-url.html" with email=email %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                </div>
                 {% include "subscriber_facing/snippets/comments.html" %}
                 <div class="card-container">
                     {% include "subscriber_facing/snippets/share_form.html" with title=email.subject url=email.get_absolute_url newsletter=newsletter %}

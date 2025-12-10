@@ -15,15 +15,13 @@
                 <div class="email-body-paywall">{{ email.rendered_html_for_teaser|safe }}</div>
                 <div class="card-container card-container--paywalled">
                     <div class="card-container-header">{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</div>
-                    {% if not newsletter.should_be_private %}
-                        {% if subscriber %}
-                            {% include "subscriber_facing/snippets/upsell.html" %}
-                        {% else %}
-                            {% include "subscriber_facing/snippets/subscribe_form.html" %}
-                            <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
-                        {% endif %}
-                    </div>
-                {% endif %}
+                    {% if subscriber %}
+                        {% include "subscriber_facing/snippets/upsell.html" %}
+                    {% else %}
+                        {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                        <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
+                    {% endif %}
+                </div>
             {% else %}
                 {% include "subscriber_facing/snippets/email--content.html" with newsletter=newsletter email=email subscriber=subscriber %}
                 <div class="card-container">
@@ -41,9 +39,7 @@
                         {% endif %}
                     </p>
                 </div>
-                {% if not newsletter.should_be_private %}
-                    {% include "subscriber_facing/snippets/subscribe_form.html" %}
-                {% endif %}
+                {% include "subscriber_facing/snippets/subscribe_form.html" %}
                 {% include "subscriber_facing/snippets/related_emails.html" %}
                 {% include "subscriber_facing/snippets/attachments.html" %}
                 {% include "subscriber_facing/snippets/share_form.html" with title=email.subject url=email.get_absolute_url newsletter=newsletter %}

@@ -224,18 +224,18 @@ hr {
   }
 }
 
-.subscribe__description {
+.newsletter-description {
   color: var(--color-foreground-offset-2);
   font-family: var(--font-brand);
   font-size: var(--font-size-large);
   text-align: center;
 }
 
-.subscribe__description:has(li) {
+.newsletter-description:has(li) {
   text-align: left;
 }
 
-.subscribe__name {
+.newsletter-name {
   color: var(--color-foreground);
   font-family: var(--font-brand);
   font-size: 48px;
