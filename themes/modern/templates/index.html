@@ -17,10 +17,9 @@
             {% endif %}
             <h1 class="subscribe__name">{{ newsletter.name }}</h1>
             <div class="subscribe__description">{{ newsletter.description|mdw:newsletter|safe }}</div>
-            {% include "subscriber_facing/snippets/dormant_callout.html" with css_class="card card--private" %}
-            {% if newsletter.status != 'dormant' and newsletter.should_be_private %}
+            {% if newsletter.should_be_private %}
                 <div class="card card--private">{% localized 'web.subscription.message.private_notice' newsletter.locale %}</div>
-            {% elif newsletter.status != 'dormant' %}
+            {% else %}
                 {% include "subscriber_facing/snippets/subscribe_form.html" %}
             {% endif %}
         </div>

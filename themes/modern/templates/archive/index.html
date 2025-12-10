@@ -46,7 +46,7 @@
         <div class="empty-state">
             <div class="empty-state-message">
                 <div>{% localized "web.message.empty.no_emails_published" newsletter.locale %}</div>
-                {% if not subscriber and not newsletter.should_be_private and newsletter.status != 'dormant' %}
+                {% if not subscriber and not newsletter.should_be_private %}
                     {% include "subscriber_facing/snippets/subscribe_form.html" %}
                 {% endif %}
             </div>
