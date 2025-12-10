@@ -48,7 +48,7 @@
                         {% localized 'web.navigation.of_this_newsletter' newsletter.locale %}
                     </p>
                 {% endif %}
-                {% include "subscriber_facing/muromachi/partials/sponsorships.html" %}
+                {% include "subscriber_facing/snippets/sponsorships.html" %}
                 {% if newsletter.should_expose_rss and "archives" in newsletter.enabled_features %}
                     <p class="rss-suggestion">
                         {% localized "email.rss.suggestion_prefix" newsletter.locale %}

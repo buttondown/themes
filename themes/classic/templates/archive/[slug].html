@@ -47,7 +47,7 @@
                 {% include "subscriber_facing/snippets/related_emails.html" %}
                 {% include "subscriber_facing/snippets/attachments.html" %}
                 {% include "subscriber_facing/snippets/share_form.html" with title=email.subject url=email.get_absolute_url newsletter=newsletter %}
-                {% include "subscriber_facing/muromachi/partials/comments.html" %}
+                {% include "subscriber_facing/snippets/comments.html" %}
             {% endif %}
         </article>
     </div>
