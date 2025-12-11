@@ -1,5 +1,9 @@
 @import "../../../subscriber_facing/styles/components/base.css";
 
+:root {
+  --newsletter-icon-size: 100px;
+}
+
 .app.suppressed {
   filter: blur(5px);
 }

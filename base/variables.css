@@ -39,6 +39,7 @@
   --text-header-alignment: center;
   --email-image-display: none;
   --corner-shape: round;
+  --newsletter-icon-size: 24px;
 }
 
 @media (prefers-color-scheme: dark) {

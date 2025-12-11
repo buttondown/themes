@@ -391,8 +391,8 @@ blockquote blockquote {
 }
 
 .newsletter-icon {
-  height: 100px;
+  height: var(--newsletter-icon-size);
   margin-bottom: calc(var(--space));
-  width: 100px;
+  width: var(--newsletter-icon-size);
   display: block;
 }

@@ -3,6 +3,7 @@
 :root {
   --header-navigation-display: none;
   --text-header-alignment: left;
+  --newsletter-icon-size: 24px;
 }
 
 .app-container {
@@ -78,7 +79,11 @@ blockquote {
 .newsletter .newsletter-icon {
   border: 1px solid var(--color-background-offset);
   margin: 0;
-  width: 24px;
+}
+
+.newsletter-name .newsletter-icon {
+  width: 100px;
+  height: 100px;
 }
 
 .pagination {
