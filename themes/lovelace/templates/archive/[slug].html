@@ -1,0 +1,61 @@
+{% extends "subscriber_facing/base.html" %}
+{% load md %}
+{% load render %}
+{% load tz %}
+{% load i18n %}
+{% load django_vite %}
+{% load localize %}
+{% block extra_head %}
+    {% include "subscriber_facing/snippets/metadata/email.html" %}
+{% endblock extra_head %}
+{% block content %}
+    {% include "subscriber_facing/snippets/email-deleted-callout.html" with newsletter=newsletter email=email %}
+    <div class="email-body-container">
+        <article class="email-body">
+            {% if show_teaser %}
+                {% include "subscriber_facing/snippets/email_frontmatter.html" with newsletter=newsletter email=email %}
+                {% if newsletter.web_header %}{{ newsletter.web_header|md:newsletter|safe }}{% endif %}
+                <div class="email-body-paywall">{{ email.rendered_html_for_teaser|safe }}</div>
+                <div class="card-container card-container--paywalled">
+                    <div class="card-container-header">{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</div>
+                    {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                </div>
+            {% else %}
+                {% include "subscriber_facing/snippets/email_frontmatter.html" with newsletter=newsletter email=email %}
+                {% include "subscriber_facing/snippets/email--content.html" with newsletter=newsletter email=email subscriber=subscriber %}
+                {% include "subscriber_facing/snippets/related_emails.html" %}
+                {% include "subscriber_facing/snippets/attachments.html" %}
+                {% if not newsletter.should_be_private %}
+                    <div class="card-container">
+                        <div class="card-container-header">
+                            {% if not newsletter.subscription_form_text %}
+                                {% localized 'web.email.subscription.form_text' newsletter.locale %}
+                            {% endif %}
+                        </div>
+                        {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                        {% with bluesky_url=email.bluesky_url twitter_url=email.twitter_url %}
+                            {% if bluesky_url or twitter_url %}
+                                <div class="card-container-header">{% localized 'web.email.social.links_header' newsletter.locale %}</div>
+                                <div class="social-embeds">
+                                    {% if bluesky_url %}
+                                        {% include "bluesky_web.html" with at_uri=bluesky_url %}
+                                    {% endif %}
+                                    {% include "subscriber_facing/snippets/email-twitter-url.html" with email=email %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                {% endif %}
+                {% include "subscriber_facing/snippets/comments.html" %}
+                <div class="card-container">
+                    {% include "subscriber_facing/snippets/share_form.html" with title=email.subject url=email.get_absolute_url newsletter=newsletter %}
+                </div>
+            {% endif %}
+        </article>
+    </div>
+    {% if not show_teaser %}
+        {% include "subscriber_facing/snippets/footnotes.html" %}
+        {% include "subscriber_facing/snippets/bluesky_embeds.html" %}
+        {% vite_asset "subscriber_facing/image-lightbox.js" %}
+    {% endif %}
+{% endblock content %}

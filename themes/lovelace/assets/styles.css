@@ -1,0 +1,50 @@
+:root {
+  --font-prose: "Source Serif 4", ui-serif, Georgia, Cambria, "Times New Roman",
+    Times, serif;
+  --color-background: oklch(98.5% 0 0);
+  --color-background-card: oklch(96.7% 0.001 286.375);
+  --color-background-offset: oklch(87.1% 0.006 286.286);
+  --color-foreground: #404040;
+  --color-foreground-offset: #525252;
+  --color-foreground-offset-2: #737373;
+  --color-action: var(--tint-color, oklch(42.4% 0.199 265.638));
+}
+
+/* Lovelace theme - minimal CSS reset, browser defaults only */
+.header-navigation-toggle {
+  display: none;
+}
+
+svg {
+  display: none;
+}
+
+.archive-search-trigger {
+  display: none;
+}
+
+.hidden-submit {
+  display: none;
+}
+
+.archive__subscribe-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-image {
+  display: none;
+}
+
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: var(--font-prose);
+}
+
+.archive__subscribe-form {
+  padding: 1rem;
+  background-color: var(--color-background-card);
+  border: 1px solid var(--color-foreground-offset-2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
