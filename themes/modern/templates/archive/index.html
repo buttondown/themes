@@ -10,7 +10,7 @@
 {% block content %}
     <div class="email-list">
         {% for email in public_emails %}
-            <a href="{{ email.slug }}" class="email-link">
+            <a href="{{ email.get_absolute_url }}" class="email-link">
                 <div class="email {% if email.featured %}featured{% endif %}">
                     <div class="email-image">
                         {% if email.image %}
