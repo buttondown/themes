@@ -30,6 +30,7 @@
 
 /* Classes sorted alphabetically - global selectors and parent blocks first, then children/selectors within blocks alphabetically */
 .archive__button {
+  position: relative;
   font-family: var(--font-brand) !important;
   background-color: var(--color-action) !important;
   border-radius: var(--space) !important;
@@ -395,4 +396,14 @@
       background-color: #b45309 !important;
     }
   }
+}
+
+.archive__button-pending-indicator {
+  position: absolute;
+  left: calc(var(--space));
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
