@@ -51,9 +51,4 @@
             {% endif %}
         </article>
     </div>
-    {% if not email.show_teaser %}
-        {% include "subscriber_facing/snippets/footnotes.html" %}
-        {% include "subscriber_facing/snippets/bluesky_embeds.html" %}
-        {% vite_asset "subscriber_facing/image-lightbox.js" %}
-    {% endif %}
 {% endblock content %}
