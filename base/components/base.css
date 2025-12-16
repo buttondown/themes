@@ -263,20 +263,17 @@ li {
 
 ul {
   list-style: disc;
+  padding-left: var(--space);
 }
 
 ol {
   list-style: decimal;
 }
 
-ul,
-ol {
-  /* Override some weird default Chrome styles */
-  margin-block-start: 0;
-  padding-inline-start: 0;
-
-  margin-left: 1.7em;
-  margin-top: 1em;
+ul li {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: calc(var(--space) / 2);
 }
 
 .social-networks {

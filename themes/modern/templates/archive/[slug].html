@@ -12,7 +12,7 @@
     {% include "subscriber_facing/snippets/email-deleted-callout.html" with newsletter=newsletter email=email %}
     <div class="email-body-container">
         <article class="email-body">
-            {% if email.show_teaser %}
+            {% if email.show_teaser and subscriber_facing_authentication.email_address != newsletter.owning_account.email_address %}
                 {% include "subscriber_facing/snippets/email_frontmatter.html" with newsletter=newsletter email=email %}
                 {% if newsletter.web_header %}{{ newsletter.web_header|md:newsletter|safe }}{% endif %}
                 <div class="email-body-paywall">{{ email.rendered_html_for_teaser|safe }}</div>
