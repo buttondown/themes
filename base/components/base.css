@@ -264,13 +264,19 @@ img.zoomable {
   cursor: zoom-in;
 }
 
+/* All block-level elements should have a margin-bottom. */
+p,
+li,
+blockquote {
+  margin-bottom: var(--space);
+}
+
 p,
 li {
   color: var(--color-foreground);
   font-family: var(--font-prose);
   font-size: var(--font-size-large);
   line-height: 1.6;
-  margin-bottom: var(--space);
   margin-top: 0;
   overflow-wrap: break-word;
 }
@@ -389,7 +395,8 @@ a[type="button"] {
 
 blockquote {
   background-color: var(--color-background-card);
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
   padding: calc(var(--space));
 }
 
