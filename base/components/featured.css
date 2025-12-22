@@ -1,11 +1,11 @@
 :root {
-  --featured-color: #fef9c3;
-  --featured-color-border: #f59e0b40;
-  --featured-color-icon: #eab308;
+  --color-featured: #fef9c3;
+  --color-featured-border: #f59e0b40;
+  --color-featured-icon: #eab308;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root.supports-dark-mode {
     --color-featured: oklch(28.6% 0.066 53.813);
     --color-featured-border: oklch(40.2% 0.105 61.876);
     --color-featured-icon: oklch(76.9% 0.188 70.08);
