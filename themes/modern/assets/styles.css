@@ -129,7 +129,6 @@ div.image-gallery-embed {
   }
   hr {
     border: none;
-    border-top: 1px solid var(--color-background-offset);
     margin-bottom: calc(var(--space));
     margin-left: auto;
     margin-right: auto;
@@ -141,18 +140,22 @@ div.image-gallery-embed {
 .email-link {
   border-radius: calc(var(--space) / 2);
   color: inherit;
-  margin: calc(var(--space) / 2 * -1);
-  padding: calc(var(--space) / 2);
+  margin: calc(var(--space) * -1);
+  padding: var(--space);
   text-decoration: none;
   transition: all 0.1s ease-in-out;
 }
 
 .email-link:hover {
-  background-color: color-mix(in srgb, var(--tint-color) 20%, transparent);
+  background-color: color-mix(
+    in srgb,
+    var(--color-background-offset) 20%,
+    transparent
+  );
 }
 
 .email {
-  padding: 0 0 calc(var(--space));
+  padding: 0 0 0 0;
   transition: all 0.1s ease-in-out;
 }
 
