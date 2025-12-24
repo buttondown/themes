@@ -414,3 +414,22 @@ blockquote blockquote {
   width: var(--newsletter-icon-size);
   display: block;
 }
+
+.announcement-bar {
+  background-color: var(--tint-color);
+  color: #fff;
+  font-family: var(--font-brand);
+  font-size: var(--font-size-small);
+  padding: calc(var(--space) / 2) var(--space);
+  text-align: center;
+}
+
+.announcement-bar a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.announcement-bar a:hover {
+  background-color: transparent;
+  opacity: 0.8;
+}
