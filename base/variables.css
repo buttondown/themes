@@ -3,9 +3,17 @@
   --space: 20px;
 
   /* Typography */
-  --font-brand: "Hex Franklin";
-  --font-prose: "Source Serif 4", ui-serif, Georgia, Cambria, "Times New Roman",
-    Times, serif;
+  --font-brand: var(--font-accent, "Hex Franklin");
+  --font-prose: var(
+    --font-body,
+    "Source Serif 4",
+    ui-serif,
+    Georgia,
+    Cambria,
+    "Times New Roman",
+    Times,
+    serif
+  );
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono",
     Consolas, "Liberation Mono", Menlo, monospace;
 
@@ -16,7 +24,7 @@
   --color-foreground: #404040;
   --color-foreground-offset: #525252;
   --color-foreground-offset-2: #737373;
-  --color-action: var(--tint-color, oklch(42.4% 0.199 265.638));
+  --color-action: var(--color-accent, --tint-color, (42.4% 0.199 265.638));
 
   --color-background-dark: oklch(14.1% 0.005 285.823);
   --color-background-card-dark: oklch(21% 0.006 285.885);
@@ -24,7 +32,11 @@
   --color-foreground-dark: oklch(90% 0 0);
   --color-foreground-offset-dark: oklch(75% 0 0);
   --color-foreground-offset-2-dark: oklch(65% 0 0);
-  --color-action-dark: var(--tint-color, oklch(54.6% 0.245 262.881));
+  --color-action-dark: var(
+    --color-accent-dark,
+    --tint-color,
+    (54.6% 0.245 262.881)
+  );
 
   --font-size-extra-small: 12px;
   --font-size-small: 14px;
