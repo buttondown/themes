@@ -1,0 +1,31 @@
+{% extends "subscriber_facing/base.html" %}
+{% load mdw %}
+{% load mutable_url %}
+{% load localize %}
+{% block extra_head %}
+    {% include "subscriber_facing/snippets/metadata/subscribe.html" %}
+{% endblock extra_head %}
+{% block content %}
+    {{ newsletter_jsonld }}
+    <h1>{{ newsletter.name }}</h1>
+    {% if newsletter.description %}
+        <ul>
+            <li>{{ newsletter.description|mdw:newsletter|safe }}</li>
+        </ul>
+    {% endif %}
+    <ul>
+        <li>subscribe</li>
+        <ul>
+            <li>{% include "subscriber_facing/snippets/subscribe_form.html" %}</li>
+        </ul>
+        {% with latest_public_email=public_emails.object_list.first %}
+            {% if latest_public_email %}
+                <li>latest</li>
+                <ul>
+                    <li><a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject }}</a></li>
+                </ul>
+                <li><a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.archive' newsletter.locale %}</a></li>
+            {% endif %}
+        {% endwith %}
+    </ul>
+{% endblock content %}

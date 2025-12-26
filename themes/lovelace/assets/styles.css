@@ -1,50 +1,309 @@
+/* Lovelace: a brutalist, nearly no-CSS theme */
+
 :root {
-  --font-prose: "Source Serif 4", ui-serif, Georgia, Cambria, "Times New Roman",
-    Times, serif;
-  --color-background: oklch(98.5% 0 0);
-  --color-background-card: oklch(96.7% 0.001 286.375);
-  --color-background-offset: oklch(87.1% 0.006 286.286);
-  --color-foreground: #404040;
-  --color-foreground-offset: #525252;
-  --color-foreground-offset-2: #737373;
-  --color-action: var(--tint-color, oklch(42.4% 0.199 265.638));
+  --color-background: #fff;
+  --color-foreground: #000;
+  --tint-color: #00f;
 }
 
-/* Lovelace theme - minimal CSS reset, browser defaults only */
-.header-navigation-toggle {
-  display: none;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #000;
+    --color-foreground: #fff;
+    --tint-color: #88f;
+  }
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.5;
+  margin: 0;
+  padding: 1rem;
+}
+
+a {
+  color: var(--tint-color);
+}
+
+.app-container {
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+}
+
+/* Hide all the extra UI chrome */
+.header-navigation,
+.header-navigation-toggle,
+.archive-search-trigger,
+.hidden-submit,
+.email-image,
+.newsletter-icon,
+.footer,
 svg {
   display: none;
 }
 
-.archive-search-trigger {
+/* Subscribe page */
+.subscribe-container,
+.subscribe {
+  display: block;
+}
+
+.newsletter-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+}
+
+.newsletter-description {
+  margin-bottom: 1rem;
+}
+
+.newsletter-description p {
+  margin: 0 0 0.5rem 0;
+}
+
+/* Archive list - use native list styling */
+.archive-container {
+  display: block;
+}
+
+.archive-header {
+  margin-bottom: 1rem;
+}
+
+.archive-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.email-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.email-item {
+  display: list-item;
+  margin-bottom: 0.25rem;
+}
+
+.email-link {
+  color: var(--tint-color);
+  text-decoration: underline;
+}
+
+.email-link:hover {
+  background: transparent;
+}
+
+.email-title {
+  display: inline;
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.email-metadata {
+  display: inline;
+  color: var(--color-foreground);
+}
+
+.email-metadata::before {
+  content: " (";
+}
+
+.email-metadata::after {
+  content: ")";
+}
+
+.email-description {
   display: none;
 }
 
-.hidden-submit {
-  display: none;
+.email-premium {
+  font-weight: bold;
 }
 
-.archive__subscribe-form {
-  display: flex;
-  flex-direction: column;
+.email-premium::before {
+  content: ", ";
 }
 
-.email-image {
-  display: none;
+/* Email detail */
+.email-body-container {
+  display: block;
 }
 
-.app-container {
-  max-width: 600px;
+.email-body {
+  max-width: 60ch;
   margin: 0 auto;
-  font-family: var(--font-prose);
 }
 
-.archive__subscribe-form {
-  padding: 1rem;
-  background-color: var(--color-background-card);
-  border: 1px solid var(--color-foreground-offset-2);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+.subject {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+}
+
+date {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Content styling - minimal */
+p, li {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin: 0 0 1rem 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+blockquote {
+  border-left: 2px solid var(--color-foreground);
+  margin: 0 0 1rem 0;
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+pre {
+  background: none;
+  border: 1px solid var(--color-foreground);
+  overflow-x: auto;
+  padding: 0.5rem;
+  margin: 0 0 1rem 0;
+}
+
+code {
+  font-family: monospace;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-foreground);
+  margin: 1rem 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Forms - minimal styling */
+input[type="email"],
+input[type="text"],
+textarea,
+select {
+  background: var(--color-background);
+  border: 1px solid var(--color-foreground);
+  color: var(--color-foreground);
+  font-family: monospace;
+  font-size: 1rem;
+  padding: 0.25rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+button,
+[type="submit"],
+a[type="button"] {
+  background: var(--color-foreground);
+  border: 1px solid var(--color-foreground);
+  color: var(--color-background);
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+}
+
+button:hover,
+[type="submit"]:hover,
+a[type="button"]:hover {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Cards - strip all styling */
+.card,
+.card-container {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.card-container-header {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 1rem;
+}
+
+.pagination a {
+  margin-right: 0.5rem;
+}
+
+/* Empty state */
+.empty-state {
+  margin: 1rem 0;
+}
+
+/* Social/share - hide or minimize */
+.social-embeds,
+.social-networks {
+  margin: 1rem 0;
+}
+
+/* Related emails */
+.related-emails {
+  margin: 1rem 0;
+}
+
+.related-emails h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+}
+
+/* Comments */
+.comments {
+  margin: 1rem 0;
+}
+
+/* Attachments */
+.attachments {
+  margin: 1rem 0;
+}
+
+.attachments ul {
+  list-style: disc;
+  padding-left: 1.5rem;
 }

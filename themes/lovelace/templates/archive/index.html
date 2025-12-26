@@ -1,0 +1,42 @@
+{% extends "subscriber_facing/base.html" %}
+{% load fqdn %}
+{% load localize %}
+{% load mutable_url %}
+{% load tz %}
+{% load i18n %}
+{% block extra_head %}
+    {% include "subscriber_facing/snippets/metadata/archive.html" %}
+{% endblock extra_head %}
+{% block content %}
+    <h1>{{ newsletter.name }}</h1>
+    <ul>
+        <li>{% localized 'web.navigation.archive' newsletter.locale %}</li>
+        <ul>
+            {% for email in public_emails %}
+                <li>
+                    {% localtime on %}
+                    {% language newsletter.locale %}
+                        <span>{{ email.publish_date|timezone:newsletter.timezone|date:"Y-m-d" }}</span>
+                    {% endlanguage %}
+                    {% endlocaltime %}
+                    <a href="{{ email.get_absolute_url }}">{{ email.subject }}</a>
+                    {% if email.is_premium %}[{% localized 'web.post.label.premium' newsletter.locale %}]{% endif %}
+                </li>
+            {% empty %}
+                <li>{% localized "web.message.empty.no_emails_published" newsletter.locale %}</li>
+            {% endfor %}
+        </ul>
+    </ul>
+    {% if public_emails.has_other_pages %}
+        <ul>
+            <li>
+                {% if public_emails.has_previous %}
+                    <a href="?page={{ public_emails.previous_page_number }}">&lt; prev</a>
+                {% endif %}
+                {% if public_emails.has_next %}
+                    <a href="?page={{ public_emails.next_page_number }}">next &gt;</a>
+                {% endif %}
+            </li>
+        </ul>
+    {% endif %}
+{% endblock content %}

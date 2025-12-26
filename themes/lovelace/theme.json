@@ -1,6 +1,6 @@
 {
   "name": "Lovelace",
-  "description": "A minimal, elegant theme with a focus on typography and readability, featuring a serif font and clean design.",
+  "description": "A brutalist, nearly no-CSS theme that embraces browser defaults for maximum speed and simplicity.",
   "version": "1.0.0",
   "configuration": {
     "posts_per_page": {
@@ -8,30 +8,6 @@
       "default": 20,
       "header": "Posts per page",
       "description": "Number of posts to display per page"
-    },
-    "color-accent": {
-      "type": "color",
-      "default": "#0069FF",
-      "header": "Accent color",
-      "description": "Primary accent color for light mode"
-    },
-    "color-accent-dark": {
-      "type": "color",
-      "default": "#4A9EFF",
-      "header": "Accent color (dark mode)",
-      "description": "Primary accent color for dark mode"
-    },
-    "font-body": {
-      "type": "text",
-      "default": "Source Serif 4, ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
-      "header": "Body font",
-      "description": "Font family for body text"
-    },
-    "font-accent": {
-      "type": "text",
-      "default": "Hex Franklin",
-      "header": "Accent font",
-      "description": "Font family for headings and accents"
     }
   }
 }
