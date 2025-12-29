@@ -1,3 +1,7 @@
+:root {
+  --related-email-image-height: 175px;
+}
+
 .related-email.title {
   margin-bottom: calc(var(--space));
 }
@@ -36,6 +40,9 @@
   background-color: var(--color-background-card);
   border-radius: calc(var(--space) / 2);
 
+  /* Necessary to override the styling on `ul li` */
+  padding-left: 0;
+
   > a {
     text-decoration: none !important;
   }
@@ -63,16 +70,12 @@
   -webkit-line-clamp: 1;
 }
 
-.related-email-header-image {
-  height: 175px;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: calc(var(--space) * 2);
+.related-email-media {
+  max-height: var(--related-email-image-height);
 }
 
 .related-email-image {
-  max-height: 175px !important;
+  max-height: var(--related-email-image-height);
   width: 100% !important;
   object-fit: cover;
   border-top-left-radius: calc(var(--space) / 2);
