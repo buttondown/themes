@@ -418,6 +418,15 @@ a.subscription-success-button:hover {
   }
 }
 
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.size-4 {
+  height: 1rem;
+  width: 1rem;
+}
+
 .archive__button-pending-indicator {
   position: absolute;
   left: calc(var(--space));

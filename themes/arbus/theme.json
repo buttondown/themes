@@ -22,13 +22,13 @@
             "description": "Primary accent color for dark mode"
         },
         "font-body": {
-            "type": "font",
+            "type": "text",
             "default": "Source Serif 4, ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
             "header": "Body font",
             "description": "Font family for body text"
         },
         "font-accent": {
-            "type": "font",
+            "type": "text",
             "default": "Hex Franklin",
             "header": "Accent font",
             "description": "Font family for headings and accents"
