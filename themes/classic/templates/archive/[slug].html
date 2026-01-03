@@ -49,5 +49,7 @@
     </div>
     {% include "subscriber_facing/snippets/hidden_email_message.html" %}
     {% include "subscriber_facing/snippets/footnotes.html" %}
-    {% include "subscriber_facing/snippets/bluesky_embeds.html" %}
+    {% if not newsletter.should_hide_social_embeds %}
+        {% include "subscriber_facing/snippets/bluesky_embeds.html" %}
+    {% endif %}
 {% endblock content %}

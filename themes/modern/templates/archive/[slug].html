@@ -32,17 +32,19 @@
                         {% endif %}
                     </div>
                     {% include "subscriber_facing/snippets/subscribe_form.html" %}
-                    {% with bluesky_url=email.bluesky_url twitter_url=email.twitter_url %}
-                        {% if bluesky_url or twitter_url %}
-                            <div class="card-container-header">{% localized 'web.email.social.links_header' newsletter.locale %}</div>
-                            <div class="social-embeds">
-                                {% if bluesky_url %}
-                                    {% include "bluesky_web.html" with at_uri=bluesky_url %}
-                                {% endif %}
-                                {% include "subscriber_facing/snippets/email-twitter-url.html" with email=email %}
-                            </div>
-                        {% endif %}
-                    {% endwith %}
+                    {% if not newsletter.should_hide_social_embeds %}
+                        {% with bluesky_url=email.bluesky_url twitter_url=email.twitter_url %}
+                            {% if bluesky_url or twitter_url %}
+                                <div class="card-container-header">{% localized 'web.email.social.links_header' newsletter.locale %}</div>
+                                <div class="social-embeds">
+                                    {% if bluesky_url %}
+                                        {% include "bluesky_web.html" with at_uri=bluesky_url %}
+                                    {% endif %}
+                                    {% include "subscriber_facing/snippets/email-twitter-url.html" with email=email %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
                 </div>
                 {% include "subscriber_facing/snippets/comments.html" %}
                 <div class="card-container">
