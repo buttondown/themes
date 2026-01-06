@@ -433,3 +433,33 @@ blockquote blockquote {
   background-color: transparent;
   opacity: 0.8;
 }
+
+.buttondown-button {
+  background-color: var(--tint-color);
+  border-radius: calc(var(--space) / 2);
+  color: #ffffff;
+  display: block;
+  font-family: var(--font-brand);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: var(--space) auto;
+  max-width: 360px;
+  padding: calc(var(--space) * 0.75) var(--space);
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--tint-color) 80%, black);
+  }
+
+  &[data-align="left"] {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  &[data-align="right"] {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
