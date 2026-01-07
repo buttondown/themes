@@ -32,6 +32,18 @@
             "default": "Hex Franklin",
             "header": "Accent font",
             "description": "Font family for headings and accents"
+        },
+        "email-description-display": {
+            "type": "display",
+            "default": "none",
+            "header": "Description display",
+            "description": "Show the description of the post in the archive"
+        },
+        "archive-column-count": {
+            "type": "number",
+            "default": 3,
+            "header": "Column count",
+            "description": "Number of columns to display in the archive"
         }
     }
 }

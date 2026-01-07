@@ -2,6 +2,8 @@
 
 :root {
   --email-image-display: block;
+  --email-description-display: none;
+  --archive-column-count: 3;
 }
 
 .email-title {
@@ -18,22 +20,22 @@
   object-fit: cover;
 }
 
+.email-description {
+  order: 2;
+}
+
 .email-image-placeholder,
 .email-image img {
   margin-bottom: calc(var(--space) / 2);
 }
 
-/* Instagram theme. */
-.email-description {
-  display: none;
-}
-
 .email-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(var(--archive-column-count), 1fr);
   gap: calc(var(--space));
   width: calc(100vw - 2rem);
   max-width: none;
+  padding-top: 0;
 }
 .email-list hr {
   display: none;

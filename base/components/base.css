@@ -140,6 +140,10 @@ date {
   display: var(--email-image-display);
 }
 
+.email-description {
+  display: var(--email-description-display, block);
+}
+
 .empty-line {
   height: calc(var(--font-size-base) * 2);
 }
