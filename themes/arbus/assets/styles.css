@@ -55,46 +55,6 @@
   transition: all 0.2s ease-in-out;
 }
 
-.email-link .email-title,
-.email-link .email-description,
-.email-link .email-metadata {
-  text-align: center;
-  transition: all 0.2s ease-in-out;
-}
-
-.email-link {
-  display: grid;
-  grid-template-areas:
-    "image"
-    "title"
-    "description"
-    "metadata";
-}
-
-.email-link .email {
-  display: contents;
-}
-
-.email-link .email-header {
-  display: contents;
-}
-
-.email-link .email-image {
-  grid-area: image;
-}
-
-.email-link .email-title {
-  grid-area: title;
-}
-
-.email-link .email-description {
-  grid-area: description;
-}
-
-.email-link .email-metadata {
-  grid-area: metadata;
-}
-
 .email-link:hover {
   background-color: inherit;
 }
@@ -105,9 +65,7 @@
 .email-image img {
   transition: all 0.2s ease-in-out;
 }
-.email-link:hover .email-title,
-.email-link:hover .email-description,
-.email-link:hover .email-metadata {
+.email-link:hover .email-header {
   color: var(--tint-color);
 }
 .email-link:hover .email-image img {
