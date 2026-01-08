@@ -419,9 +419,12 @@ blockquote blockquote {
   display: block;
 }
 
+.announcement-bar {
+  background-color: var(--tint-color);
+}
+
 .announcement-bar,
 .announcement-bar p {
-  background-color: var(--tint-color);
   color: #fff;
   font-family: var(--font-brand);
   font-size: var(--font-size-small);
