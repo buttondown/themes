@@ -4,6 +4,7 @@
   --email-image-display: block;
   --email-description-display: none;
   --archive-column-count: 3;
+  --archive-image-height: 300px;
 }
 
 .email-title {
@@ -12,12 +13,11 @@
 }
 
 .email-image img {
-  height: 300px;
+  height: var(--archive-image-height);
   object-fit: cover;
   border-radius: calc(var(--space) / 2);
   overflow: hidden;
   border: 1px solid var(--color-foreground-offset-2);
-  object-fit: cover;
 }
 
 .email-description {
@@ -41,7 +41,7 @@
   display: none;
 }
 .email-image-placeholder {
-  height: 300px;
+  height: var(--archive-image-height);
   background-color: var(--color-background-offset);
   border-radius: calc(var(--space) / 2);
 }
@@ -112,4 +112,15 @@
 }
 .email-link:hover .email-image img {
   outline: calc(var(--space) / 4) solid var(--tint-color);
+}
+
+/* Remove excess margin on featured/pinned posts in grid layout */
+.email.featured {
+  margin-top: 0;
+}
+
+/* Fix overly offset box shadows on popups and dialogs */
+.modal-content,
+.subscription-success-dialog {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }

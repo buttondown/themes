@@ -3,7 +3,8 @@
   --space: 20px;
 
   /* Typography */
-  --font-brand: var(--font-accent, "Hex Franklin");
+  /* Note: "Inter" provides Cyrillic support as a fallback for languages like Russian */
+  --font-brand: var(--font-accent, "Hex Franklin"), "Inter", system-ui, sans-serif;
   --font-prose: var(
     --font-body,
     "Source Serif 4",

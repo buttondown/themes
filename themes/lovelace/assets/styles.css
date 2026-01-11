@@ -3,6 +3,7 @@
 :root {
   --color-background: #fff;
   --color-foreground: #000;
+  --color-background-offset: #ddd;
   --tint-color: #00f;
 }
 
@@ -10,6 +11,7 @@
   :root {
     --color-background: #000;
     --color-foreground: #fff;
+    --color-background-offset: #333;
     --tint-color: #88f;
   }
 }
@@ -45,16 +47,82 @@ h1 {
   margin: 0 0 1rem 0;
 }
 
-/* Hide all the extra UI chrome */
-.header-navigation,
+/* Hide unnecessary UI chrome */
 .header-navigation-toggle,
-.archive-search-trigger,
+.header-navigation-overlay,
+.header-brand-icon,
 .hidden-submit,
 .email-image,
 .newsletter-icon,
 .footer,
 svg {
   display: none;
+}
+
+/* Brutalist navigation */
+.header-navigation-container {
+  margin-bottom: 1rem;
+}
+
+.header-navigation {
+  display: block;
+  padding: 0;
+}
+
+.header-navigation-content {
+  display: block;
+}
+
+.header-navigation h1 {
+  display: inline;
+  margin: 0;
+}
+
+.header-brand {
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header-brand:hover {
+  background: transparent;
+  color: var(--tint-color);
+}
+
+.header-navigation-nav {
+  display: inline;
+  margin-left: 1rem;
+}
+
+.header-navigation-link {
+  display: inline;
+  color: var(--tint-color);
+  text-decoration: underline;
+  margin-right: 0.5rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: monospace;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.header-navigation-link:hover {
+  background: transparent;
+}
+
+.header-navigation-link div {
+  display: inline;
+}
+
+.header-navigation-link--subscribe {
+  background: none;
+  color: var(--tint-color);
+}
+
+/* Show search trigger inline */
+.archive-search-trigger {
+  display: inline;
 }
 
 /* Subscribe page */
@@ -224,6 +292,7 @@ select {
   padding: 0.25rem;
   width: 100%;
   margin-bottom: 0.5rem;
+  box-sizing: border-box;
 }
 
 button,
@@ -243,6 +312,25 @@ button:hover,
 a[type="button"]:hover {
   background: var(--color-background);
   color: var(--color-foreground);
+}
+
+/* Subscribe form */
+#subscribe-form,
+.subscribe-form {
+  max-width: 100%;
+}
+
+#subscribe-form form,
+.subscribe-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Override subscribe-form.css button styling to match brutalist theme */
+.archive__button {
+  border-radius: 0 !important;
+  text-transform: none !important;
 }
 
 /* Cards - strip all styling */
@@ -296,6 +384,28 @@ a[type="button"]:hover {
 /* Comments */
 .comments {
   margin: 1rem 0;
+}
+
+.comment__avatar,
+.comment__avatar--placeholder,
+.comment__avatar--subscriber {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+.comment__avatar {
+  object-fit: cover;
+}
+
+.comment__avatar--placeholder,
+.comment__avatar--subscriber {
+  background-color: var(--color-background-offset);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
 }
 
 /* Attachments */
