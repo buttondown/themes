@@ -16,7 +16,6 @@
             {{ email.publish_date|timezone:newsletter.timezone|date:"Y-m-d" }}
         {% endlanguage %}
         {% endlocaltime %}
-        · <a href='{% mutable_url "public-archive" newsletter.username %}'>{{ newsletter.name }}</a>
     </p>
     <hr>
     {% if email.show_teaser and subscriber_facing_authentication.email_address != newsletter.owning_account.email_address %}
