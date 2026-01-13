@@ -4,6 +4,7 @@
 
 .header-navigation-container {
   font-family: var(--font-brand);
+  max-width: 100%;
 }
 
 .header-navigation-content {
@@ -17,11 +18,13 @@
   display: var(--header-navigation-display);
   padding: 1rem;
   margin: 0 auto;
+  max-width: 100%;
   font-weight: bold;
   justify-content: space-between;
   gap: calc(var(--space) / 2);
   flex-direction: row;
   align-items: stretch;
+  overflow-x: scroll;
 
   h1 {
     margin: 0;
@@ -91,6 +94,7 @@
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   color: var(--color-foreground);
+  white-space: nowrap;
 
   svg {
     width: 16px;
@@ -137,6 +141,7 @@
 
 .header-brand-name {
   line-clamp: 1;
+  white-space: nowrap;
 }
 
 @media (max-width: 600px) {

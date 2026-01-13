@@ -75,7 +75,7 @@
 }
 
 .related-email-image {
-  max-height: var(--related-email-image-height);
+  max-height: var(--related-email-image-height) !important;
   width: 100% !important;
   object-fit: cover;
   border-top-left-radius: calc(var(--space) / 2);
