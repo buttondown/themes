@@ -405,7 +405,7 @@ blockquote {
 }
 
 blockquote blockquote {
-  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .email-list-header {
