@@ -27,6 +27,12 @@ a:hover {
   flex-direction: column;
 }
 
+.route--upgrade-subscription-success .app {
+  margin: 0 auto;
+  max-width: var(--width-content);
+  padding: var(--space);
+}
+
 blockquote > *:first-child {
   margin-top: 0;
 }
