@@ -9,22 +9,18 @@
     {{ newsletter_jsonld }}
     <h1>{{ newsletter.name }}</h1>
     {% if newsletter.description %}
-        <ul>
-            <li>{{ newsletter.description|mdw:newsletter|safe }}</li>
-        </ul>
+        <p>{{ newsletter.description|mdw:newsletter|safe }}</p>
     {% endif %}
-    <ul>
-        <li>subscribe</li>
-        <ul>
-            <li>{% include "subscriber_facing/snippets/subscribe_form.html" %}</li>
-        </ul>
+        <h2>Subscribe</h2>
+        {% include "subscriber_facing/snippets/subscribe_form.html" %}</li>
+        
         {% with latest_public_email=public_emails.object_list.first %}
             {% if latest_public_email %}
-                <li>latest</li>
+                <h2>Start reading</h2>
                 <ul>
-                    <li><a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject }}</a></li>
+                    <li>latest: <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject }}</a></li>
+                    <li>all: <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.archive' newsletter.locale %}</a></li>
                 </ul>
-                <li><a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.archive' newsletter.locale %}</a></li>
             {% endif %}
         {% endwith %}
     </ul>
