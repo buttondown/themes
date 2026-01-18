@@ -265,3 +265,7 @@ hr {
 .email-image {
   display: none;
 }
+
+.email-body-content {
+  margin-top: calc(var(--space) * 4);
+}
