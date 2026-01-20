@@ -16,10 +16,10 @@
         
         {% with latest_public_email=public_emails.object_list.first %}
             {% if latest_public_email %}
-                <h2>Start reading</h2>
+                <h2>{% localized 'web.navigation.start_reading' newsletter.locale %}</h2>
                 <ul>
-                    <li>latest: <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject }}</a></li>
-                    <li>all: <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.archive' newsletter.locale %}</a></li>
+                    <li>{% localized 'web.navigation.latest' newsletter.locale %} <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject }}</a></li>
+                    <li>{% localized 'web.navigation.all' newsletter.locale %} <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.archive' newsletter.locale %}</a></li>
                 </ul>
             {% endif %}
         {% endwith %}
