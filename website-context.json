@@ -1,0 +1,1446 @@
+{
+  "title": "SubscriberFacingTemplateContext",
+  "type": "object",
+  "properties": {
+    "canary_url": {
+      "title": "Canary Url",
+      "type": "string"
+    },
+    "email": {
+      "$ref": "#/definitions/FilteredEmail"
+    },
+    "manage_premium_subscription_url": {
+      "title": "Manage Premium Subscription Url",
+      "type": "string"
+    },
+    "manage_subscription_url": {
+      "title": "Manage Subscription Url",
+      "type": "string"
+    },
+    "newsletter": {
+      "$ref": "#/definitions/FilteredNewsletter"
+    },
+    "premium_archive_url": {
+      "title": "Premium Archive Url",
+      "type": "string"
+    },
+    "premium_rss_url": {
+      "title": "Premium Rss Url",
+      "type": "string"
+    },
+    "premium_subscribe_url": {
+      "title": "Premium Subscribe Url",
+      "type": "string"
+    },
+    "subscriber": {
+      "$ref": "#/definitions/FilteredSubscriber"
+    },
+    "subscribe_url": {
+      "title": "Subscribe Url",
+      "type": "string"
+    },
+    "unsubscribe_url": {
+      "title": "Unsubscribe Url",
+      "type": "string"
+    },
+    "upgrade_url": {
+      "title": "Upgrade Url",
+      "type": "string"
+    }
+  },
+  "required": [
+    "canary_url",
+    "manage_premium_subscription_url",
+    "manage_subscription_url",
+    "premium_archive_url",
+    "premium_rss_url",
+    "premium_subscribe_url",
+    "subscribe_url",
+    "unsubscribe_url",
+    "upgrade_url"
+  ],
+  "definitions": {
+    "FilteredRelatedEmail": {
+      "title": "FilteredRelatedEmail",
+      "type": "object",
+      "properties": {
+        "absolute_url": {
+          "title": "Absolute Url",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string",
+          "format": "uuid"
+        },
+        "image": {
+          "title": "Image",
+          "type": "string"
+        },
+        "publish_date": {
+          "title": "Publish Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "rendered_short_description": {
+          "title": "Rendered Short Description",
+          "type": "string"
+        },
+        "subject": {
+          "title": "Subject",
+          "type": "string"
+        }
+      },
+      "required": [
+        "absolute_url",
+        "id"
+      ]
+    },
+    "FilteredEmail": {
+      "title": "FilteredEmail",
+      "description": "A filtered version of an Email model that only exposes certain fields.\nThis is used to prevent exposing sensitive information in templates.",
+      "type": "object",
+      "properties": {
+        "DEPRECATED_email_type": {
+          "title": "Deprecated Email Type",
+          "type": "string"
+        },
+        "absolute_url": {
+          "title": "Absolute Url",
+          "type": "string"
+        },
+        "archival_mode": {
+          "title": "Archival Mode",
+          "type": "string"
+        },
+        "body": {
+          "title": "Body",
+          "type": "string"
+        },
+        "canonical_url": {
+          "title": "Canonical Url",
+          "type": "string"
+        },
+        "commenting_mode": {
+          "title": "Commenting Mode",
+          "type": "string"
+        },
+        "completion_date": {
+          "title": "Completion Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "creation_date": {
+          "title": "Creation Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "email_type": {
+          "title": "Email Type",
+          "type": "string"
+        },
+        "fully_rendered_html_for_web": {
+          "title": "Fully Rendered Html For Web",
+          "type": "string"
+        },
+        "has_bluesky_embeds": {
+          "title": "Has Bluesky Embeds",
+          "type": "boolean"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string",
+          "format": "uuid"
+        },
+        "image": {
+          "title": "Image",
+          "type": "string"
+        },
+        "is_premium": {
+          "title": "Is Premium",
+          "type": "boolean"
+        },
+        "metadata": {
+          "title": "Metadata",
+          "type": "object"
+        },
+        "modification_date": {
+          "title": "Modification Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "publish_date": {
+          "title": "Publish Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "related_email_ids": {
+          "title": "Related Email Ids",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "related_emails": {
+          "title": "Related Emails",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FilteredRelatedEmail"
+          }
+        },
+        "rendered_html_for_teaser": {
+          "title": "Rendered Html For Teaser",
+          "type": "string"
+        },
+        "rendered_html_for_web": {
+          "title": "Rendered Html For Web",
+          "type": "string"
+        },
+        "rendered_short_description": {
+          "title": "Rendered Short Description",
+          "type": "string"
+        },
+        "secondary_id": {
+          "title": "Secondary Id",
+          "type": "integer"
+        },
+        "slug": {
+          "title": "Slug",
+          "type": "string"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "subject": {
+          "title": "Subject",
+          "type": "string"
+        },
+        "unescaped_fully_rendered_html_for_web": {
+          "title": "Unescaped Fully Rendered Html For Web",
+          "type": "string"
+        },
+        "uses_footnotes": {
+          "title": "Uses Footnotes",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "absolute_url",
+        "archival_mode",
+        "canonical_url",
+        "commenting_mode",
+        "has_bluesky_embeds",
+        "id",
+        "is_premium",
+        "metadata",
+        "related_email_ids",
+        "related_emails",
+        "source",
+        "status",
+        "uses_footnotes"
+      ]
+    },
+    "TextFieldConfig": {
+      "title": "TextFieldConfig",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "text"
+          ],
+          "type": "string"
+        },
+        "required": {
+          "title": "Required",
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "SelectOptionConfig": {
+      "title": "SelectOptionConfig",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "label"
+      ]
+    },
+    "SelectFieldConfig": {
+      "title": "SelectFieldConfig",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "select"
+          ],
+          "type": "string"
+        },
+        "options": {
+          "title": "Options",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SelectOptionConfig"
+          }
+        },
+        "required": {
+          "title": "Required",
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "options"
+      ]
+    },
+    "CheckboxFieldConfig": {
+      "title": "CheckboxFieldConfig",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type",
+          "enum": [
+            "checkbox"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "AutonomyField": {
+      "title": "AutonomyField",
+      "type": "object",
+      "properties": {
+        "key": {
+          "title": "Key",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "enabled": {
+          "title": "Enabled",
+          "default": true,
+          "type": "boolean"
+        },
+        "config": {
+          "title": "Config",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextFieldConfig"
+            },
+            {
+              "$ref": "#/definitions/SelectFieldConfig"
+            },
+            {
+              "$ref": "#/definitions/CheckboxFieldConfig"
+            }
+          ]
+        }
+      },
+      "required": [
+        "key",
+        "label",
+        "config"
+      ]
+    },
+    "DisablementReason": {
+      "title": "DisablementReason",
+      "description": "An enumeration.",
+      "enum": [
+        "failed_automatic_audit",
+        "unapproved_usage",
+        "harmful_content",
+        "deceptive_content",
+        "suspicious_activity",
+        "unverifiable_or_problematic_import",
+        "incident",
+        "high_rate_of_complaints",
+        "high_rate_of_rejections",
+        "seo",
+        "firewall"
+      ],
+      "type": "string"
+    },
+    "EnabledFeature": {
+      "title": "EnabledFeature",
+      "description": "An enumeration.",
+      "enum": [
+        "api",
+        "archives",
+        "automations",
+        "comments",
+        "inbox",
+        "css",
+        "custom_transactional_emails",
+        "domains",
+        "firewall",
+        "metadata",
+        "metadata_fields",
+        "notes",
+        "paid_subscriptions",
+        "portal",
+        "referrals",
+        "rss",
+        "sponsorships",
+        "subscriber_cleanup",
+        "surveys",
+        "tags",
+        "tracking",
+        "webhooks",
+        "whitelabeling"
+      ],
+      "type": "string"
+    },
+    "HiddenSettings": {
+      "title": "HiddenSettings",
+      "description": "An enumeration.",
+      "enum": [
+        "should_require_double_optin",
+        "reply_to_address",
+        "only_send_plaintext_emails",
+        "custom_email_template",
+        "pages",
+        "subscription_button_text",
+        "subscription_form_text",
+        "unsubscription_redirect_url",
+        "specific_email_to_send_to_new_subscribers",
+        "specific_email_to_send_to_new_subscribers_id",
+        "should_send_latest_email_to_new_subscribers",
+        "stripe_api_key",
+        "should_expose_rss",
+        "body_template",
+        "custom_preamble"
+      ],
+      "type": "string"
+    },
+    "IndexingMode": {
+      "title": "IndexingMode",
+      "description": "An enumeration.",
+      "enum": [
+        "enabled",
+        "disabled"
+      ],
+      "type": "string"
+    },
+    "Locale": {
+      "title": "Locale",
+      "description": "An enumeration.",
+      "enum": [
+        "cs-CZ",
+        "nl-NL",
+        "en-AU",
+        "en-CA",
+        "en-GB",
+        "en",
+        "fr",
+        "de",
+        "pl-PL",
+        "pt-BR",
+        "ru",
+        "es",
+        "tr"
+      ],
+      "type": "string"
+    },
+    "PaidSubscriptionsStatus": {
+      "title": "PaidSubscriptionsStatus",
+      "description": "An enumeration.",
+      "enum": [
+        "inactive",
+        "collecting_data",
+        "replicating_state",
+        "creating_product",
+        "needs_auditing",
+        "active",
+        "disconnected",
+        "disabled"
+      ],
+      "type": "string"
+    },
+    "NewsletterPrice": {
+      "title": "NewsletterPrice",
+      "description": "Price information for paid subscriptions.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "amount": {
+          "title": "Amount",
+          "type": "integer"
+        },
+        "cadence": {
+          "title": "Cadence",
+          "enum": [
+            "year",
+            "month",
+            "one-time",
+            "email",
+            "week"
+          ],
+          "type": "string"
+        },
+        "currency": {
+          "title": "Currency",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "maximum_amount": {
+          "title": "Maximum Amount",
+          "type": "integer"
+        },
+        "minimum_amount": {
+          "title": "Minimum Amount",
+          "type": "integer"
+        },
+        "style": {
+          "title": "Style",
+          "enum": [
+            "pay-what-you-want",
+            "fixed",
+            "usage-based"
+          ],
+          "type": "string"
+        },
+        "suggested_amount": {
+          "title": "Suggested Amount",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "cadence",
+        "currency",
+        "style"
+      ]
+    },
+    "AnalyticsKey": {
+      "title": "AnalyticsKey",
+      "description": "An enumeration.",
+      "enum": [
+        "rss_subscribers",
+        "opens",
+        "clicks",
+        "open_rate",
+        "click_rate",
+        "unsubscribes",
+        "unsubscribe_rate",
+        "page_views",
+        "created_subscribers",
+        "confirmed_subscribers",
+        "active_subscribers",
+        "undeliverable_subscribers",
+        "blocked_subscribers",
+        "paid_subscribers",
+        "paid_subscribers_by_price",
+        "browsers",
+        "countries",
+        "devices",
+        "page_views_by_email",
+        "gross_volume",
+        "popular_urls",
+        "comments",
+        "comments_by_email",
+        "retention",
+        "unsubscription_reasons",
+        "automation_opens",
+        "automation_clicks",
+        "automation_deliveries",
+        "automation_open_rate",
+        "automation_click_rate",
+        "mentions",
+        "mentions_by_email",
+        "monthly_recurring_revenue",
+        "api_request_count",
+        "page_views_by_referrer",
+        "confirmation_rate",
+        "complaint_rate",
+        "permanent_failure_rate",
+        "bluesky_followers",
+        "mastodon_followers"
+      ],
+      "type": "string"
+    },
+    "Status": {
+      "title": "Status",
+      "description": "An enumeration.",
+      "enum": [
+        "active",
+        "deleting",
+        "disabled",
+        "unconfirmed",
+        "permanently_active",
+        "super_permanently_active",
+        "permanently_disabled",
+        "undeliverable",
+        "staging",
+        "prospective",
+        "dormant"
+      ],
+      "type": "string"
+    },
+    "EmailTemplate": {
+      "title": "EmailTemplate",
+      "description": "Represents the template of an email.\n\nEach template has a different layout/style; you can view screenshots and examples [in the docs](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates).",
+      "enum": [
+        "classic",
+        "modern",
+        "plaintext",
+        "naked"
+      ],
+      "type": "string"
+    },
+    "UnsubscriptionReasonSource": {
+      "title": "UnsubscriptionReasonSource",
+      "description": "An enumeration.",
+      "enum": [
+        "default",
+        "custom"
+      ],
+      "type": "string"
+    },
+    "UnsubscriptionReason": {
+      "title": "UnsubscriptionReason",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "enabled": {
+          "title": "Enabled",
+          "default": true,
+          "type": "boolean"
+        },
+        "source": {
+          "default": "custom",
+          "allOf": [
+            {
+              "$ref": "#/definitions/UnsubscriptionReasonSource"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "label"
+      ]
+    },
+    "FilteredNewsletter": {
+      "title": "FilteredNewsletter",
+      "description": "A filtered version of a Newsletter model that only exposes certain fields, excluding\nany that are not relevant to the user-facing templates.",
+      "type": "object",
+      "properties": {
+        "absolute_url": {
+          "title": "Absolute Url",
+          "type": "string"
+        },
+        "account": {
+          "title": "Account",
+          "type": "string",
+          "format": "uuid"
+        },
+        "address": {
+          "title": "Address",
+          "type": "string"
+        },
+        "archive_navigation_links": {
+          "title": "Archive Navigation Links",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "archive_redirect_url": {
+          "title": "Archive Redirect Url",
+          "type": "string"
+        },
+        "archive_theme": {
+          "title": "Archive Theme",
+          "type": "string"
+        },
+        "automatically_remind_unconfirmed_subscribers": {
+          "title": "Automatically Remind Unconfirmed Subscribers",
+          "type": "boolean"
+        },
+        "autonomy_fields": {
+          "title": "Autonomy Fields",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AutonomyField"
+          }
+        },
+        "bluesky_username": {
+          "title": "Bluesky Username",
+          "type": "string"
+        },
+        "body_template": {
+          "title": "Body Template",
+          "type": "string"
+        },
+        "buysellads_url": {
+          "title": "Buysellads Url",
+          "type": "string"
+        },
+        "cached_analytics_data": {
+          "title": "Cached Analytics Data",
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "css": {
+          "title": "Css",
+          "type": "string"
+        },
+        "css_tokens": {
+          "title": "Css Tokens",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "custom_archive_template": {
+          "title": "Custom Archive Template",
+          "type": "string"
+        },
+        "custom_archives_template": {
+          "title": "Custom Archives Template",
+          "type": "string"
+        },
+        "custom_email_template": {
+          "title": "Custom Email Template",
+          "type": "string"
+        },
+        "custom_expired_trial_notification_body": {
+          "title": "Custom Expired Trial Notification Body",
+          "type": "string"
+        },
+        "custom_expired_trial_notification_subject": {
+          "title": "Custom Expired Trial Notification Subject",
+          "type": "string"
+        },
+        "custom_expired_trial_notification_template": {
+          "title": "Custom Expired Trial Notification Template",
+          "type": "string"
+        },
+        "custom_gift_subscription_email_body": {
+          "title": "Custom Gift Subscription Email Body",
+          "type": "string"
+        },
+        "custom_gift_subscription_email_subject": {
+          "title": "Custom Gift Subscription Email Subject",
+          "type": "string"
+        },
+        "custom_gift_subscription_email_template": {
+          "title": "Custom Gift Subscription Email Template",
+          "type": "string"
+        },
+        "custom_preamble": {
+          "title": "Custom Preamble",
+          "type": "string"
+        },
+        "custom_premium_confirmation_email_body": {
+          "title": "Custom Premium Confirmation Email Body",
+          "type": "string"
+        },
+        "custom_premium_confirmation_email_subject": {
+          "title": "Custom Premium Confirmation Email Subject",
+          "type": "string"
+        },
+        "custom_premium_confirmation_email_template": {
+          "title": "Custom Premium Confirmation Email Template",
+          "type": "string"
+        },
+        "custom_subscription_confirmation_email_subject": {
+          "title": "Custom Subscription Confirmation Email Subject",
+          "type": "string"
+        },
+        "custom_subscription_confirmation_email_template": {
+          "title": "Custom Subscription Confirmation Email Template",
+          "type": "string"
+        },
+        "custom_subscription_confirmation_email_text": {
+          "title": "Custom Subscription Confirmation Email Text",
+          "type": "string"
+        },
+        "custom_subscription_confirmation_reminder_email_subject": {
+          "title": "Custom Subscription Confirmation Reminder Email Subject",
+          "type": "string"
+        },
+        "custom_subscription_confirmation_reminder_email_template": {
+          "title": "Custom Subscription Confirmation Reminder Email Template",
+          "type": "string"
+        },
+        "custom_subscription_confirmation_reminder_email_text": {
+          "title": "Custom Subscription Confirmation Reminder Email Text",
+          "type": "string"
+        },
+        "custom_subscription_confirmed_email_subject": {
+          "title": "Custom Subscription Confirmed Email Subject",
+          "type": "string"
+        },
+        "custom_subscription_confirmed_email_template": {
+          "title": "Custom Subscription Confirmed Email Template",
+          "type": "string"
+        },
+        "custom_subscription_confirmed_email_text": {
+          "title": "Custom Subscription Confirmed Email Text",
+          "type": "string"
+        },
+        "default_behavior_for_subscriber_imports": {
+          "title": "Default Behavior For Subscriber Imports",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "disablement_reason": {
+          "$ref": "#/definitions/DisablementReason"
+        },
+        "domain": {
+          "title": "Domain",
+          "type": "string"
+        },
+        "email_address": {
+          "title": "Email Address",
+          "type": "string"
+        },
+        "email_domain": {
+          "title": "Email Domain",
+          "type": "string"
+        },
+        "enabled_features": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnabledFeature"
+          }
+        },
+        "effective_locale": {
+          "title": "Effective Locale",
+          "type": "string"
+        },
+        "fathom_code": {
+          "title": "Fathom Code",
+          "type": "string"
+        },
+        "fathom_subscribe_code": {
+          "title": "Fathom Subscribe Code",
+          "type": "string"
+        },
+        "footer": {
+          "title": "Footer",
+          "type": "string"
+        },
+        "from_name": {
+          "title": "From Name",
+          "type": "string"
+        },
+        "google_tag_manager_code": {
+          "title": "Google Tag Manager Code",
+          "type": "string"
+        },
+        "h2_redirect_url": {
+          "title": "H2 Redirect Url",
+          "type": "string"
+        },
+        "header": {
+          "title": "Header",
+          "type": "string"
+        },
+        "hidden_settings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HiddenSettings"
+          }
+        },
+        "icon": {
+          "title": "Icon",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string",
+          "format": "uuid"
+        },
+        "image": {
+          "title": "Image",
+          "type": "string"
+        },
+        "indexing_mode": {
+          "$ref": "#/definitions/IndexingMode"
+        },
+        "is_archive_searchable": {
+          "title": "Is Archive Searchable",
+          "type": "boolean"
+        },
+        "is_custom_archive_template_enabled": {
+          "title": "Is Custom Archive Template Enabled",
+          "type": "boolean"
+        },
+        "is_custom_archives_template_enabled": {
+          "title": "Is Custom Archives Template Enabled",
+          "type": "boolean"
+        },
+        "is_paid_subscription_free_trials_enabled": {
+          "title": "Is Paid Subscription Free Trials Enabled",
+          "type": "boolean"
+        },
+        "is_sponsorship_enabled": {
+          "title": "Is Sponsorship Enabled",
+          "type": "boolean"
+        },
+        "is_using_plausible": {
+          "title": "Is Using Plausible",
+          "type": "boolean"
+        },
+        "locale": {
+          "$ref": "#/definitions/Locale"
+        },
+        "memberful_username": {
+          "title": "Memberful Username",
+          "type": "string"
+        },
+        "meta_pixel_id": {
+          "title": "Meta Pixel Id",
+          "type": "string"
+        },
+        "metadata_keys": {
+          "title": "Metadata Keys",
+          "type": "object"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "paid_subscription_free_trial_duration": {
+          "title": "Paid Subscription Free Trial Duration",
+          "type": "integer"
+        },
+        "paid_subscriptions_status": {
+          "$ref": "#/definitions/PaidSubscriptionsStatus"
+        },
+        "prices": {
+          "title": "Prices",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NewsletterPrice"
+          }
+        },
+        "publicly_visible_analytics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AnalyticsKey"
+          }
+        },
+        "reddit_code": {
+          "title": "Reddit Code",
+          "type": "string"
+        },
+        "reply_to_address": {
+          "title": "Reply To Address",
+          "type": "string"
+        },
+        "seline_code": {
+          "title": "Seline Code",
+          "type": "string"
+        },
+        "sharing_networks": {
+          "title": "Sharing Networks",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "shopify_url": {
+          "title": "Shopify Url",
+          "type": "string"
+        },
+        "should_add_utm_sources": {
+          "title": "Should Add Utm Sources",
+          "type": "boolean"
+        },
+        "should_be_private": {
+          "title": "Should Be Private",
+          "type": "boolean"
+        },
+        "should_disable_non_premium_subscriptions": {
+          "title": "Should Disable Non Premium Subscriptions",
+          "type": "boolean"
+        },
+        "should_expose_rss": {
+          "title": "Should Expose Rss",
+          "type": "boolean"
+        },
+        "should_hide_issue_numbers": {
+          "title": "Should Hide Issue Numbers",
+          "type": "boolean"
+        },
+        "should_hide_social_media": {
+          "title": "Should Hide Social Media",
+          "type": "boolean"
+        },
+        "should_immediately_show_payment_element": {
+          "title": "Should Immediately Show Payment Element",
+          "type": "boolean"
+        },
+        "should_noindex_archive_page": {
+          "title": "Should Noindex Archive Page",
+          "type": "boolean"
+        },
+        "should_noindex_subscribe_page": {
+          "title": "Should Noindex Subscribe Page",
+          "type": "boolean"
+        },
+        "should_require_double_optin": {
+          "title": "Should Require Double Optin",
+          "type": "boolean"
+        },
+        "should_send_latest_email_to_new_subscribers": {
+          "title": "Should Send Latest Email To New Subscribers",
+          "type": "boolean"
+        },
+        "should_send_subscription_confirmation_email": {
+          "title": "Should Send Subscription Confirmation Email",
+          "type": "boolean"
+        },
+        "simple_analytics_enabled": {
+          "title": "Simple Analytics Enabled",
+          "type": "boolean"
+        },
+        "tinylytics_code": {
+          "title": "Tinylytics Code",
+          "type": "string"
+        },
+        "socials": {
+          "title": "Socials",
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "sponsorship_text": {
+          "title": "Sponsorship Text",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "stripe_account": {
+          "title": "Stripe Account",
+          "type": "string"
+        },
+        "subscription_button_text": {
+          "title": "Subscription Button Text",
+          "type": "string"
+        },
+        "subscription_confirmation_redirect_url": {
+          "title": "Subscription Confirmation Redirect Url",
+          "type": "string"
+        },
+        "subscription_form_text": {
+          "title": "Subscription Form Text",
+          "type": "string"
+        },
+        "subscription_redirect_url": {
+          "title": "Subscription Redirect Url",
+          "type": "string"
+        },
+        "template": {
+          "$ref": "#/definitions/EmailTemplate"
+        },
+        "thank_you_text": {
+          "title": "Thank You Text",
+          "type": "string"
+        },
+        "tint_color": {
+          "title": "Tint Color",
+          "type": "string"
+        },
+        "timezone": {
+          "title": "Timezone",
+          "type": "string"
+        },
+        "umami_website_id": {
+          "title": "Umami Website Id",
+          "type": "string"
+        },
+        "unsubscription_reasons": {
+          "title": "Unsubscription Reasons",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UnsubscriptionReason"
+          }
+        },
+        "unsubscription_redirect_url": {
+          "title": "Unsubscription Redirect Url",
+          "type": "string"
+        },
+        "upgrade_text": {
+          "title": "Upgrade Text",
+          "type": "string"
+        },
+        "username": {
+          "title": "Username",
+          "type": "string"
+        },
+        "web_css": {
+          "title": "Web Css",
+          "type": "string"
+        },
+        "web_footer": {
+          "title": "Web Footer",
+          "type": "string"
+        },
+        "web_header": {
+          "title": "Web Header",
+          "type": "string"
+        }
+      },
+      "required": [
+        "absolute_url",
+        "account",
+        "address",
+        "archive_navigation_links",
+        "archive_theme",
+        "automatically_remind_unconfirmed_subscribers",
+        "autonomy_fields",
+        "body_template",
+        "custom_archive_template",
+        "custom_archives_template",
+        "custom_email_template",
+        "custom_preamble",
+        "default_behavior_for_subscriber_imports",
+        "description",
+        "domain",
+        "email_address",
+        "email_domain",
+        "enabled_features",
+        "effective_locale",
+        "h2_redirect_url",
+        "hidden_settings",
+        "id",
+        "image",
+        "indexing_mode",
+        "is_archive_searchable",
+        "is_custom_archive_template_enabled",
+        "is_custom_archives_template_enabled",
+        "is_paid_subscription_free_trials_enabled",
+        "is_sponsorship_enabled",
+        "is_using_plausible",
+        "locale",
+        "metadata_keys",
+        "name",
+        "paid_subscription_free_trial_duration",
+        "paid_subscriptions_status",
+        "prices",
+        "publicly_visible_analytics",
+        "sharing_networks",
+        "should_add_utm_sources",
+        "should_be_private",
+        "should_disable_non_premium_subscriptions",
+        "should_expose_rss",
+        "should_hide_social_media",
+        "should_immediately_show_payment_element",
+        "should_noindex_archive_page",
+        "should_noindex_subscribe_page",
+        "should_require_double_optin",
+        "should_send_latest_email_to_new_subscribers",
+        "should_send_subscription_confirmation_email",
+        "simple_analytics_enabled",
+        "socials",
+        "status",
+        "subscription_button_text",
+        "subscription_confirmation_redirect_url",
+        "subscription_redirect_url",
+        "template",
+        "thank_you_text",
+        "timezone",
+        "unsubscription_reasons",
+        "unsubscription_redirect_url",
+        "upgrade_text",
+        "username"
+      ]
+    },
+    "FilteredStripeCustomer": {
+      "title": "FilteredStripeCustomer",
+      "type": "object",
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "customer_id"
+      ]
+    },
+    "UnexpandableStripeSubscription": {
+      "title": "StripeSubscription",
+      "type": "object",
+      "properties": {
+        "subscription_id": {
+          "title": "Subscription Id",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "creation_date": {
+          "title": "Creation Date",
+          "description": "The date and time at which the object was first created.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "ending_date": {
+          "title": "Ending Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "amount": {
+          "title": "Amount",
+          "type": "integer"
+        },
+        "currency": {
+          "title": "Currency",
+          "type": "string"
+        },
+        "cadence": {
+          "title": "Cadence",
+          "type": "string"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "application_fee_percent": {
+          "title": "Application Fee Percent",
+          "description": "The application fee percent for the subscription.",
+          "type": "number"
+        },
+        "source": {
+          "title": "Source",
+          "description": "Buttondown attempts to detect the source of a subscription, but this is not always possible.",
+          "enum": [
+            "substack",
+            "buttondown"
+          ],
+          "type": "string"
+        },
+        "product": {
+          "title": "Product",
+          "description": "The name of the product which the subscriber is subscribed to. (You can override this by setting the `buttondown_template_facing_id` metadata on the product in Stripe.)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "subscription_id",
+        "url",
+        "creation_date",
+        "amount",
+        "currency",
+        "cadence",
+        "status"
+      ]
+    },
+    "FilteredSubscriber": {
+      "title": "FilteredSubscriber",
+      "description": "A filtered version of a Subscriber model that only exposes certain fields.\nThis is used to prevent exposing sensitive information in templates.",
+      "type": "object",
+      "properties": {
+        "can_be_upsold": {
+          "title": "Can Be Upsold",
+          "type": "boolean"
+        },
+        "can_view_premium_content": {
+          "title": "Can View Premium Content",
+          "type": "boolean"
+        },
+        "churn_date": {
+          "title": "Churn Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "creation_date": {
+          "title": "Creation Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "email": {
+          "title": "Email",
+          "type": "string"
+        },
+        "gift_subscription_end_date": {
+          "title": "Gift Subscription End Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "gift_subscription_message": {
+          "title": "Gift Subscription Message",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string",
+          "format": "uuid"
+        },
+        "is_organic": {
+          "title": "Is Organic",
+          "type": "boolean"
+        },
+        "is_premium": {
+          "title": "Is Premium",
+          "type": "boolean"
+        },
+        "is_trialed": {
+          "title": "Is Trialed",
+          "type": "boolean"
+        },
+        "is_unsubscribed": {
+          "title": "Is Unsubscribed",
+          "type": "boolean"
+        },
+        "last_click_date": {
+          "title": "Last Click Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_open_date": {
+          "title": "Last Open Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "title": "Metadata",
+          "type": "object"
+        },
+        "newsletter": {
+          "$ref": "#/definitions/FilteredNewsletter"
+        },
+        "purchased_by": {
+          "title": "Purchased By",
+          "type": "string"
+        },
+        "purchased_message": {
+          "title": "Purchased Message",
+          "type": "string"
+        },
+        "referrer_url": {
+          "title": "Referrer Url",
+          "type": "string"
+        },
+        "referral_code": {
+          "title": "Referral Code",
+          "type": "string"
+        },
+        "stripe_customer": {
+          "$ref": "#/definitions/FilteredStripeCustomer"
+        },
+        "stripe_subscription": {
+          "$ref": "#/definitions/UnexpandableStripeSubscription"
+        },
+        "subscriber_type": {
+          "title": "Subscriber Type",
+          "type": "string"
+        },
+        "subscription_date": {
+          "title": "Subscription Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "tags": {
+          "title": "Tags",
+          "type": "array",
+          "items": {}
+        },
+        "unsubscription_date": {
+          "title": "Unsubscription Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "upgrade_date": {
+          "title": "Upgrade Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "utm_campaign": {
+          "title": "Utm Campaign",
+          "type": "string"
+        },
+        "utm_medium": {
+          "title": "Utm Medium",
+          "type": "string"
+        },
+        "utm_source": {
+          "title": "Utm Source",
+          "type": "string"
+        },
+        "upgrade_url": {
+          "title": "Upgrade Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "can_be_upsold",
+        "can_view_premium_content",
+        "email",
+        "id",
+        "is_organic",
+        "is_premium",
+        "is_trialed",
+        "is_unsubscribed",
+        "metadata",
+        "newsletter",
+        "referrer_url",
+        "referral_code",
+        "subscriber_type",
+        "tags",
+        "utm_campaign",
+        "utm_medium",
+        "utm_source",
+        "upgrade_url"
+      ]
+    }
+  }
+}
