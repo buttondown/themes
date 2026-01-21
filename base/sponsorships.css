@@ -1,0 +1,443 @@
+@import "./variables.css";
+
+/* Sponsorship pages styling */
+.sponsorships-container {
+  font-family: var(--font-brand);
+  margin: 0 auto;
+  max-width: var(--width-content);
+  padding: calc(var(--space) * 2) var(--space);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sponsorships-container h1 {
+  color: var(--color-foreground);
+  font-size: var(--font-size-large-3);
+  font-weight: 700;
+  margin: 0 0 calc(var(--space) * 1.5) 0;
+  text-align: center;
+}
+
+.sponsorships-disabled-message {
+  color: var(--color-foreground-offset);
+  font-size: var(--font-size-large);
+  text-align: center;
+}
+
+/* Analytics grid */
+.sponsorships-analytics {
+  background-color: var(--color-background-card);
+  border: 1px solid var(--color-background-offset);
+  border-radius: calc(var(--space) / 2);
+  display: grid;
+  gap: var(--space);
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  margin-bottom: calc(var(--space) * 2);
+  padding: var(--space);
+}
+
+.sponsorships-stat {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space) / 4);
+  padding: calc(var(--space) / 2);
+}
+
+.sponsorships-stat-icon {
+  color: var(--color-action);
+  height: 24px;
+  width: 24px;
+}
+
+.sponsorships-stat-value {
+  color: var(--color-foreground);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-large-2);
+  font-weight: 700;
+}
+
+.sponsorships-stat-label {
+  color: var(--color-foreground-offset);
+  font-size: var(--font-size-small);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Description prose */
+.sponsorships-description {
+  color: var(--color-foreground);
+  font-family: var(--font-prose);
+  font-size: var(--font-size-large);
+  line-height: 1.6;
+  margin-bottom: calc(var(--space) * 2);
+}
+
+.sponsorships-description a {
+  color: var(--color-action);
+}
+
+.sponsorships-description p {
+  margin-bottom: var(--space);
+}
+
+.sponsorships-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* SKU cards */
+.sponsorships-sku-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+}
+
+.sponsorships-sku {
+  background-color: var(--color-background-card);
+  border: 1px solid var(--color-background-offset);
+  border-radius: calc(var(--space) / 2);
+  cursor: pointer;
+  padding: var(--space);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sponsorships-sku:hover {
+  border-color: var(--color-action);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-action) 10%, transparent);
+}
+
+.sponsorships-sku.active {
+  background-color: color-mix(
+    in srgb,
+    var(--color-action) 5%,
+    var(--color-background-card)
+  );
+  border-color: var(--color-action);
+}
+
+.sponsorships-sku-title {
+  color: var(--color-foreground);
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  margin-bottom: calc(var(--space) / 2);
+}
+
+.sponsorships-sku-description {
+  color: var(--color-foreground-offset);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  margin-bottom: var(--space);
+}
+
+.sponsorships-sku-meta {
+  align-items: center;
+  color: var(--color-foreground-offset-2);
+  display: flex;
+  font-size: var(--font-size-small);
+  gap: var(--space);
+  justify-content: space-between;
+}
+
+.sponsorships-sku-price {
+  align-items: center;
+  display: flex;
+  gap: calc(var(--space) / 4);
+}
+
+.sponsorships-sku-price svg {
+  height: 14px;
+  width: 14px;
+}
+
+.sponsorships-sku-slots {
+  color: var(--color-foreground-offset);
+}
+
+/* Slots container */
+.sponsorships-slots {
+  display: none;
+  flex-wrap: wrap;
+  gap: calc(var(--space) / 2);
+  margin-top: var(--space);
+  padding-top: var(--space);
+  border-top: 1px solid var(--color-background-offset);
+}
+
+.sponsorships-slots.visible {
+  display: flex;
+}
+
+.sponsorships-slot {
+  background-color: var(--color-action);
+  border-radius: calc(var(--space) / 2);
+  color: white;
+  display: block;
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  padding: calc(var(--space) / 2) var(--space);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.sponsorships-slot:hover {
+  background-color: var(--color-action);
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.sponsorships-slot--contact {
+  background-color: var(--color-background-offset);
+  color: var(--color-foreground);
+}
+
+.sponsorships-slot--contact:hover {
+  background-color: var(--color-background-offset);
+  opacity: 0.8;
+}
+
+/* Sponsor submit page */
+.sponsor-submit-container {
+  font-family: var(--font-brand);
+  margin: 0 auto;
+  max-width: var(--width-content);
+  padding: calc(var(--space) * 2) var(--space);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sponsor-submit-header {
+  margin-bottom: calc(var(--space) * 1.5);
+}
+
+.sponsor-submit-header h1 {
+  color: var(--color-foreground);
+  font-size: var(--font-size-large-2);
+  font-weight: 700;
+  margin: 0 0 calc(var(--space) / 2) 0;
+}
+
+.sponsor-submit-header p {
+  color: var(--color-foreground-offset);
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+/* Status alerts */
+.sponsor-alert {
+  border-radius: calc(var(--space) / 2);
+  margin-bottom: calc(var(--space) * 1.5);
+  padding: var(--space);
+}
+
+.sponsor-alert-title {
+  font-weight: 600;
+  margin-bottom: calc(var(--space) / 4);
+}
+
+.sponsor-alert-message {
+  font-size: var(--font-size-small);
+}
+
+.sponsor-alert--success {
+  background-color: color-mix(in srgb, #10b981 15%, var(--color-background));
+  border: 1px solid color-mix(in srgb, #10b981 30%, transparent);
+}
+
+.sponsor-alert--success .sponsor-alert-title {
+  color: #047857;
+}
+
+.sponsor-alert--success .sponsor-alert-message {
+  color: #065f46;
+}
+
+.sponsor-alert--error {
+  background-color: color-mix(in srgb, #ef4444 15%, var(--color-background));
+  border: 1px solid color-mix(in srgb, #ef4444 30%, transparent);
+}
+
+.sponsor-alert--error .sponsor-alert-title {
+  color: #b91c1c;
+}
+
+.sponsor-alert--error .sponsor-alert-message {
+  color: #991b1b;
+}
+
+.sponsor-alert--error ul {
+  list-style: disc;
+  margin: calc(var(--space) / 2) 0 0 var(--space);
+  padding: 0;
+}
+
+.sponsor-alert--info {
+  background-color: color-mix(in srgb, #3b82f6 15%, var(--color-background));
+  border: 1px solid color-mix(in srgb, #3b82f6 30%, transparent);
+}
+
+.sponsor-alert--info .sponsor-alert-title {
+  color: #1d4ed8;
+}
+
+.sponsor-alert--info .sponsor-alert-message {
+  color: #1e40af;
+}
+
+/* Requirements box */
+.sponsor-requirements {
+  background-color: var(--color-background-card);
+  border: 1px solid var(--color-background-offset);
+  border-radius: calc(var(--space) / 2);
+  margin-bottom: calc(var(--space) * 1.5);
+  padding: var(--space);
+}
+
+.sponsor-requirements h2 {
+  color: var(--color-foreground);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  margin: 0 0 calc(var(--space) / 2) 0;
+}
+
+.sponsor-requirements ul {
+  color: var(--color-foreground-offset);
+  font-size: var(--font-size-small);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sponsor-requirements li {
+  line-height: 1.6;
+  margin-bottom: calc(var(--space) / 4);
+}
+
+.sponsor-requirements li:last-child {
+  margin-bottom: 0;
+}
+
+/* Form elements */
+.sponsor-form {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space) * 1.5);
+}
+
+.sponsor-field {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space) / 2);
+}
+
+.sponsor-field label {
+  color: var(--color-foreground);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+}
+
+.sponsor-field label span {
+  color: var(--color-foreground-offset);
+  font-weight: 400;
+}
+
+.sponsor-field textarea,
+.sponsor-field input[type="url"] {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-background-offset);
+  border-radius: calc(var(--space) / 2);
+  color: var(--color-foreground);
+  font-family: var(--font-brand);
+  font-size: var(--font-size-base);
+  padding: calc(var(--space) / 2);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+}
+
+.sponsor-field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.sponsor-field textarea:focus,
+.sponsor-field input[type="url"]:focus {
+  border-color: var(--color-action);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-action) 10%, transparent);
+  outline: none;
+}
+
+.sponsor-field-hint {
+  color: var(--color-foreground-offset);
+  font-size: var(--font-size-small);
+}
+
+/* Success page */
+.sponsorship-success-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-brand);
+  gap: calc(var(--space) * 1.5);
+  margin: 0 auto;
+  max-width: var(--width-content);
+  padding: calc(var(--space) * 3) var(--space);
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sponsorship-success-container h1 {
+  color: var(--color-foreground);
+  font-size: var(--font-size-large-3);
+  font-weight: 700;
+  margin: 0;
+}
+
+.sponsorship-success-message {
+  color: var(--color-foreground-offset);
+  font-size: var(--font-size-large);
+  line-height: 1.5;
+  max-width: 500px;
+}
+
+/* Dark mode adjustments for alerts */
+@media (prefers-color-scheme: dark) {
+  :root.supports-dark-mode .sponsor-alert--success {
+    background-color: color-mix(in srgb, #10b981 10%, var(--color-background));
+    border-color: color-mix(in srgb, #10b981 20%, transparent);
+  }
+
+  :root.supports-dark-mode .sponsor-alert--success .sponsor-alert-title {
+    color: #34d399;
+  }
+
+  :root.supports-dark-mode .sponsor-alert--success .sponsor-alert-message {
+    color: #6ee7b7;
+  }
+
+  :root.supports-dark-mode .sponsor-alert--error {
+    background-color: color-mix(in srgb, #ef4444 10%, var(--color-background));
+    border-color: color-mix(in srgb, #ef4444 20%, transparent);
+  }
+
+  :root.supports-dark-mode .sponsor-alert--error .sponsor-alert-title {
+    color: #f87171;
+  }
+
+  :root.supports-dark-mode .sponsor-alert--error .sponsor-alert-message {
+    color: #fca5a5;
+  }
+
+  :root.supports-dark-mode .sponsor-alert--info {
+    background-color: color-mix(in srgb, #3b82f6 10%, var(--color-background));
+    border-color: color-mix(in srgb, #3b82f6 20%, transparent);
+  }
+
+  :root.supports-dark-mode .sponsor-alert--info .sponsor-alert-title {
+    color: #60a5fa;
+  }
+
+  :root.supports-dark-mode .sponsor-alert--info .sponsor-alert-message {
+    color: #93c5fd;
+  }
+}
