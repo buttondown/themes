@@ -371,7 +371,7 @@
         "config"
       ]
     },
-    "DisablementReason": {
+    "NewsletterDisablementReason": {
       "title": "DisablementReason",
       "description": "An enumeration.",
       "enum": [
@@ -389,7 +389,7 @@
       ],
       "type": "string"
     },
-    "EnabledFeature": {
+    "NewsletterEnabledFeature": {
       "title": "EnabledFeature",
       "description": "An enumeration.",
       "enum": [
@@ -419,7 +419,7 @@
       ],
       "type": "string"
     },
-    "HiddenSettings": {
+    "NewsletterHiddenSettings": {
       "title": "HiddenSettings",
       "description": "An enumeration.",
       "enum": [
@@ -441,7 +441,7 @@
       ],
       "type": "string"
     },
-    "IndexingMode": {
+    "NewsletterIndexingMode": {
       "title": "IndexingMode",
       "description": "An enumeration.",
       "enum": [
@@ -450,7 +450,7 @@
       ],
       "type": "string"
     },
-    "Locale": {
+    "NewsletterLocale": {
       "title": "Locale",
       "description": "An enumeration.",
       "enum": [
@@ -470,7 +470,7 @@
       ],
       "type": "string"
     },
-    "PaidSubscriptionsStatus": {
+    "NewsletterPaidSubscriptionsStatus": {
       "title": "PaidSubscriptionsStatus",
       "description": "An enumeration.",
       "enum": [
@@ -546,7 +546,7 @@
         "style"
       ]
     },
-    "AnalyticsKey": {
+    "NewsletterAnalyticsKey": {
       "title": "AnalyticsKey",
       "description": "An enumeration.",
       "enum": [
@@ -593,7 +593,7 @@
       ],
       "type": "string"
     },
-    "Status": {
+    "NewsletterStatus": {
       "title": "Status",
       "description": "An enumeration.",
       "enum": [
@@ -611,7 +611,7 @@
       ],
       "type": "string"
     },
-    "EmailTemplate": {
+    "NewsletterEmailTemplate": {
       "title": "EmailTemplate",
       "description": "Represents the template of an email.\n\nEach template has a different layout/style; you can view screenshots and examples [in the docs](https://docs.buttondown.com/customizing-email-design#buttondowns-default-templates).",
       "enum": [
@@ -836,7 +836,7 @@
           "type": "string"
         },
         "disablement_reason": {
-          "$ref": "#/definitions/DisablementReason"
+          "$ref": "#/definitions/NewsletterDisablementReason"
         },
         "domain": {
           "title": "Domain",
@@ -853,7 +853,7 @@
         "enabled_features": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/EnabledFeature"
+            "$ref": "#/definitions/NewsletterEnabledFeature"
           }
         },
         "effective_locale": {
@@ -891,7 +891,7 @@
         "hidden_settings": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/HiddenSettings"
+            "$ref": "#/definitions/NewsletterHiddenSettings"
           }
         },
         "icon": {
@@ -908,7 +908,7 @@
           "type": "string"
         },
         "indexing_mode": {
-          "$ref": "#/definitions/IndexingMode"
+          "$ref": "#/definitions/NewsletterIndexingMode"
         },
         "is_archive_searchable": {
           "title": "Is Archive Searchable",
@@ -935,7 +935,7 @@
           "type": "boolean"
         },
         "locale": {
-          "$ref": "#/definitions/Locale"
+          "$ref": "#/definitions/NewsletterLocale"
         },
         "memberful_username": {
           "title": "Memberful Username",
@@ -958,7 +958,7 @@
           "type": "integer"
         },
         "paid_subscriptions_status": {
-          "$ref": "#/definitions/PaidSubscriptionsStatus"
+          "$ref": "#/definitions/NewsletterPaidSubscriptionsStatus"
         },
         "prices": {
           "title": "Prices",
@@ -970,7 +970,7 @@
         "publicly_visible_analytics": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/AnalyticsKey"
+            "$ref": "#/definitions/NewsletterAnalyticsKey"
           }
         },
         "reddit_code": {
@@ -1064,7 +1064,7 @@
           "type": "string"
         },
         "status": {
-          "$ref": "#/definitions/Status"
+          "$ref": "#/definitions/NewsletterStatus"
         },
         "stripe_account": {
           "title": "Stripe Account",
@@ -1087,7 +1087,7 @@
           "type": "string"
         },
         "template": {
-          "$ref": "#/definitions/EmailTemplate"
+          "$ref": "#/definitions/NewsletterEmailTemplate"
         },
         "thank_you_text": {
           "title": "Thank You Text",
@@ -1215,7 +1215,7 @@
         "customer_id"
       ]
     },
-    "UnexpandableStripeSubscription": {
+    "StripeSubscription": {
       "title": "StripeSubscription",
       "type": "object",
       "properties": {
@@ -1378,7 +1378,7 @@
           "$ref": "#/definitions/FilteredStripeCustomer"
         },
         "stripe_subscription": {
-          "$ref": "#/definitions/UnexpandableStripeSubscription"
+          "$ref": "#/definitions/StripeSubscription"
         },
         "subscriber_type": {
           "title": "Subscriber Type",
