@@ -1,0 +1,210 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://buttondown.com/schemas/theme.json",
+    "title": "Buttondown Theme Configuration",
+    "description": "Schema for Buttondown archive theme configuration files",
+    "type": "object",
+    "required": ["name", "version", "configuration"],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Display name of the theme",
+            "minLength": 1,
+            "maxLength": 100
+        },
+        "description": {
+            "type": "string",
+            "description": "Brief description of the theme's style and purpose",
+            "maxLength": 500
+        },
+        "version": {
+            "type": "string",
+            "description": "Semantic version of the theme",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "configuration": {
+            "type": "object",
+            "description": "Theme configuration options exposed to users",
+            "additionalProperties": {
+                "$ref": "#/definitions/configurationField"
+            }
+        }
+    },
+    "definitions": {
+        "configurationField": {
+            "type": "object",
+            "required": ["type", "header"],
+            "properties": {
+                "header": {
+                    "type": "string",
+                    "description": "Display label for the configuration field",
+                    "minLength": 1
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Help text explaining the configuration option"
+                }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "type": { "const": "color" }
+                        },
+                        "required": ["type"]
+                    },
+                    "then": {
+                        "properties": {
+                            "type": { "const": "color" },
+                            "header": { "type": "string" },
+                            "description": { "type": "string" },
+                            "default": {
+                                "type": "string",
+                                "description": "Default hex color value",
+                                "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": { "const": "number" }
+                        },
+                        "required": ["type"]
+                    },
+                    "then": {
+                        "properties": {
+                            "type": { "const": "number" },
+                            "header": { "type": "string" },
+                            "description": { "type": "string" },
+                            "default": {
+                                "type": "number",
+                                "description": "Default numeric value"
+                            },
+                            "min": {
+                                "type": "number",
+                                "description": "Minimum allowed value"
+                            },
+                            "max": {
+                                "type": "number",
+                                "description": "Maximum allowed value"
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": { "const": "boolean" }
+                        },
+                        "required": ["type"]
+                    },
+                    "then": {
+                        "properties": {
+                            "type": { "const": "boolean" },
+                            "header": { "type": "string" },
+                            "description": { "type": "string" },
+                            "default": {
+                                "type": "boolean",
+                                "description": "Default boolean value"
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": { "const": "font" }
+                        },
+                        "required": ["type"]
+                    },
+                    "then": {
+                        "properties": {
+                            "type": { "const": "font" },
+                            "header": { "type": "string" },
+                            "description": { "type": "string" },
+                            "default": {
+                                "type": "string",
+                                "description": "Default font family name"
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": { "const": "select" }
+                        },
+                        "required": ["type"]
+                    },
+                    "then": {
+                        "properties": {
+                            "type": { "const": "select" },
+                            "header": { "type": "string" },
+                            "description": { "type": "string" },
+                            "default": {
+                                "type": "string",
+                                "description": "Default option ID"
+                            },
+                            "options": {
+                                "type": "array",
+                                "description": "Available options for selection",
+                                "items": {
+                                    "type": "object",
+                                    "required": ["id", "label"],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Unique identifier for the option"
+                                        },
+                                        "label": {
+                                            "type": "string",
+                                            "description": "Display label for the option"
+                                        }
+                                    }
+                                },
+                                "minItems": 1
+                            }
+                        },
+                        "required": ["options"],
+                        "additionalProperties": false
+                    }
+                }
+            ],
+            "oneOf": [
+                {
+                    "properties": {
+                        "type": { "const": "color" }
+                    }
+                },
+                {
+                    "properties": {
+                        "type": { "const": "number" }
+                    }
+                },
+                {
+                    "properties": {
+                        "type": { "const": "boolean" }
+                    }
+                },
+                {
+                    "properties": {
+                        "type": { "const": "font" }
+                    }
+                },
+                {
+                    "properties": {
+                        "type": { "const": "select" }
+                    }
+                }
+            ]
+        }
+    }
+}
