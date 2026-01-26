@@ -133,3 +133,9 @@
   width: 100%;
   padding: 0;
 }
+
+/* Make the drop shadow less obvious */
+.cta-dropdown-menu {
+  box-shadow: 0 5px 10px -2px var(--color-background-offset),
+  0 5px 10px -2px var(--color-background-offset);
+}
