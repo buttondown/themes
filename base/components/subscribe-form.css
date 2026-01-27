@@ -337,6 +337,7 @@ a.subscription-success-button:hover {
     }
   }
   input[type="email"],
+  input[type="number"],
   input[type="text"],
   select {
     appearance: none;
