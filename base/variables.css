@@ -4,7 +4,8 @@
 
   /* Typography */
   /* Note: "Inter" provides Cyrillic support as a fallback for languages like Russian */
-  --font-brand: var(--font-accent, "Hex Franklin"), "Inter", system-ui, sans-serif;
+  --font-brand: var(--font-accent, "Hex Franklin"), "Inter", system-ui,
+    sans-serif;
   --font-prose: var(
     --font-body,
     "Source Serif 4",
@@ -52,7 +53,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root.supports-dark-mode {
+  :root.supports-dark-mode,
+  :root.dark {
     /* Colors */
     --color-background: var(--color-background-dark);
     --color-background-card: var(--color-background-card-dark);
