@@ -199,6 +199,10 @@ p img {
   max-width: 100%;
 }
 
+figure[data-full-width="false"] img {
+  cursor: zoom-in;
+}
+
 /* Just the “zoomed” values, no transition here */
 figure[data-full-width="true"] img {
   border-radius: 0;
