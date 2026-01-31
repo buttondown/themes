@@ -5,6 +5,16 @@
 .header-navigation-container {
   font-family: var(--font-brand);
   max-width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-background);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.header-navigation-container.is-scrolled {
+  border-bottom-color: var(--color-background-offset);
 }
 
 .header-navigation-content {
