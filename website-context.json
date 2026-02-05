@@ -9,6 +9,10 @@
     "email": {
       "$ref": "#/definitions/FilteredEmail"
     },
+    "email_url": {
+      "title": "Email Url",
+      "type": "string"
+    },
     "manage_premium_subscription_url": {
       "title": "Manage Premium Subscription Url",
       "type": "string"
@@ -50,6 +54,7 @@
   },
   "required": [
     "canary_url",
+    "email_url",
     "manage_premium_subscription_url",
     "manage_subscription_url",
     "premium_archive_url",
