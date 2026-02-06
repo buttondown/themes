@@ -740,8 +740,8 @@
           "title": "Css",
           "type": "string"
         },
-        "css_tokens": {
-          "title": "Css Tokens",
+        "theme_configuration": {
+          "title": "Theme Configuration",
           "type": "object",
           "additionalProperties": {
             "type": "string"
