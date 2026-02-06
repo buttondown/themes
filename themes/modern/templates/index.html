@@ -14,7 +14,7 @@
                      height="24"
                      alt="">
             {% endif %}
-            <h1 class="newsletter-name">{{ newsletter.name }}</h1>
+            <h2 class="newsletter-name">{{ newsletter.name }}</h2>
             <div class="newsletter-description">{{ newsletter.description|mdw:newsletter|safe }}</div>
             {% include "subscriber_facing/snippets/subscribe_form.html" %}
         </div>

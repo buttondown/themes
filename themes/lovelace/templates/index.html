@@ -7,7 +7,7 @@
 {% endblock extra_head %}
 {% block content %}
     {{ newsletter_jsonld }}
-    <h1>{{ newsletter.name }}</h1>
+    <h2>{{ newsletter.name }}</h2>
     {% if newsletter.description %}
         <p>{{ newsletter.description|mdw:newsletter|safe }}</p>
     {% endif %}
