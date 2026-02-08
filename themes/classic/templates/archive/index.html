@@ -60,7 +60,7 @@
                         </div>
                         <div class="email-metadata-divider"></div>
                         <div class="email-metadata-read-more">
-                            <a href="{{ email.slug }}" class="email-metadata-read-more-link">
+                            <a href="{% if newsletter.domain %}/archive/{{ email.slug }}{% else %}/{{ newsletter.username }}/archive/{{ email.slug }}{% endif %}" class="email-metadata-read-more-link">
                             {% localized 'web.button.read_more' newsletter.locale %}</a>
                         </div>
                     </div>
