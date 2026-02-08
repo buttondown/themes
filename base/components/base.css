@@ -199,7 +199,7 @@ p img {
   max-width: 100%;
 }
 
-figure[data-full-width="false"] img {
+figure[data-full-width="false"]:not([data-zoomable="false"]) img {
   cursor: zoom-in;
 }
 
