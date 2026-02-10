@@ -31,7 +31,7 @@ blockquote {
 blockquote p,
 blockquote li {
   color: var(--color-foreground);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-blockquote, var(--font-size-base));
 }
 
 .buttondown-button {

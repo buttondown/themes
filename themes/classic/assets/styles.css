@@ -17,6 +17,11 @@ blockquote {
   font-style: italic;
 }
 
+blockquote p,
+blockquote li {
+  font-size: var(--font-size-blockquote, var(--font-size-large));
+}
+
 .email-detail__header {
   margin-bottom: calc(var(--space) * 2);
   margin-top: calc(var(--space) * 2);
