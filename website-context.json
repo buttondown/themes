@@ -471,7 +471,8 @@
         "pt-BR",
         "ru",
         "es",
-        "tr"
+        "tr",
+        "sv-SE"
       ],
       "type": "string"
     },
