@@ -21,7 +21,7 @@ Custom CSS (`newsletter.web_css`) is included after the rest of the standard CSS
 
 ### 2. CSS tokens
 
-The `newsletter.css_tokens` attribute (exposed under Settings > Programs) allows you to override variables defined in `variables.css`.
+The `newsletter.theme_configuration` attribute (exposed under Settings > Archive design) allows you to override variables defined in `variables.css`.
 
 There is no magic here — it just means CSS variables are subject to the cascade. The `base.html` template that all themes inherit from contains this block, which transforms CSS tokens from a JSON blob into CSS variable declarations:
 
@@ -29,7 +29,7 @@ There is no magic here — it just means CSS variables are subject to the cascad
 <style>
   :root {
     --tint-color: {{ newsletter.tint_color }};
-    {% for key, value in newsletter.css_tokens.items %}
+    {% for key, value in newsletter.theme_configuration.items %}
       --{{ key }}: {{ value }};
     {% endfor %}
   }
