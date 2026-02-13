@@ -312,7 +312,8 @@ a.subscription-success-button:hover {
 
 /* #subscribe-form and .subscribe-form block, internal selectors alphabetized */
 #subscribe-form,
-.subscribe-form {
+.subscribe-form,
+.subscribe-modal-body {
   container-name: subscribe-form;
 
   .confirmation-email-message {
