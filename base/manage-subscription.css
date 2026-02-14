@@ -297,3 +297,17 @@ h3 {
 .modal-body p:not(:first-child) {
   margin-top: calc(var(--space) / 1.25);
 }
+
+/* Comments Section — reuses .comment, .archive__comments-list styles from comments.css */
+.manage-subscription .comment__content {
+  padding-left: 0;
+}
+
+.manage-subscription .comment__actions {
+  margin-left: 0;
+  align-items: center;
+}
+
+.manage-subscription .comment-delete-button {
+  margin-left: auto;
+}
