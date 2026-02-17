@@ -7,6 +7,10 @@
     "required": ["name", "version", "configuration"],
     "additionalProperties": false,
     "properties": {
+        "$schema": {
+            "type": "string",
+            "description": "Path to the JSON schema file"
+        },
         "name": {
             "type": "string",
             "description": "Display name of the theme",
@@ -111,6 +115,20 @@
                             "default": {
                                 "type": "boolean",
                                 "description": "Default boolean value"
+                            },
+                            "storageKey": {
+                                "type": "string",
+                                "description": "API storage key when different from the config key"
+                            },
+                            "storageValues": {
+                                "type": "object",
+                                "description": "Maps true/false to stored string values",
+                                "properties": {
+                                    "true": { "type": "string" },
+                                    "false": { "type": "string" }
+                                },
+                                "required": ["true", "false"],
+                                "additionalProperties": false
                             }
                         },
                         "additionalProperties": false

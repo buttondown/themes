@@ -1,13 +1,20 @@
 {
-  "name": "Lovelace",
-  "description": "A brutalist, nearly no-CSS theme that embraces browser defaults for maximum speed and simplicity.",
-  "version": "1.0.0",
-  "configuration": {
-    "posts_per_page": {
-      "type": "number",
-      "default": 20,
-      "header": "Posts per page",
-      "description": "Number of posts to display per page"
+    "$schema": "../theme.schema.json",
+    "name": "Lovelace",
+    "description": "A brutalist, nearly no-CSS theme that embraces browser defaults for maximum speed and simplicity.",
+    "version": "1.0.0",
+    "configuration": {
+        "posts_per_page": {
+            "type": "number",
+            "default": 20,
+            "header": "Posts per page",
+            "description": "Number of posts to display per page"
+        },
+        "dark_mode": {
+            "type": "boolean",
+            "default": false,
+            "header": "Dark mode",
+            "description": "Match your reader's system dark mode preference"
+        }
     }
-  }
 }

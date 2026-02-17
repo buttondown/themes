@@ -1,4 +1,5 @@
 {
+    "$schema": "../theme.schema.json",
     "name": "Arbus",
     "description": "An Instagram-inspired grid theme displaying posts in a three-column layout, perfect for image-heavy newsletters.",
     "version": "1.0.0",
@@ -8,6 +9,12 @@
             "default": 21,
             "header": "Posts per page",
             "description": "Number of posts to display per page"
+        },
+        "dark_mode": {
+            "type": "boolean",
+            "default": false,
+            "header": "Dark mode",
+            "description": "Match your reader's system dark mode preference"
         },
         "color-accent": {
             "type": "color",
@@ -37,7 +44,9 @@
             "type": "boolean",
             "default": false,
             "header": "Show description?",
-            "description": "Show the description of the post in the archive"
+            "description": "Show the description of the post in the archive",
+            "storageKey": "email-description-display",
+            "storageValues": { "true": "block", "false": "none" }
         },
         "archive-column-count": {
             "type": "number",

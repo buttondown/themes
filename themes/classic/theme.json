@@ -1,4 +1,5 @@
 {
+    "$schema": "../theme.schema.json",
     "name": "Classic",
     "description": "A traditional, clean theme with a simple list layout perfect for text-focused newsletters.",
     "version": "1.0.0",
@@ -8,6 +9,12 @@
             "default": 20,
             "header": "Posts per page",
             "description": "Number of posts to display per page"
+        },
+        "dark_mode": {
+            "type": "boolean",
+            "default": false,
+            "header": "Dark mode",
+            "description": "Match your reader's system dark mode preference"
         },
         "color-accent": {
             "type": "color",

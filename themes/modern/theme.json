@@ -1,4 +1,5 @@
 {
+    "$schema": "../theme.schema.json",
     "name": "Modern",
     "description": "A contemporary theme featuring large images and a card-based layout ideal for visual newsletters.",
     "version": "1.0.0",
@@ -8,6 +9,12 @@
             "default": 20,
             "header": "Posts per page",
             "description": "Number of posts to display per page"
+        },
+        "dark_mode": {
+            "type": "boolean",
+            "default": false,
+            "header": "Dark mode",
+            "description": "Match your reader's system dark mode preference"
         },
         "color-accent": {
             "type": "color",
