@@ -431,11 +431,8 @@
         "should_require_double_optin",
         "reply_to_address",
         "only_send_plaintext_emails",
-        "custom_email_template",
-        "pages",
         "subscription_button_text",
         "subscription_form_text",
-        "unsubscription_redirect_url",
         "specific_email_to_send_to_new_subscribers",
         "specific_email_to_send_to_new_subscribers_id",
         "should_send_latest_email_to_new_subscribers",
@@ -1121,10 +1118,6 @@
             "$ref": "#/definitions/UnsubscriptionReason"
           }
         },
-        "unsubscription_redirect_url": {
-          "title": "Unsubscription Redirect Url",
-          "type": "string"
-        },
         "upgrade_text": {
           "title": "Upgrade Text",
           "type": "string"
@@ -1206,7 +1199,6 @@
         "thank_you_text",
         "timezone",
         "unsubscription_reasons",
-        "unsubscription_redirect_url",
         "upgrade_text",
         "username"
       ]
