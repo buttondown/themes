@@ -31,7 +31,12 @@
 /* Classes sorted alphabetically - global selectors and parent blocks first, then children/selectors within blocks alphabetically */
 .archive__button {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-brand) !important;
+  font-size: var(--font-size-small);
+  line-height: 1.4;
   background-color: var(--color-action) !important;
   border-radius: var(--space) !important;
   padding: calc(var(--space) / 2) calc(var(--space)) !important;
@@ -39,9 +44,15 @@
   color: white !important;
   width: 100%;
   text-align: center;
-  justify-content: center;
+  text-decoration: none;
   text-transform: uppercase;
   box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--color-action) 85%, black) !important;
+  }
 }
 
 .archive__subscribe-form-label {
