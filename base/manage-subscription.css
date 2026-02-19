@@ -21,6 +21,27 @@ body {
   flex: 1 1 0%;
 }
 
+.portal-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space) / 4);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  color: var(--color-foreground-offset);
+  text-decoration: none;
+  margin-bottom: var(--space);
+  transition: color 0.2s ease-in-out;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    color: var(--color-foreground);
+  }
+}
+
 .manage-subscription > :first-child {
   margin-bottom: 2rem;
 }
