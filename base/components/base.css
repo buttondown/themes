@@ -483,6 +483,49 @@ blockquote blockquote {
   }
 }
 
+.books-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space) * 1.5);
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space) / 2);
+  width: 140px;
+}
+
+.book-card-image img {
+  border-radius: calc(var(--space) / 4);
+  display: block;
+  width: 100%;
+}
+
+.book-card-title {
+  font-family: var(--font-brand);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.3;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.book-card-year {
+  color: var(--color-foreground-offset-2);
+  font-family: var(--font-brand);
+  font-size: var(--font-size-small);
+}
+
+.book-card-description {
+  color: var(--color-foreground-offset);
+  font-family: var(--font-brand);
+  font-size: var(--font-size-small);
+  line-height: 1.4;
+}
+
 .sr-only {
   border-width: 0;
   clip: rect(0, 0, 0, 0);
