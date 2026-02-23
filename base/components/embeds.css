@@ -1,5 +1,18 @@
 .embedded-link {
   background: var(--color-background-offset);
+  text-decoration: none;
+  font-family: var(--font-brand);
+}
+
+.embedded-link > div {
+  transition: all 0.2s ease-in-out;
+}
+
+.embedded-link:hover > div {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) !important;
+  border-color: var(--color-foreground-offset-2) !important;
+  margin-top: -2px !important;
+  margin-bottom: 2px !important;
 }
 
 .tiktok-embed {

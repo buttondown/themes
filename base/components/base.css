@@ -336,6 +336,20 @@ ul li {
       fill: var(--tint-color);
     }
   }
+
+  .archive__social-links-link {
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.7;
+      text-decoration: none;
+      background-color: transparent !important ;
+
+      svg {
+        fill: var(--tint-color);
+      }
+    }
+  }
 }
 
 .subject {
