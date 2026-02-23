@@ -1,5 +1,164 @@
 @import "../variables.css";
 
+/* Dialog component support — animations and custom property */
+:root {
+  --motion-timing-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    scale: 0.96;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes pop-out {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0.96;
+  }
+}
+
+/* Dialog component support — Tailwind utilities used by Dialog.vue,
+   written as plain CSS scoped under the Dialog root class. Colors use
+   subscriber-facing CSS variables so dark mode works automatically. */
+.buttondown-dialog-root .backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+.buttondown-dialog-root .bg-background {
+  background-color: var(--color-background);
+}
+.buttondown-dialog-root .bg-gray-100\/50 {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.buttondown-dialog-root .bg-white {
+  background-color: var(--color-background-card);
+}
+.buttondown-dialog-root .border {
+  border: 1px solid;
+}
+.buttondown-dialog-root .border-gray-300 {
+  border-color: var(--color-background-offset);
+}
+.buttondown-dialog-root .border-border {
+  border-color: var(--color-background-offset);
+}
+.buttondown-dialog-root .border-t {
+  border-top: 1px solid;
+}
+.buttondown-dialog-root .border-transparent {
+  border-color: transparent;
+}
+.buttondown-dialog-root .bottom-0 {
+  bottom: 0;
+}
+.buttondown-dialog-root .duration-200 {
+  transition-duration: 200ms;
+}
+.buttondown-dialog-root .fixed {
+  position: fixed;
+}
+.buttondown-dialog-root .flex {
+  display: flex;
+}
+.buttondown-dialog-root .flex-col {
+  flex-direction: column;
+}
+.buttondown-dialog-root .gap-4 {
+  gap: 1rem;
+}
+.buttondown-dialog-root .grow {
+  flex-grow: 1;
+}
+.buttondown-dialog-root .inset-0 {
+  inset: 0;
+}
+.buttondown-dialog-root .justify-between {
+  justify-content: space-between;
+}
+.buttondown-dialog-root .left-1\/2 {
+  left: 50%;
+}
+.buttondown-dialog-root .overflow-y-auto {
+  overflow-y: auto;
+}
+.buttondown-dialog-root .p-4 {
+  padding: 1rem;
+}
+.buttondown-dialog-root .pb-4 {
+  padding-bottom: 1rem;
+}
+.buttondown-dialog-root .pt-4 {
+  padding-top: 1rem;
+}
+.buttondown-dialog-root .px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.buttondown-dialog-root .rounded-lg {
+  border-radius: 0.5rem;
+}
+.buttondown-dialog-root .rounded-t-lg {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.buttondown-dialog-root .scroll-pb-20 {
+  scroll-padding-bottom: 5rem;
+}
+.buttondown-dialog-root .shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+.buttondown-dialog-root .sticky {
+  position: sticky;
+}
+.buttondown-dialog-root .text-foreground {
+  color: var(--color-foreground);
+}
+.buttondown-dialog-root .top-1\/2 {
+  top: 50%;
+}
+.buttondown-dialog-root .transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.buttondown-dialog-root .w-full {
+  width: 100%;
+}
+.buttondown-dialog-root .z-10 {
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .buttondown-dialog-root .md\:max-w-md {
+    max-width: 28rem;
+  }
+}
+
 /* Keyframes sorted alphabetically by name */
 @keyframes spin {
   from {
@@ -7,24 +166,6 @@
   }
   to {
     transform: rotate(360deg);
-  }
-}
-@keyframes subscription-success-dialog-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(-0.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-@keyframes subscription-success-overlay-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 
@@ -51,7 +192,11 @@
   transition: background-color 0.15s ease;
 
   &:hover {
-    background-color: color-mix(in srgb, var(--color-action) 85%, black) !important;
+    background-color: color-mix(
+      in srgb,
+      var(--color-action) 85%,
+      black
+    ) !important;
   }
 }
 
@@ -183,81 +328,6 @@
   scale: 0.98;
 }
 
-.subscription-success-close {
-  align-items: center;
-  background: transparent;
-  border: none;
-  border-radius: var(--space);
-  color: var(--color-foreground-offset);
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  opacity: 0.7;
-  position: absolute;
-  right: calc(var(--space) / 2);
-  top: calc(var(--space) / 2);
-  transition: opacity 0.15s ease, background-color 0.15s ease;
-}
-
-.subscription-success-close:hover {
-  background-color: var(--color-background-offset);
-  opacity: 1;
-}
-
-.subscription-success-close-icon {
-  height: var(--space);
-  stroke-width: 2;
-  width: var(--space);
-}
-
-.subscription-success-content {
-  flex: 1;
-  overflow-y: auto;
-  padding-bottom: calc(var(--space));
-  padding-left: calc(var(--space));
-  padding-right: calc(var(--space));
-}
-
-.subscription-success-dialog {
-  animation: subscription-success-dialog-in 200ms ease-out;
-  background-color: var(--color-background-card);
-  border: 1px solid var(--color-background-offset);
-  border-radius: 0.5rem;
-  box-shadow: 0 var(--space) var(--space) -3px var(--color-background-offset),
-    0 var(--space) var(--space) -2px var(--color-background-offset);
-  color: var(--color-foreground);
-  display: flex;
-  flex-direction: column;
-  max-height: calc(100vh - 2rem);
-  max-width: 28rem;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.subscription-success-footer {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: var(--space);
-  padding: calc(var(--space));
-  padding-top: 0;
-}
-@media (min-width: 640px) {
-  .subscription-success-footer {
-    flex-direction: row;
-  }
-}
-
-.subscription-success-header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: calc(var(--space) / 2);
-  padding-left: calc(var(--space));
-  padding-right: calc(var(--space));
-  padding-top: calc(var(--space));
-}
-
 .subscription-success-message {
   color: var(--color-foreground-offset);
   font-family: var(--font-family-sans);
@@ -265,19 +335,11 @@
   line-height: calc(var(--font-size-large) * 1.4);
   margin: 0;
   text-align: center;
+  text-wrap: pretty;
 }
 .subscription-success-message strong {
   color: var(--color-foreground);
   font-weight: 600;
-}
-
-.subscription-success-upsell {
-  color: var(--color-foreground-offset);
-  font-family: var(--font-family-sans);
-  font-size: var(--font-size-base);
-  line-height: calc(var(--font-size-base) * 1.5);
-  margin: calc(var(--space)) 0 0;
-  text-align: center;
 }
 
 a.subscription-success-button {
@@ -289,27 +351,6 @@ a.subscription-success-button {
 a.subscription-success-button:hover {
   background-color: var(--color-action);
   opacity: 0.9;
-}
-
-.subscription-success-overlay {
-  align-items: center;
-  animation: subscription-success-overlay-in 150ms ease-out;
-  backdrop-filter: blur(2px);
-  background-color: rgba(0, 0, 0, 0.3);
-  display: flex;
-  font-family: var(--font-family-sans);
-  inset: 0;
-  justify-content: center;
-  position: fixed;
-  z-index: 50;
-}
-
-.subscription-success-title {
-  color: var(--color-foreground);
-  font-size: var(--font-size-large);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  margin: 0;
 }
 
 /* .tinted alphabetically placed */
