@@ -19,6 +19,7 @@
                 <div class="card-container card-container--paywalled">
                     <div class="card-container-header">{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</div>
                     {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                    <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
                 </div>
             {% else %}
                 {% include "subscriber_facing/snippets/email_frontmatter.html" with newsletter=newsletter email=email %}
