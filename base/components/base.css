@@ -551,3 +551,8 @@ blockquote blockquote {
   white-space: nowrap;
   width: 1px;
 }
+
+/* Adds margin to account for top nav */
+#webwall {
+  scroll-margin-top: 80px;
+}
