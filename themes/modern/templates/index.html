@@ -1,5 +1,5 @@
 {% extends "subscriber_facing/base.html" %}
-{% load mdw %}
+{% load render_markdown_for_web %}
 {% block extra_head %}
     {% include "subscriber_facing/snippets/metadata/subscribe.html" %}
 {% endblock extra_head %}
@@ -15,7 +15,7 @@
                      alt="">
             {% endif %}
             <h2 class="newsletter-name">{{ newsletter.name }}</h2>
-            <div class="newsletter-description">{{ newsletter.description|mdw:newsletter|safe }}</div>
+            <div class="newsletter-description">{% autoescape off %}{% render_markdown_for_web newsletter.description newsletter %}{% endautoescape %}</div>
             {% include "subscriber_facing/snippets/subscribe_form.html" %}
         </div>
     </div>

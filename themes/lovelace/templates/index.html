@@ -1,5 +1,5 @@
 {% extends "subscriber_facing/base.html" %}
-{% load mdw %}
+{% load render_markdown_for_web %}
 {% load mutable_url %}
 {% load localize %}
 {% block extra_head %}
@@ -9,7 +9,7 @@
     {{ newsletter_jsonld }}
     <h2>{{ newsletter.name }}</h2>
     {% if newsletter.description %}
-        <p>{{ newsletter.description|mdw:newsletter|safe }}</p>
+        <p>{% autoescape off %}{% render_markdown_for_web newsletter.description newsletter %}{% endautoescape %}</p>
     {% endif %}
         <h2>Subscribe</h2>
         {% include "subscriber_facing/snippets/subscribe_form.html" %}</li>
