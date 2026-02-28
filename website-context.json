@@ -951,6 +951,10 @@
           "title": "Meta Pixel Id",
           "type": "string"
         },
+        "metadata": {
+          "title": "Metadata",
+          "type": "object"
+        },
         "metadata_keys": {
           "title": "Metadata Keys",
           "type": "object"
@@ -1171,6 +1175,7 @@
         "is_sponsorship_enabled",
         "is_using_plausible",
         "locale",
+        "metadata",
         "metadata_keys",
         "name",
         "paid_subscription_free_trial_duration",
