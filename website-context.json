@@ -233,6 +233,10 @@
           "title": "Unescaped Fully Rendered Html For Web",
           "type": "string"
         },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
         "uses_footnotes": {
           "title": "Uses Footnotes",
           "type": "boolean"
@@ -251,6 +255,7 @@
         "related_emails",
         "source",
         "status",
+        "url",
         "uses_footnotes"
       ]
     },
