@@ -37,7 +37,7 @@
                     <p>
                         {% localized 'web.navigation.browse_full_archives' newsletter.locale %}
                         <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.full_archives' newsletter.locale %}</a>
-                        {% localized 'web.navigation.of_this_newsletter' newsletter.locale %}
+                        {% localized 'web.navigation.of_this_newsletter' newsletter.locale %}.
                     </p>
                 {% endif %}
                 {% include "subscriber_facing/snippets/sponsorships.html" %}
