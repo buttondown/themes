@@ -25,7 +25,7 @@
         <div class="email-list">
             {% for email in public_emails %}
                 <div class="email{% if email.featured %} featured{% endif %}">
-                    <a href="{% if newsletter.domain %}/archive/{{ email.slug }}{% else %}/{{ newsletter.username }}/archive/{{ email.slug }}{% endif %}">
+                    <a href="{{ email.get_absolute_url }}">
                         <h2>{{ email.subject }}</h2>
                     </a>
                     <div class="email-teaser">{{ email.rendered_html_for_teaser|safe }}</div>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="email-metadata-divider"></div>
                         <div class="email-metadata-read-more">
-                            <a href="{% if newsletter.domain %}/archive/{{ email.slug }}{% else %}/{{ newsletter.username }}/archive/{{ email.slug }}{% endif %}" class="email-metadata-read-more-link">
+                            <a href="{{ email.get_absolute_url }}" class="email-metadata-read-more-link">
                             {% localized 'web.button.read_more' newsletter.locale %}</a>
                         </div>
                     </div>
