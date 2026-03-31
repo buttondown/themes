@@ -75,6 +75,14 @@ body {
   svg {
     height: 24px;
   }
+
+  p,
+  li {
+    font-family: inherit;
+  }
+  p ~ p {
+    margin-bottom: 0;
+  }
 }
 
 .card-container {
@@ -428,6 +436,30 @@ blockquote {
   padding: calc(var(--space));
 }
 
+[data-blockquote-style="card"] blockquote {
+  border: 1px solid var(--color-background-offset);
+  border-radius: calc(var(--space) / 2);
+}
+
+[data-blockquote-style="bar"] blockquote {
+  background-color: transparent;
+  border: 0;
+  border-left: 3px solid var(--color-foreground-offset);
+  border-radius: 0;
+  padding-left: calc(var(--space));
+}
+
+[data-blockquote-style="editorial"] blockquote {
+  background-color: transparent;
+  border: none;
+  font-style: italic;
+}
+
+[data-blockquote-style="editorial"] blockquote p,
+[data-blockquote-style="editorial"] blockquote li {
+  font-size: var(--font-size-large);
+}
+
 blockquote blockquote {
   margin-bottom: 0;
 }
@@ -465,6 +497,82 @@ blockquote blockquote {
 .announcement-bar a:hover {
   background-color: transparent;
   opacity: 0.8;
+}
+
+.subscriber-toast {
+  align-items: center;
+  animation: subscriber-toast-enter 180ms ease-out;
+  background-color: color-mix(in srgb, var(--tint-color) 92%, black 8%);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.16);
+  color: #fff;
+  display: inline-flex;
+  font-family: var(--font-brand);
+  font-size: var(--font-size-small);
+  gap: calc(var(--space) / 2);
+  left: 50%;
+  max-width: min(calc(100vw - (var(--space) * 2)), 32rem);
+  padding: calc(var(--space) * 0.5) calc(var(--space) * 0.75);
+  position: fixed;
+  top: var(--space);
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.subscriber-toast[data-state="closing"] {
+  animation: subscriber-toast-exit 180ms ease-in forwards;
+}
+
+.subscriber-toast__message {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subscriber-toast__close {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  flex: none;
+  font-size: 1rem;
+  height: 1.25rem;
+  justify-content: center;
+  line-height: 1;
+  opacity: 0.8;
+  padding: 0;
+  width: 1.25rem;
+}
+
+.subscriber-toast__close:hover {
+  opacity: 1;
+}
+
+@keyframes subscriber-toast-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes subscriber-toast-exit {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-0.5rem);
+  }
 }
 
 .buttondown-button {
@@ -555,4 +663,8 @@ blockquote blockquote {
 /* Adds margin to account for top nav */
 #webwall {
   scroll-margin-top: 80px;
+}
+
+sniper-link::part(button) {
+  margin-top: calc(var(--space) / 2);
 }

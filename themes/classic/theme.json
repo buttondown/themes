@@ -20,7 +20,7 @@
             "type": "color",
             "default": "#0069FF",
             "header": "Accent color",
-            "description": "Primary accent color for light mode"
+            "description": "Primary accent color"
         },
         "color-accent-dark": {
             "type": "color",
@@ -40,15 +40,27 @@
             "header": "Accent font",
             "description": "Font family for headings and accents"
         },
-        "font-size-blockquote": {
+        "color-background": {
+            "type": "color",
+            "default": "#FAFAFA",
+            "header": "Background color",
+            "description": "Page background color"
+        },
+        "color-background-dark": {
+            "type": "color",
+            "default": "#1A1A1E",
+            "header": "Background color (dark mode)",
+            "description": "Page background color for dark mode"
+        },
+        "blockquote_style": {
             "type": "select",
-            "default": "20px",
-            "header": "Blockquote font size",
-            "description": "Font size for blockquote text",
+            "default": "editorial",
+            "header": "Blockquote style",
+            "description": "Visual style for blockquote text",
             "options": [
-                { "id": "14px", "label": "Small" },
-                { "id": "16px", "label": "Medium" },
-                { "id": "20px", "label": "Large" }
+                { "id": "card", "label": "Card" },
+                { "id": "bar", "label": "Bar" },
+                { "id": "editorial", "label": "Editorial" }
             ]
         }
     }

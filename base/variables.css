@@ -50,6 +50,9 @@
   --email-image-display: none;
   --corner-shape: round;
   --newsletter-icon-size: 24px;
+
+  /* Z-index scale (shared with author-facing design system) */
+  --z-dialog: 20;
 }
 
 @media (prefers-color-scheme: dark) {

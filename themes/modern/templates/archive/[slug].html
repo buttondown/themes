@@ -48,9 +48,7 @@
                     {% endif %}
                 </div>
                 {% include "subscriber_facing/snippets/comments.html" %}
-                <div class="card-container">
-                    {% include "subscriber_facing/snippets/share_form.html" with title=email.subject url=email.get_absolute_url newsletter=newsletter %}
-                </div>
+                {% include "subscriber_facing/snippets/share_form.html" with title=email.subject url=email.get_absolute_url newsletter=newsletter %}
             {% endif %}
         </article>
     </div>

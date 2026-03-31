@@ -43,6 +43,7 @@
         "confirmation_rate",
         "complaint_rate",
         "permanent_failure_rate",
+        "referrals",
         "bluesky_followers",
         "mastodon_followers"
       ],
@@ -397,6 +398,17 @@
           ],
           "title": "Subject"
         },
+        "twitter_card_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Twitter Card Type"
+        },
         "unescaped_fully_rendered_html_for_web": {
           "anyOf": [
             {
@@ -415,6 +427,16 @@
         "uses_footnotes": {
           "title": "Uses Footnotes",
           "type": "boolean"
+        },
+        "newsletter": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FilteredNewsletter"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "required": [
@@ -430,8 +452,12 @@
         "related_emails",
         "source",
         "status",
+        "subject",
+        "twitter_card_type",
+        "unescaped_fully_rendered_html_for_web",
         "url",
-        "uses_footnotes"
+        "uses_footnotes",
+        "newsletter"
       ],
       "title": "FilteredEmail",
       "type": "object"
@@ -896,6 +922,17 @@
           ],
           "title": "Icon"
         },
+        "icon_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Icon Url"
+        },
         "id": {
           "format": "uuid",
           "title": "Id",
@@ -1014,6 +1051,13 @@
           ],
           "title": "Reply To Address"
         },
+        "comment_facing_name": {
+          "title": "Comment Facing Name",
+          "type": "string"
+        },
+        "sending_domain_status": {
+          "$ref": "#/$defs/SendingDomainStatus"
+        },
         "seline_code": {
           "anyOf": [
             {
@@ -1025,12 +1069,9 @@
           ],
           "title": "Seline Code"
         },
-        "sharing_networks": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Sharing Networks",
-          "type": "array"
+        "shard": {
+          "title": "Shard",
+          "type": "string"
         },
         "shopify_url": {
           "anyOf": [
@@ -1249,6 +1290,11 @@
             }
           ],
           "title": "Web Header"
+        },
+        "owning_account_id": {
+          "format": "uuid",
+          "title": "Owning Account Id",
+          "type": "string"
         }
       },
       "required": [
@@ -1266,6 +1312,7 @@
         "custom_preamble",
         "default_behavior_for_subscriber_imports",
         "description",
+        "disablement_reason",
         "domain",
         "email_address",
         "email_domain",
@@ -1273,6 +1320,8 @@
         "effective_locale",
         "h2_redirect_url",
         "hidden_settings",
+        "icon",
+        "icon_url",
         "id",
         "image",
         "indexing_mode",
@@ -1290,7 +1339,12 @@
         "paid_subscriptions_status",
         "prices",
         "publicly_visible_analytics",
-        "sharing_networks",
+        "reddit_code",
+        "reply_to_address",
+        "comment_facing_name",
+        "sending_domain_status",
+        "seline_code",
+        "shard",
         "should_add_utm_sources",
         "should_be_private",
         "should_disable_non_premium_subscriptions",
@@ -1313,7 +1367,11 @@
         "timezone",
         "unsubscription_reasons",
         "upgrade_text",
-        "username"
+        "username",
+        "web_css",
+        "web_footer",
+        "web_header",
+        "owning_account_id"
       ],
       "title": "FilteredNewsletter",
       "type": "object"
@@ -1681,6 +1739,7 @@
         "en",
         "fr",
         "de",
+        "ne",
         "pl-PL",
         "pt-BR",
         "ru",
@@ -1845,6 +1904,15 @@
       ],
       "title": "SelectOptionConfig",
       "type": "object"
+    },
+    "SendingDomainStatus": {
+      "enum": [
+        "none",
+        "invalid",
+        "valid"
+      ],
+      "title": "SendingDomainStatus",
+      "type": "string"
     },
     "Status": {
       "enum": [

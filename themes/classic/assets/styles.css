@@ -19,7 +19,7 @@ blockquote {
 
 blockquote p,
 blockquote li {
-  font-size: var(--font-size-blockquote, var(--font-size-large));
+  font-size: var(--font-size-large);
 }
 
 .email-detail__header {
