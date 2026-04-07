@@ -17,7 +17,11 @@
                 {% if newsletter.web_header %}{{ newsletter.web_header|md:newsletter|safe }}{% endif %}
                 <div class="email-body-paywall">{{ email.rendered_html_for_teaser|safe }}</div>
                 <div class="card-container card-container--paywalled">
-                    <div class="card-container-header">{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</div>
+                    {% if email.is_subscriberwalled %}
+                        <div class="card-container-header">{% localized "email.subscriber.cta.read_full_issue" newsletter.locale %}</div>
+                    {% else %}
+                        <div class="card-container-header">{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</div>
+                    {% endif %}
                     {% include "subscriber_facing/snippets/subscribe_form.html" %}
                     <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
                 </div>

@@ -21,7 +21,11 @@
     {% if email.show_teaser and subscriber_facing_authentication.email_address != newsletter.owning_account.email_address %}
         {{ email.rendered_html_for_teaser|safe }}
         <hr>
-        <p><strong>{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</strong></p>
+        {% if email.is_subscriberwalled %}
+            <p><strong>{% localized "email.subscriber.cta.read_full_issue" newsletter.locale %}</strong></p>
+        {% else %}
+            <p><strong>{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</strong></p>
+        {% endif %}
         {% include "subscriber_facing/snippets/subscribe_form.html" %}
         <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
     {% else %}
