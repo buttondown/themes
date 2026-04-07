@@ -22,6 +22,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 0;
+  gap: calc(var(--space));
 }
 
 .header-navigation {
@@ -40,6 +42,7 @@
 
   h1 {
     margin: 0;
+    min-width: 0;
   }
 }
 
@@ -87,6 +90,7 @@
   gap: calc(var(--space));
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .header-navigation-link {
@@ -150,6 +154,8 @@
   text-transform: uppercase;
   color: var(--color-foreground);
   text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header-brand-name {

@@ -466,13 +466,13 @@ a.subscription-success-button:hover {
   }
 }
 
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-.size-4 {
-  height: 1rem;
-  width: 1rem;
+.action-button-spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
 }
 
 .archive__button-pending-indicator {

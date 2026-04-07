@@ -473,6 +473,7 @@ blockquote blockquote {
   margin-bottom: calc(var(--space));
   width: var(--newsletter-icon-size);
   display: block;
+  align-self: center;
 }
 
 .announcement-bar {
