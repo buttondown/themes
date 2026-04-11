@@ -196,6 +196,110 @@
   opacity: 0.8;
 }
 
+/* Availability calendar */
+#sponsorship-calendar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space) * 1.5);
+  justify-content: center;
+  margin-bottom: calc(var(--space) * 1.5);
+}
+
+.sponsorship-calendar-month {
+  flex: 0 0 auto;
+  min-width: 260px;
+}
+
+.sponsorship-calendar-month-header {
+  color: var(--color-foreground);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  margin-bottom: calc(var(--space) / 2);
+  text-align: center;
+}
+
+.sponsorship-calendar-grid {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.sponsorship-calendar-header {
+  color: var(--color-foreground-offset-2);
+  font-size: var(--font-size-extra-small);
+  font-weight: 500;
+  padding: calc(var(--space) / 4);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sponsorship-calendar-day {
+  align-items: center;
+  aspect-ratio: 1;
+  border-radius: calc(var(--space) / 4);
+  display: flex;
+  font-size: var(--font-size-small);
+  justify-content: center;
+}
+
+.sponsorship-calendar-day--outside {
+  color: var(--color-background-offset);
+}
+
+.sponsorship-calendar-day--empty {
+  color: var(--color-foreground-offset-2);
+}
+
+.sponsorship-calendar-day--available {
+  background-color: var(--color-action);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.sponsorship-calendar-day--available:hover {
+  opacity: 0.85;
+  transform: scale(1.1);
+}
+
+.sponsorship-calendar-day--booked {
+  background-color: var(--color-background-offset);
+  color: var(--color-foreground-offset-2);
+  font-weight: 500;
+}
+
+.sponsorship-calendar-legend {
+  align-items: center;
+  display: flex;
+  gap: var(--space);
+  justify-content: center;
+  margin-bottom: calc(var(--space) * 2);
+}
+
+.sponsorship-calendar-legend-item {
+  align-items: center;
+  color: var(--color-foreground-offset);
+  display: flex;
+  font-size: var(--font-size-small);
+  gap: calc(var(--space) / 4);
+}
+
+.sponsorship-calendar-legend-dot {
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+}
+
+.sponsorship-calendar-legend-dot--available {
+  background-color: var(--color-action);
+}
+
+.sponsorship-calendar-legend-dot--booked {
+  background-color: var(--color-background-offset);
+}
+
 /* Sponsor submit page */
 .sponsor-submit-container {
   font-family: var(--font-brand);
@@ -342,6 +446,8 @@
 }
 
 .sponsor-field textarea,
+.sponsor-field input[type="email"],
+.sponsor-field input[type="text"],
 .sponsor-field input[type="url"] {
   background-color: var(--color-background);
   border: 1px solid var(--color-background-offset);
@@ -360,6 +466,8 @@
 }
 
 .sponsor-field textarea:focus,
+.sponsor-field input[type="email"]:focus,
+.sponsor-field input[type="text"]:focus,
 .sponsor-field input[type="url"]:focus {
   border-color: var(--color-action);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-action) 10%, transparent);
