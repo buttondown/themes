@@ -31,12 +31,14 @@
                 {% include "subscriber_facing/snippets/related_emails.html" %}
                 {% include "subscriber_facing/snippets/attachments.html" %}
                 <div class="card-container">
-                    <div class="card-container-header">
-                        {% if not newsletter.subscription_form_text %}
-                            {% localized 'web.email.subscription.form_text' newsletter.locale %}
-                        {% endif %}
-                    </div>
-                    {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                    {% if not subscriber %}
+                        <div class="card-container-header">
+                            {% if not newsletter.subscription_form_text %}
+                                {% localized 'web.email.subscription.form_text' newsletter.locale %}
+                            {% endif %}
+                        </div>
+                        {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                    {% endif %}
                     {% if not newsletter.should_hide_social_embeds %}
                         {% with bluesky_url=email.bluesky_url twitter_url=email.twitter_url %}
                             {% if bluesky_url or twitter_url %}

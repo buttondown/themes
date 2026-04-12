@@ -44,7 +44,9 @@
                         {% endif %}
                     </p>
                 </div>
-                {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                {% if not subscriber %}
+                    {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                {% endif %}
                 {% include "subscriber_facing/snippets/related_emails.html" %}
                 {% include "subscriber_facing/snippets/attachments.html" %}
                 {% include "subscriber_facing/snippets/share_form.html" with title=email.subject url=email.get_absolute_url newsletter=newsletter %}
