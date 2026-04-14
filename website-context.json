@@ -104,17 +104,18 @@
     },
     "DisablementReason": {
       "enum": [
-        "failed_automatic_audit",
-        "unapproved_usage",
-        "harmful_content",
         "deceptive_content",
-        "suspicious_activity",
-        "unverifiable_or_problematic_import",
-        "incident",
+        "failed_automatic_audit",
+        "failed_manual_audit",
+        "firewall",
+        "harmful_content",
         "high_rate_of_complaints",
         "high_rate_of_rejections",
+        "incident",
         "seo",
-        "firewall"
+        "suspicious_activity",
+        "unapproved_usage",
+        "unverifiable_or_problematic_import"
       ],
       "title": "DisablementReason",
       "type": "string"
