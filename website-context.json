@@ -50,6 +50,16 @@
       "title": "AnalyticsKey",
       "type": "string"
     },
+    "ArchiveVisibility": {
+      "enum": [
+        "disabled",
+        "enabled",
+        "enabled_for_paid_subscribers",
+        "enabled_for_subscribers"
+      ],
+      "title": "ArchiveVisibility",
+      "type": "string"
+    },
     "AutonomyField": {
       "properties": {
         "key": {
@@ -503,6 +513,9 @@
         "archive_theme": {
           "title": "Archive Theme",
           "type": "string"
+        },
+        "archive_visibility": {
+          "$ref": "#/$defs/ArchiveVisibility"
         },
         "automatically_remind_unconfirmed_subscribers": {
           "title": "Automatically Remind Unconfirmed Subscribers",
@@ -1304,6 +1317,7 @@
         "address",
         "archive_navigation_links",
         "archive_theme",
+        "archive_visibility",
         "automatically_remind_unconfirmed_subscribers",
         "autonomy_fields",
         "body_template",
