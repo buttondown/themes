@@ -14,11 +14,11 @@
 @import "../components/youtube.css";
 
 a {
-  color: var(--tint-color);
+  color: var(--color-action);
 }
 
 a:hover {
-  background-color: color-mix(in srgb, var(--tint-color) 20%, transparent);
+  background-color: color-mix(in srgb, var(--color-action) 20%, transparent);
 }
 
 .app-container {
@@ -341,7 +341,7 @@ ul li {
     max-width: 20px;
 
     &:hover {
-      fill: var(--tint-color);
+      fill: var(--color-action);
     }
   }
 
@@ -354,7 +354,7 @@ ul li {
       background-color: transparent !important ;
 
       svg {
-        fill: var(--tint-color);
+        fill: var(--color-action);
       }
     }
   }
@@ -477,7 +477,7 @@ blockquote blockquote {
 }
 
 .announcement-bar {
-  background-color: var(--tint-color);
+  background-color: var(--color-action);
 }
 
 .announcement-bar,
@@ -503,7 +503,7 @@ blockquote blockquote {
 .subscriber-toast {
   align-items: center;
   animation: subscriber-toast-enter 180ms ease-out;
-  background-color: color-mix(in srgb, var(--tint-color) 92%, black 8%);
+  background-color: color-mix(in srgb, var(--color-action) 92%, black 8%);
   border-radius: 999px;
   box-shadow: 0 10px 30px rgb(0 0 0 / 0.16);
   color: #fff;
@@ -577,7 +577,7 @@ blockquote blockquote {
 }
 
 .buttondown-button {
-  background-color: var(--tint-color);
+  background-color: var(--color-action);
   border-radius: calc(var(--space) / 2);
   color: #ffffff;
   display: block;
@@ -592,7 +592,7 @@ blockquote blockquote {
   text-decoration: none;
 
   &:hover {
-    background-color: color-mix(in srgb, var(--tint-color) 80%, black);
+    background-color: color-mix(in srgb, var(--color-action) 80%, black);
   }
 
   &[data-align="left"] {

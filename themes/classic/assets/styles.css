@@ -49,7 +49,7 @@ blockquote li {
 
 .email-metadata-read-more-link {
   align-items: center;
-  background: var(--tint-color);
+  background: var(--color-action);
   border-radius: var(--space);
   color: #fff;
   corner-shape: var(--corner-shape);
@@ -62,7 +62,7 @@ blockquote li {
 }
 
 .email-metadata-read-more-link:hover {
-  background: color-mix(in srgb, var(--tint-color) 80%, transparent);
+  background: color-mix(in srgb, var(--color-action) 80%, transparent);
 }
 
 .email-metadata svg {

@@ -355,10 +355,10 @@ a.subscription-success-button:hover {
 
 /* .tinted alphabetically placed */
 .tinted {
-  background: var(--tint-color) !important;
+  background: var(--color-action) !important;
 }
 .tinted:hover {
-  background: var(--tint-color);
+  background: var(--color-action);
   opacity: 0.9;
 }
 

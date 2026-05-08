@@ -9,7 +9,7 @@
 }
 
 .attachment-link {
-  background-color: var(--tint-color);
+  background-color: var(--color-action);
   color: var(--color-background);
   display: inline-block;
   text-decoration: none;

@@ -38,7 +38,6 @@ The `newsletter.theme_configuration` attribute exposes theme-defined tokens in t
 ```html
 <style>
   :root {
-    --tint-color: {{ newsletter.tint_color }};
     {% for key, value in newsletter.theme_configuration.items %}
       --{{ key }}: {{ value }};
     {% endfor %}
@@ -46,7 +45,7 @@ The `newsletter.theme_configuration` attribute exposes theme-defined tokens in t
 </style>
 ```
 
-`tint_color` is set separately (Settings → General) but follows the same mechanism. Setting tokens via the UI is equivalent to writing custom CSS that overrides those variables.
+Setting tokens via the UI is equivalent to writing custom CSS that overrides those variables. The accent color for archives is driven by `color-accent` / `color-accent-dark` in `theme_configuration` and surfaced via `--color-action` in `subscriber_facing/styles/variables.css`.
 
 ### 2. Custom CSS
 

@@ -108,10 +108,10 @@
 .email-link:hover .email-title,
 .email-link:hover .email-description,
 .email-link:hover .email-metadata {
-  color: var(--tint-color);
+  color: var(--color-action);
 }
 .email-link:hover .email-image img {
-  outline: calc(var(--space) / 4) solid var(--tint-color);
+  outline: calc(var(--space) / 4) solid var(--color-action);
 }
 
 /* Remove excess margin on featured/pinned posts in grid layout */

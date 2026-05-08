@@ -28,6 +28,7 @@
         "popular_urls",
         "comments",
         "comments_by_email",
+        "replies",
         "retention",
         "unsubscription_reasons",
         "automation_opens",
@@ -97,6 +98,14 @@
       ],
       "title": "AutonomyField",
       "type": "object"
+    },
+    "CaptchaProvider": {
+      "enum": [
+        "turnstile",
+        "hcaptcha"
+      ],
+      "title": "CaptchaProvider",
+      "type": "string"
     },
     "CheckboxFieldConfig": {
       "properties": {
@@ -539,6 +548,9 @@
           ],
           "title": "Bluesky Username"
         },
+        "captcha_provider": {
+          "$ref": "#/$defs/CaptchaProvider"
+        },
         "body_template": {
           "title": "Body Template",
           "type": "string"
@@ -600,6 +612,17 @@
         "custom_archives_template": {
           "title": "Custom Archives Template",
           "type": "string"
+        },
+        "custom_tracking_host": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Custom Tracking Host"
         },
         "custom_email_template": {
           "title": "Custom Email Template",
@@ -1043,6 +1066,10 @@
           "title": "Publicly Visible Analytics",
           "type": "array"
         },
+        "requires_custom_tracking_domain": {
+          "title": "Requires Custom Tracking Domain",
+          "type": "boolean"
+        },
         "reddit_code": {
           "anyOf": [
             {
@@ -1320,6 +1347,7 @@
         "archive_visibility",
         "automatically_remind_unconfirmed_subscribers",
         "autonomy_fields",
+        "captcha_provider",
         "body_template",
         "custom_archive_template",
         "custom_archives_template",
@@ -1354,6 +1382,7 @@
         "paid_subscriptions_status",
         "prices",
         "publicly_visible_analytics",
+        "requires_custom_tracking_domain",
         "reddit_code",
         "reply_to_address",
         "comment_facing_name",
@@ -1613,6 +1642,17 @@
           "title": "Referral Code",
           "type": "string"
         },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Source"
+        },
         "stripe_customer": {
           "anyOf": [
             {
@@ -1756,8 +1796,10 @@
         "fr",
         "de",
         "ne",
+        "nb-NO",
         "pl-PL",
         "pt-BR",
+        "pt-PT",
         "ru",
         "es",
         "tr",
@@ -1969,10 +2011,12 @@
     "UnexpandableStripeSubscription": {
       "properties": {
         "subscription_id": {
+          "description": "The Stripe subscription ID (e.g. `sub_...`).",
           "title": "Subscription Id",
           "type": "string"
         },
         "url": {
+          "description": "A deep link to the subscription in the Stripe dashboard.",
           "title": "Url",
           "type": "string"
         },
@@ -1992,21 +2036,33 @@
               "type": "null"
             }
           ],
+          "description": "When the subscription ended, or null if still active.",
           "title": "Ending Date"
         },
         "amount": {
-          "title": "Amount",
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "The subscription amount in the smallest currency unit (e.g. cents). Null for tiered-pricing plans.",
+          "title": "Amount"
         },
         "currency": {
+          "description": "The three-letter ISO currency code (e.g. `usd`).",
           "title": "Currency",
           "type": "string"
         },
         "cadence": {
+          "description": "The billing cadence (e.g. `month`, `year`).",
           "title": "Cadence",
           "type": "string"
         },
         "status": {
+          "description": "The Stripe subscription status (e.g. `active`, `canceled`, `past_due`).",
           "title": "Status",
           "type": "string"
         },
@@ -2055,7 +2111,6 @@
         "subscription_id",
         "url",
         "creation_date",
-        "amount",
         "currency",
         "cadence",
         "status"

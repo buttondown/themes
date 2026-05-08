@@ -26,7 +26,7 @@
   --color-foreground: #404040;
   --color-foreground-offset: #525252;
   --color-foreground-offset-2: #737373;
-  --color-action: var(--color-accent, var(--tint-color, (42.4% 0.199 265.638)));
+  --color-action: var(--color-accent, oklch(42.4% 0.199 265.638));
 
   --color-background-dark: oklch(14.1% 0.005 285.823);
   --color-background-card-dark: oklch(21% 0.006 285.885);
@@ -34,10 +34,7 @@
   --color-foreground-dark: oklch(90% 0 0);
   --color-foreground-offset-dark: oklch(75% 0 0);
   --color-foreground-offset-2-dark: oklch(65% 0 0);
-  --color-action-dark: var(
-    --color-accent-dark,
-    var(--tint-color, (54.6% 0.245 262.881))
-  );
+  --color-action-dark: var(--color-accent-dark, oklch(54.6% 0.245 262.881));
 
   --font-size-extra-small: 12px;
   --font-size-small: 14px;
@@ -52,6 +49,8 @@
   --newsletter-icon-size: 24px;
 
   /* Z-index scale (shared with author-facing design system) */
+  --z-featured: 1;
+  --z-header: 10;
   --z-dialog: 20;
 }
 

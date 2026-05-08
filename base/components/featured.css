@@ -16,7 +16,7 @@
   background-color: var(--color-featured);
   padding: 1rem !important;
   border: var(--color-featured-border) 1px solid !important;
-  z-index: 10;
+  z-index: var(--z-featured);
   margin-bottom: 1rem;
   margin-top: 1rem;
   position: relative;

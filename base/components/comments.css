@@ -4,11 +4,11 @@
 }
 
 .comment--author {
-  border-color: var(--tint-color);
-  background: rgb(from var(--tint-color) r g b / 10%) !important;
+  border-color: var(--color-action);
+  background: rgb(from var(--color-action) r g b / 10%) !important;
 
   .comment__author-link {
-    color: var(--tint-color);
+    color: var(--color-action);
   }
 }
 
@@ -71,12 +71,12 @@
   text-decoration: none;
 
   &:hover {
-    color: var(--tint-color);
+    color: var(--color-action);
   }
 }
 
 .comment__author-badge {
-  background-color: var(--tint-color);
+  background-color: var(--color-action);
   color: white;
   padding: 2px 6px;
   border-radius: 9999px;
@@ -98,7 +98,7 @@
   text-decoration: none;
 
   &:hover {
-    color: var(--tint-color);
+    color: var(--color-action);
     text-decoration: underline;
   }
 }
@@ -170,7 +170,7 @@
     text-decoration: none;
 
     &:hover {
-      color: var(--tint-color);
+      color: var(--color-action);
     }
   }
 }
@@ -187,7 +187,7 @@
     font-weight: 500;
 
     &:hover {
-      color: var(--tint-color);
+      color: var(--color-action);
     }
   }
 }
@@ -253,7 +253,7 @@
 
   &:focus {
     outline: none;
-    border-color: var(--tint-color);
+    border-color: var(--color-action);
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
   }
 
