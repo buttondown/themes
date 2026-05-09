@@ -178,6 +178,7 @@
   font-family: var(--font-brand) !important;
   font-size: var(--font-size-small);
   line-height: 1.4;
+  overflow-wrap: anywhere;
   background-color: var(--color-action) !important;
   border-radius: var(--space) !important;
   padding: calc(var(--space) / 2) calc(var(--space)) !important;
