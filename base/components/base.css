@@ -33,6 +33,37 @@ a:hover {
   padding: var(--space);
 }
 
+.archive-login-gate > :first-child {
+  margin-top: 0;
+}
+
+.archive-login-gate-form {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space) / 2);
+}
+
+.archive-login-gate-form input[type="email"] {
+  appearance: none;
+  border: 1px solid var(--color-background-offset);
+  border-radius: var(--space);
+  box-sizing: border-box;
+  corner-shape: var(--corner-shape);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.5rem;
+  padding: calc(var(--space) / 2) var(--space);
+  width: 100%;
+}
+
+.archive-login-gate-form .buttondown-button {
+  margin: calc(var(--space) / 2) 0 0;
+  max-width: none;
+  width: 100%;
+}
+
 blockquote > *:first-child {
   margin-top: 0;
 }
