@@ -5,9 +5,14 @@
 {% block extra_head %}
     {% include "subscriber_facing/snippets/metadata/subscribe.html" %}
 {% endblock extra_head %}
+{% block header_brand %}
+    {% if newsletter.theme_configuration.heading_placement != 'content' %}{{ block.super }}{% endif %}
+{% endblock header_brand %}
 {% block content %}
     {{ newsletter_jsonld }}
-    <h2>{{ newsletter.name }}</h2>
+    {% if newsletter.theme_configuration.heading_placement == 'content' %}
+        <h1>{{ newsletter.name }}</h1>
+    {% endif %}
     {% if newsletter.description %}
         <p>{% autoescape off %}{% render_markdown_for_web newsletter.description newsletter %}{% endautoescape %}</p>
     {% endif %}

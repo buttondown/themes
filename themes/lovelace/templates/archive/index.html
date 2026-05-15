@@ -7,8 +7,13 @@
 {% block extra_head %}
     {% include "subscriber_facing/snippets/metadata/archive.html" %}
 {% endblock extra_head %}
+{% block header_brand %}
+    {% if newsletter.theme_configuration.heading_placement != 'content' %}{{ block.super }}{% endif %}
+{% endblock header_brand %}
 {% block content %}
-    <h1>{{ newsletter.name }}</h1>
+    {% if newsletter.theme_configuration.heading_placement == 'content' %}
+        <h1>{{ newsletter.name }}</h1>
+    {% endif %}
     <h2>{% localized 'web.navigation.archive' newsletter.locale %}</h2>
         <ul>
             {% for email in public_emails %}

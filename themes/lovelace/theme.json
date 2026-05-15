@@ -15,6 +15,16 @@
             "default": false,
             "header": "Dark mode",
             "description": "Match your reader's system dark mode preference"
+        },
+        "heading_placement": {
+            "type": "select",
+            "default": "header",
+            "header": "Primary heading placement",
+            "description": "Where the newsletter name should appear as the page's main heading.",
+            "options": [
+                { "id": "header", "label": "Header" },
+                { "id": "content", "label": "Page content" }
+            ]
         }
     }
 }
