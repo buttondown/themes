@@ -30,12 +30,22 @@
 }
 
 .email-list {
+  max-width: none;
   display: grid;
-  grid-template-columns: repeat(var(--archive-column-count), 1fr);
   gap: calc(var(--space));
   width: calc(100vw - 2rem);
-  max-width: none;
-  padding-top: 0;
+  
+  @media (width >= 500px) {
+    padding-top: 0;
+    /* Make grid 2 cols for small-medium size screens */
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (width > 900px) {
+    padding-top: 0;
+    /* Honor user's grid preference on tablet and up */
+    grid-template-columns: repeat(var(--archive-column-count), 1fr);
+  }
 }
 .email-list hr {
   display: none;
