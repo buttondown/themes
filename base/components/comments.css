@@ -1,19 +1,10 @@
 .comment {
-  padding: var(--space);
+  padding: calc(var(--space) * 0.75) 0 0;
   overflow-wrap: break-word;
 }
 
-.comment--author {
-  border-color: var(--color-action);
-  background: rgb(from var(--color-action) r g b / 10%) !important;
-
-  .comment__author-link {
-    color: var(--color-action);
-  }
-}
-
 .comment__header {
-  margin-bottom: calc(var(--space) * 0.75);
+  margin-bottom: calc(var(--space) * 0.25);
 }
 
 .comment__author {
@@ -59,6 +50,7 @@
 .comment__author-name {
   font-size: var(--font-size-small);
   font-weight: 600;
+  line-height: 1.2;
   color: var(--color-foreground);
   font-family: var(--font-brand);
   display: flex;
@@ -89,8 +81,10 @@
 
 .comment__timestamp {
   font-size: var(--font-size-extra-small);
+  line-height: 1.2;
   color: var(--color-foreground-offset-2) !important;
   font-family: var(--font-brand);
+  align-self: flex-start;
 }
 
 .comment__permalink {
@@ -119,8 +113,8 @@
   }
 
   blockquote {
-    margin: 0 0 calc(var(--space) / 2);
-    padding: calc(var(--space) / 2);
+    margin: 0 0 calc(var(--space) * 0.5);
+    padding: calc(var(--space) * 0.5);
     font-size: inherit;
     line-height: inherit;
     font-family: inherit;
@@ -154,7 +148,7 @@
 }
 
 .comment__footer {
-  margin-top: calc(var(--space) * 0.75);
+  margin-top: calc(var(--space) * 0.25);
   padding-left: calc(36px + var(--space) * 0.75);
 }
 
@@ -168,23 +162,6 @@
   a {
     color: var(--color-foreground-offset-2);
     text-decoration: none;
-
-    &:hover {
-      color: var(--color-action);
-    }
-  }
-}
-
-.comment__reply-to {
-  font-size: var(--font-size-extra-small);
-  font-family: var(--font-brand);
-  color: var(--color-foreground-offset-2);
-  margin-bottom: calc(var(--space) / 2);
-
-  a {
-    color: var(--color-foreground-offset);
-    text-decoration: none;
-    font-weight: 500;
 
     &:hover {
       color: var(--color-action);
@@ -210,7 +187,7 @@
   border: 1px solid #fca5a5;
   color: #991b1b;
   padding: 10px;
-  border-radius: calc(var(--space) / 2);
+  border-radius: calc(var(--space) * 0.5);
   corner-shape: var(--corner-shape);
   margin-bottom: 15px;
   font-size: var(--font-size-extra-small);
@@ -226,7 +203,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: calc(var(--space) / 2);
+  gap: calc(var(--space) * 0.5);
 }
 
 .comment-input__field {
@@ -242,14 +219,14 @@
   width: 100%;
   border: 1px solid var(--color-background-offset);
   box-sizing: border-box;
-  padding: calc(var(--space) / 2);
+  padding: calc(var(--space) * 0.5);
   font-family: var(--font-brand);
   font-size: var(--font-size-small);
   color: #000;
   background-color: #fff;
   transition: border-color 0.2s ease-in-out;
   corner-shape: var(--corner-shape);
-  border-radius: calc(var(--space) / 2);
+  border-radius: calc(var(--space) * 0.5);
 
   &:focus {
     outline: none;
@@ -301,8 +278,9 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+  padding: calc(var(--space) * 0.25) 0 calc(var(--space)) 0;
   border: 1px solid var(--color-background-offset);
-  border-radius: calc(var(--space) / 2);
+  border-radius: calc(var(--space) * 0.5);
   background-color: var(--color-background-card);
 }
 
@@ -310,15 +288,132 @@
   display: none;
 }
 
-.archive__comment-item {
-  margin-bottom: 0;
-  border-bottom: 1px solid var(--color-background-offset);
+.archive__comments-list {
+  --tree-line-color: oklch(75% 0 0);
+}
 
-  &:last-child {
-    border-bottom: none;
+.archive__comment-row {
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 0 var(--space);
+  scroll-margin-top: 80px;
+}
+
+/* Inside the row, .comment's own left padding is replaced by the row's
+   padding-left so the line column's hook can meet the avatar with no gap. */
+.archive__comment-body .comment {
+  padding-left: 0;
+}
+
+.archive__comment-lines {
+  display: flex;
+  flex-shrink: 0;
+}
+
+/* Each line column is one depth of tree drawing. Width matches the avatar
+   so the vertical line at column-center sits exactly under the parent's
+   avatar centerline; the hook curls from there over to the right edge,
+   which is where the next-level body (and its avatar) begins. */
+.archive__comment-line {
+  position: relative;
+  width: 36px;
+  flex-shrink: 0;
+}
+
+/* Base vertical line: full row height for "vertical" and "vertical-right";
+   stops at the curve start for "up-right" so the line doesn't continue
+   below a last-sibling row. */
+.archive__comment-line--vertical::before,
+.archive__comment-line--vertical-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 18px;
+  border-left: 1px solid var(--tree-line-color);
+}
+
+.archive__comment-line--up-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: calc(var(--space) * 0.75 + 2px);
+  left: 18px;
+  border-left: 1px solid var(--tree-line-color);
+}
+
+/* Corner curve overlaid on the vertical: a 16px arc that branches right
+   from the column-center vertical and lands at the avatar's vertical center
+   (.comment padding-top + half-avatar = var(--space) * 0.75 + 18px). The
+   curve stops 2px before the column's right edge so there's a small gap
+   before the avatar. Both border-left and border-bottom are drawn so the
+   curve has a uniform 1px stroke. */
+.archive__comment-line--up-right::after,
+.archive__comment-line--vertical-right::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--space) * 0.75 + 2px);
+  left: 18px;
+  width: 16px;
+  height: 16px;
+  border-left: 1px solid var(--tree-line-color);
+  border-bottom: 1px solid var(--tree-line-color);
+  border-bottom-left-radius: 16px;
+}
+
+.archive__comment-body {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+/* When this comment has replies, draw a vertical from below its avatar down
+   to the row's bottom, sitting at the avatar's centerline (18px from body
+   left). This is the same x that the first child's hook descends from. */
+.archive__comment-body--has-children::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--space) * 0.75 + 38px);
+  bottom: 0;
+  left: 18px;
+  border-left: 1px solid var(--tree-line-color);
+}
+
+/* Mirror of --has-children for only-child replies that flatten to their
+   parent's depth. Draws a vertical from the row top down to 2px above the
+   avatar, completing the connector across the row boundary. */
+.archive__comment-body--has-parent-above::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: calc(var(--space) * 0.75 - 2px);
+  left: 18px;
+  border-left: 1px solid var(--tree-line-color);
+}
+
+@media (max-width: 480px) {
+  .archive__comment-line {
+    width: 24px;
+  }
+
+  .archive__comment-line--vertical::before,
+  .archive__comment-line--up-right::before,
+  .archive__comment-line--vertical-right::before,
+  .archive__comment-line--up-right::after,
+  .archive__comment-line--vertical-right::after,
+  .archive__comment-body--has-children::before,
+  .archive__comment-body--has-parent-above::after {
+    left: 12px;
+  }
+
+  .archive__comment-line--up-right::after,
+  .archive__comment-line--vertical-right::after {
+    width: 10px;
+    border-bottom-left-radius: 10px;
   }
 }
 
 .comment-input__actions {
-  margin-top: calc(var(--space) / 2);
+  margin-top: calc(var(--space) * 0.5);
 }
