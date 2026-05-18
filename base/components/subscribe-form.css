@@ -280,6 +280,23 @@
   text-align: center;
 }
 
+.paywall-gate-free-subscribe {
+  background: none;
+  border: none;
+  box-shadow: none !important;
+  color: var(--color-foreground);
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  font-size: 14px;
+  margin: var(--space) auto 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
 .sniper-link-button {
   align-items: center;
   display: inline-flex;
