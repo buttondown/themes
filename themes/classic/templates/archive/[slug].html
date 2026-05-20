@@ -16,13 +16,13 @@
                 <div class="card-container card-container--paywalled">
                     {% if email.is_subscriberwalled %}
                         <div class="card-container-header">{% localized "email.subscriber.cta.read_full_issue" newsletter.locale %}</div>
-                        {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                        {% include "subscriber_facing/snippets/subscribe_form.html" with show_paywall_login_fallback=True %}
                     {% else %}
                         <div class="card-container-header">{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</div>
                         {% if subscriber %}
                             {% include "subscriber_facing/snippets/upsell.html" %}
                         {% else %}
-                            {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                            {% include "subscriber_facing/snippets/subscribe_form.html" with show_paywall_login_fallback=True %}
                         {% endif %}
                     {% endif %}
                     <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>

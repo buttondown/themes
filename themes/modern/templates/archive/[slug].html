@@ -22,7 +22,7 @@
                     {% else %}
                         <div class="card-container-header">{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</div>
                     {% endif %}
-                    {% include "subscriber_facing/snippets/subscribe_form.html" %}
+                    {% include "subscriber_facing/snippets/subscribe_form.html" with show_paywall_login_fallback=True %}
                     <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
                 </div>
             {% else %}

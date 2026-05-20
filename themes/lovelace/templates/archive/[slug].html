@@ -26,7 +26,7 @@
         {% else %}
             <p><strong>{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</strong></p>
         {% endif %}
-        {% include "subscriber_facing/snippets/subscribe_form.html" %}
+        {% include "subscriber_facing/snippets/subscribe_form.html" with show_paywall_login_fallback=True %}
         <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
     {% else %}
         {% include "subscriber_facing/snippets/email--content.html" with newsletter=newsletter email=email subscriber=subscriber %}
