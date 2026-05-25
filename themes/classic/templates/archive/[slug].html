@@ -2,6 +2,7 @@
 {% load md %}
 {% load mutable_url %}
 {% load render %}
+{% load render_subject %}
 {% load tz %}
 {% load localize %}
 {% block extra_head %}
@@ -49,7 +50,7 @@
                 {% endif %}
                 {% include "subscriber_facing/snippets/related_emails.html" %}
                 {% include "subscriber_facing/snippets/attachments.html" %}
-                {% include "subscriber_facing/snippets/share_form.html" with title=email.subject url=email.get_absolute_url newsletter=newsletter %}
+                {% include "subscriber_facing/snippets/share_form.html" with title=email.subject|render_subject:email url=email.get_absolute_url newsletter=newsletter %}
                 {% include "subscriber_facing/snippets/comments.html" %}
             {% endif %}
         </article>

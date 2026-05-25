@@ -2,6 +2,7 @@
 {% load render_markdown_for_web %}
 {% load mutable_url %}
 {% load localize %}
+{% load render_subject %}
 {% block extra_head %}
     {% include "subscriber_facing/snippets/metadata/subscribe.html" %}
 {% endblock extra_head %}
@@ -28,7 +29,7 @@
                 {% if latest_public_email %}
                     <h2>{% localized 'web.navigation.start_reading' newsletter.locale %}</h2>
                     <ul>
-                        <li>{% localized 'web.navigation.latest' newsletter.locale %} <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject }}</a></li>
+                        <li>{% localized 'web.navigation.latest' newsletter.locale %} <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a></li>
                         <li>{% localized 'web.navigation.all' newsletter.locale %} <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.archive' newsletter.locale %}</a></li>
                     </ul>
                 {% endif %}

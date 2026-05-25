@@ -2,6 +2,7 @@
 {% load fqdn %}
 {% load mutable_url %}
 {% load localize %}
+{% load render_subject %}
 {% load tz %}
 {% load i18n %}
 {% block extra_head %}
@@ -26,7 +27,7 @@
             {% for email in public_emails %}
                 <div class="email{% if email.featured %} featured{% endif %}">
                     <a href="{{ email.get_absolute_url }}">
-                        <h2>{{ email.subject }}</h2>
+                        <h2>{{ email.subject|render_subject:email }}</h2>
                     </a>
                     <div class="email-teaser">{{ email.rendered_html_for_teaser|safe }}</div>
                     <div class="email-metadata">

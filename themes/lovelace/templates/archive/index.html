@@ -2,6 +2,7 @@
 {% load fqdn %}
 {% load localize %}
 {% load mutable_url %}
+{% load render_subject %}
 {% load tz %}
 {% load i18n %}
 {% block extra_head %}
@@ -23,7 +24,7 @@
                         <span>{{ email.publish_date|timezone:newsletter.timezone|date:"Y-m-d" }}</span>
                     {% endlanguage %}
                     {% endlocaltime %}
-                    <a href="{{ email.get_absolute_url }}">{{ email.subject }}</a>
+                    <a href="{{ email.get_absolute_url }}">{{ email.subject|render_subject:email }}</a>
                     {% if email.is_premium %}[{% localized 'web.post.label.premium' newsletter.locale %}]{% endif %}
                 </li>
             {% empty %}

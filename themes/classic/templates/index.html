@@ -3,6 +3,7 @@
 {% load render_markdown_for_web %}
 {% load mutable_url %}
 {% load localize %}
+{% load render_subject %}
 {% block extra_head %}
     {% include "subscriber_facing/snippets/metadata/subscribe.html" %}
 {% endblock extra_head %}
@@ -32,12 +33,12 @@
                         <p>
                             {% localized 'web.subscription.message.read_latest_edition' newsletter.locale %}:
                             {% if newsletter.should_hide_issue_numbers %}
-                                <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject }}</a>.
+                                <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
                             {% else %}
                                 {% if latest_public_email.secondary_id %}
-                                    <a href="{{ latest_public_email.get_absolute_url }}">#{{ latest_public_email.secondary_id }} — {{ latest_public_email.subject }}</a>.
+                                    <a href="{{ latest_public_email.get_absolute_url }}">#{{ latest_public_email.secondary_id }} — {{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
                                 {% else %}
-                                    <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject }}</a>.
+                                    <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
                                 {% endif %}
                             {% endif %}
                         </p>

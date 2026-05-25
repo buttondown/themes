@@ -1,6 +1,7 @@
 {% extends "subscriber_facing/base.html" %}
 {% load md %}
 {% load render %}
+{% load render_subject %}
 {% load tz %}
 {% load i18n %}
 {% load mutable_url %}
@@ -9,7 +10,7 @@
     {% include "subscriber_facing/snippets/metadata/email.html" %}
 {% endblock extra_head %}
 {% block content %}
-    <h1>{{ email.subject }}</h1>
+    <h1>{{ email.subject|render_subject:email }}</h1>
     <p>
         {% localtime on %}
         {% language newsletter.locale %}
