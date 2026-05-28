@@ -25,6 +25,8 @@ a:hover {
   display: flex;
   flex: 1;
   flex-direction: column;
+  /* clip (not hidden) keeps .header-navigation-container's sticky working */
+  overflow-x: clip;
 }
 
 .route--upgrade-subscription-success .app {
