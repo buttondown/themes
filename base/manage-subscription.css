@@ -330,6 +330,11 @@ h3 {
   overflow-wrap: anywhere;
 }
 
+.helper-text.gift-message {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 .checkbox-label .input-label {
   margin-bottom: 0;
 }
