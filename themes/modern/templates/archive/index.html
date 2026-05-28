@@ -26,7 +26,7 @@
                     <div class="email-header">
                         <div class="email-title">{{ email.subject|render_subject:email }}</div>
                         <div class="email-metadata">
-                            {% if email.is_premium %}
+                            {% if newsletter.paid_subscriptions_status == 'active' and email.is_premium %}
                                 {% localized 'web.post.label.premium' newsletter.locale %} ·
                             {% endif %}
                             {% localtime on %}

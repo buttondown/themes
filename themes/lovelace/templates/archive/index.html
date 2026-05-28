@@ -25,7 +25,7 @@
                     {% endlanguage %}
                     {% endlocaltime %}
                     <a href="{{ email.get_absolute_url }}">{{ email.subject|render_subject:email }}</a>
-                    {% if email.is_premium %}[{% localized 'web.post.label.premium' newsletter.locale %}]{% endif %}
+                    {% if newsletter.paid_subscriptions_status == 'active' and email.is_premium %}[{% localized 'web.post.label.premium' newsletter.locale %}]{% endif %}
                 </li>
             {% empty %}
                 <li>{% localized "web.message.empty.no_emails_published" newsletter.locale %}</li>
