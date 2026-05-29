@@ -297,6 +297,10 @@
           ],
           "title": "Image"
         },
+        "is_publicly_archived": {
+          "title": "Is Publicly Archived",
+          "type": "boolean"
+        },
         "is_premium": {
           "title": "Is Premium",
           "type": "boolean"
@@ -466,6 +470,7 @@
         "commenting_mode",
         "has_bluesky_embeds",
         "id",
+        "is_publicly_archived",
         "is_premium",
         "metadata",
         "related_email_ids",
