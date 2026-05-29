@@ -2173,6 +2173,17 @@
         }
       ]
     },
+    "subject": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Subject"
+    },
     "email_url": {
       "title": "Email Url",
       "type": "string"
