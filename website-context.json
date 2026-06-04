@@ -161,6 +161,7 @@
         "custom_transactional_emails",
         "domains",
         "firewall",
+        "honeypot",
         "metadata",
         "metadata_fields",
         "notes",
