@@ -954,6 +954,10 @@
           "title": "Hidden Settings",
           "type": "array"
         },
+        "honeypot_field_name": {
+          "title": "Honeypot Field Name",
+          "type": "string"
+        },
         "icon": {
           "anyOf": [
             {
@@ -1369,6 +1373,7 @@
         "effective_locale",
         "h2_redirect_url",
         "hidden_settings",
+        "honeypot_field_name",
         "icon",
         "icon_url",
         "id",
