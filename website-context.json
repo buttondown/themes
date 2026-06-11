@@ -1978,6 +1978,8 @@
       "enum": [
         "none",
         "invalid",
+        "awaiting_ssl",
+        "failing",
         "valid"
       ],
       "title": "SendingDomainStatus",
