@@ -233,6 +233,13 @@
   margin-bottom: 0.5rem;
 }
 
+.archive__subscribe-captcha-error {
+  color: #dc2626;
+  font-size: var(--font-size-base);
+  margin-top: var(--space);
+  text-align: center;
+}
+
 .magic-link-form {
   align-items: center;
   display: flex;
