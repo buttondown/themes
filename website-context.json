@@ -1980,6 +1980,7 @@
         "invalid",
         "awaiting_ssl",
         "failing",
+        "deliberately_cold",
         "valid"
       ],
       "title": "SendingDomainStatus",
