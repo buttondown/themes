@@ -30,7 +30,7 @@
         },
         "font-body": {
             "type": "font",
-            "default": "Source Serif 4",
+            "default": "'Source Serif 4 Variable'",
             "header": "Body font",
             "description": "Font family for body text"
         },
