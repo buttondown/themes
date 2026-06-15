@@ -1,5 +1,26 @@
 # Classic Theme Changelog
 
+## 2026-06-13
+
+- Fixed default font name so Source Serif 4 loads on archives (#9538)
+
+## 2026-04-23
+
+- Moved accent color from general to email settings (#8388)
+
+## 2026-03-18
+
+- Fixed precedence on bar-style blockquotes (#7746)
+
+## 2026-03-17
+
+- Changed blockquote option from sizes to styles (#7725)
+- Combined dark-mode color variants into a single tabbed UI (#7726)
+
+## 2026-03-14
+
+- Added configurable background colors token (#7668)
+
 ## 2026-02-09
 
 - Added blockquote font size option (Small, Medium, Large) to theme settings

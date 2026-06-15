@@ -1,5 +1,30 @@
 # Modern Theme Changelog
 
+## 2026-06-13
+
+- Fixed default font name so Source Serif 4 loads on archives (#9538)
+
+## 2026-05-28
+
+- Gated archive premium label on active paid subscriptions (#9033)
+
+## 2026-03-19
+
+- Derived social sharing buttons from social links (#7727)
+
+## 2026-03-18
+
+- Fixed precedence on bar-style blockquotes (#7746)
+
+## 2026-03-17
+
+- Changed blockquote option from sizes to styles (#7725)
+- Combined dark-mode color variants into a single tabbed UI (#7726)
+
+## 2026-03-14
+
+- Added configurable background colors (#7668)
+
 ## 2026-02-09
 
 - Added blockquote font size option (Small, Medium, Large) to theme settings
