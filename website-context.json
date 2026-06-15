@@ -449,10 +449,6 @@
           "title": "Url",
           "type": "string"
         },
-        "uses_footnotes": {
-          "title": "Uses Footnotes",
-          "type": "boolean"
-        },
         "newsletter": {
           "anyOf": [
             {
@@ -482,7 +478,6 @@
         "twitter_card_type",
         "unescaped_fully_rendered_html_for_web",
         "url",
-        "uses_footnotes",
         "newsletter"
       ],
       "title": "FilteredEmail",
