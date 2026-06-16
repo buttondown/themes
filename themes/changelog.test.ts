@@ -33,7 +33,9 @@ function changedThemeFiles(): string[] | null {
       .toString()
       .trim();
 
-    return execSync(`git diff --name-only ${mergeBase}`, { stdio: ["pipe", "pipe", "pipe"] })
+    return execSync(`git diff --name-only ${mergeBase}`, {
+      stdio: ["pipe", "pipe", "pipe"],
+    })
       .toString()
       .split("\n")
       .filter(Boolean);
@@ -56,7 +58,7 @@ describe("theme changelogs", () => {
       const changelog = `${themeDir}CHANGELOG.md`;
 
       const touchedThemeFiles = changed.filter(
-        (f) => f.startsWith(themeDir) && f !== changelog,
+        (f) => f.startsWith(themeDir) && f !== changelog
       );
 
       if (touchedThemeFiles.length === 0) {
@@ -67,7 +69,7 @@ describe("theme changelogs", () => {
         changed.includes(changelog),
         `Changed files under ${themeDir} without updating ${changelog}:\n` +
           touchedThemeFiles.map((f) => `  - ${f}`).join("\n") +
-          `\n\nAdd an entry to ${changelog} describing the change.`,
+          `\n\nAdd an entry to ${changelog} describing the change.`
       ).toBe(true);
     });
   }
