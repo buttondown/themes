@@ -1988,7 +1988,6 @@
         "disabled",
         "unconfirmed",
         "permanently_active",
-        "super_permanently_active",
         "permanently_disabled",
         "undeliverable",
         "staging",
