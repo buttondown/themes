@@ -10,6 +10,16 @@
             "header": "Posts per page",
             "description": "Number of posts to display per page"
         },
+        "archive_index_layout": {
+            "type": "select",
+            "default": "single",
+            "header": "Archive layout",
+            "description": "Single column, or a two-column grid on wide screens",
+            "options": [
+                { "id": "single", "label": "Single column" },
+                { "id": "grid", "label": "Two-column grid" }
+            ]
+        },
         "dark_mode": {
             "type": "boolean",
             "default": false,

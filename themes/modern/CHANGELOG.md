@@ -1,5 +1,9 @@
 # Modern Theme Changelog
 
+## 2026-06-16
+
+- Added an opt-in two-column archive index layout (Archive layout setting) (#9423)
+
 ## 2026-06-13
 
 - Fixed default font name so Source Serif 4 loads on archives (#9538)

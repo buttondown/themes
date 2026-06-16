@@ -137,6 +137,24 @@ div.image-gallery-embed {
     margin-top: calc(var(--space));
     width: calc(var(--width-content) * 0.5);
   }
+  /* Opt-in two-column grid (theme config: Archive layout). The index is a
+     list of cards, not prose, so let it use the width a wide viewport offers
+     instead of inheriting the reading column. */
+  &.email-list--grid {
+    @media (min-width: 900px) {
+      align-items: start;
+      display: grid;
+      gap: calc(var(--space) * 2) calc(var(--space) * 3);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: calc(var(--width-content) * 1.8);
+      hr {
+        display: none;
+      }
+      .email-link {
+        margin: 0;
+      }
+    }
+  }
 }
 
 .email-link {

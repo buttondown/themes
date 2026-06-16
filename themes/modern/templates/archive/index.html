@@ -8,7 +8,7 @@
     {% include "subscriber_facing/snippets/metadata/archive.html" %}
 {% endblock extra_head %}
 {% block content %}
-    <div class="email-list">
+    <div class="email-list{% if newsletter.theme_configuration.archive_index_layout == 'grid' %} email-list--grid{% endif %}">
         {% for email in public_emails %}
             <a href="{{ email.get_absolute_url }}" class="email-link">
                 <div class="email {% if email.featured %}featured{% endif %}">
