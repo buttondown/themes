@@ -254,6 +254,14 @@ figure[data-full-width="true"] img {
   transition: all 0.2s ease-in-out;
 }
 
+/* Images imported from other platforms (e.g. Substack) live inside
+   .image2-inset rather than a <figure>/<p>, so none of the rules above
+   constrain them and large originals overflow the content column. */
+.image2-inset img {
+  max-width: 100%;
+  height: auto;
+}
+
 .footer {
   color: var(--color-foreground-offset-2);
   font-family: var(--font-brand);
