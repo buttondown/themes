@@ -1504,30 +1504,6 @@
           "title": "Can View Premium Content",
           "type": "boolean"
         },
-        "churn_date": {
-          "anyOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Churn Date"
-        },
-        "creation_date": {
-          "anyOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Creation Date"
-        },
         "email": {
           "title": "Email",
           "type": "string"
@@ -1568,30 +1544,6 @@
           "title": "Is Trialed",
           "type": "boolean"
         },
-        "last_click_date": {
-          "anyOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Last Click Date"
-        },
-        "last_open_date": {
-          "anyOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Last Open Date"
-        },
         "metadata": {
           "additionalProperties": true,
           "title": "Metadata",
@@ -1630,17 +1582,6 @@
           "title": "Referral Code",
           "type": "string"
         },
-        "source": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Source"
-        },
         "stripe_customer": {
           "anyOf": [
             {
@@ -1665,18 +1606,6 @@
           "title": "Subscriber Type",
           "type": "string"
         },
-        "subscription_date": {
-          "anyOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Subscription Date"
-        },
         "tags": {
           "items": {},
           "title": "Tags",
@@ -1693,30 +1622,6 @@
             }
           ],
           "title": "Unsubscription Date"
-        },
-        "upgrade_date": {
-          "anyOf": [
-            {
-              "format": "date-time",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Upgrade Date"
-        },
-        "utm_campaign": {
-          "title": "Utm Campaign",
-          "type": "string"
-        },
-        "utm_medium": {
-          "title": "Utm Medium",
-          "type": "string"
-        },
-        "utm_source": {
-          "title": "Utm Source",
-          "type": "string"
         },
         "upgrade_url": {
           "title": "Upgrade Url",
@@ -1736,9 +1641,6 @@
         "referral_code",
         "subscriber_type",
         "tags",
-        "utm_campaign",
-        "utm_medium",
-        "utm_source",
         "upgrade_url"
       ],
       "title": "FilteredSubscriber",
