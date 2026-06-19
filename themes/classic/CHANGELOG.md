@@ -1,5 +1,10 @@
 # Classic Theme Changelog
 
+## 2026-06-18
+
+- Removed the `is_publicly_archived` template variable; custom templates should use `archival_mode == "enabled"` instead
+- Removed the unused `has_bluesky_embeds` template variable
+
 ## 2026-06-13
 
 - Fixed default font name so Source Serif 4 loads on archives (#9538)

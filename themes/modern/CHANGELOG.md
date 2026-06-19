@@ -1,5 +1,10 @@
 # Modern Theme Changelog
 
+## 2026-06-18
+
+- Removed the `is_publicly_archived` template variable; custom templates should use `archival_mode == "enabled"` instead
+- Removed the unused `has_bluesky_embeds` template variable
+
 ## 2026-06-16
 
 - Added an opt-in two-column archive index layout (Archive layout setting) (#9423)

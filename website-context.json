@@ -278,10 +278,6 @@
           ],
           "title": "Fully Rendered Html For Web"
         },
-        "has_bluesky_embeds": {
-          "title": "Has Bluesky Embeds",
-          "type": "boolean"
-        },
         "id": {
           "format": "uuid",
           "title": "Id",
@@ -297,10 +293,6 @@
             }
           ],
           "title": "Image"
-        },
-        "is_publicly_archived": {
-          "title": "Is Publicly Archived",
-          "type": "boolean"
         },
         "is_premium": {
           "title": "Is Premium",
@@ -465,9 +457,7 @@
         "archival_mode",
         "canonical_url",
         "commenting_mode",
-        "has_bluesky_embeds",
         "id",
-        "is_publicly_archived",
         "is_premium",
         "metadata",
         "related_email_ids",
@@ -1570,20 +1560,12 @@
           "title": "Id",
           "type": "string"
         },
-        "is_organic": {
-          "title": "Is Organic",
-          "type": "boolean"
-        },
         "is_premium": {
           "title": "Is Premium",
           "type": "boolean"
         },
         "is_trialed": {
           "title": "Is Trialed",
-          "type": "boolean"
-        },
-        "is_unsubscribed": {
-          "title": "Is Unsubscribed",
           "type": "boolean"
         },
         "last_click_date": {
@@ -1746,10 +1728,8 @@
         "can_view_premium_content",
         "email",
         "id",
-        "is_organic",
         "is_premium",
         "is_trialed",
-        "is_unsubscribed",
         "metadata",
         "newsletter",
         "referrer_url",
