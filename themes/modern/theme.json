@@ -26,6 +26,12 @@
             "header": "Dark mode",
             "description": "Match your reader's system dark mode preference"
         },
+        "show_latest_issue_link": {
+            "type": "boolean",
+            "default": false,
+            "header": "Latest issue link",
+            "description": "Link to your most recent published issue from the subscribe page (only shown when your archive is public)"
+        },
         "color-accent": {
             "type": "color",
             "default": "#0069FF",

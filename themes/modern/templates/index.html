@@ -1,5 +1,7 @@
 {% extends "subscriber_facing/base.html" %}
 {% load render_markdown_for_web %}
+{% load localize %}
+{% load render_subject %}
 {% block extra_head %}
     {% include "subscriber_facing/snippets/metadata/subscribe.html" %}
 {% endblock extra_head %}
@@ -17,6 +19,27 @@
             <h2 class="newsletter-name">{{ newsletter.name }}</h2>
             <div class="newsletter-description">{% autoescape off %}{% render_markdown_for_web newsletter.description newsletter %}{% endautoescape %}</div>
             {% include "subscriber_facing/snippets/subscribe_form.html" %}
+            {% comment %}
+                An opt-in one-click link straight to the latest issue, so
+                visitors can preview what they're signing up for. Off by default
+                (`show_latest_issue_link` theme option), and only rendered when
+                the archive is publicly visible — a gated archive shouldn't leak
+                its latest subject line to anonymous visitors.
+            {% endcomment %}
+            {% if newsletter.theme_configuration.show_latest_issue_link == 'true' and newsletter.is_archive_public %}
+                {% with latest_public_email=public_emails.object_list.first %}
+                    {% if latest_public_email %}
+                        <p class="subscribe-latest">
+                            {% localized 'web.subscription.message.read_latest_edition' newsletter.locale %}:
+                            {% if newsletter.should_hide_issue_numbers or not latest_public_email.secondary_id %}
+                                <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a>
+                            {% else %}
+                                <a href="{{ latest_public_email.get_absolute_url }}">#{{ latest_public_email.secondary_id }} — {{ latest_public_email.subject|render_subject:latest_public_email }}</a>
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                {% endwith %}
+            {% endif %}
         </div>
     </div>
 {% endblock content %}

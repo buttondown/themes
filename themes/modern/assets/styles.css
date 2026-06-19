@@ -264,6 +264,16 @@ hr {
   text-align: left;
 }
 
+.subscribe-latest {
+  color: var(--color-foreground-offset);
+  font-family: var(--font-brand);
+  margin-top: var(--space);
+  text-align: center;
+  a {
+    color: var(--color-action);
+  }
+}
+
 .newsletter-name {
   color: var(--color-foreground);
   font-family: var(--font-brand);

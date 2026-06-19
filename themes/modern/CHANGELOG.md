@@ -1,5 +1,9 @@
 # Modern Theme Changelog
 
+## 2026-06-19
+
+- Added an opt-in one-click "read the latest edition" link to the subscribe page (Latest issue link setting, off by default) (#9687)
+
 ## 2026-06-18
 
 - Removed the `is_publicly_archived` template variable; custom templates should use `archival_mode == "enabled"` instead
