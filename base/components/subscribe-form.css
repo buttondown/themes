@@ -498,6 +498,7 @@ a.subscription-success-button:hover {
   border: 2px solid currentColor;
   border-right-color: transparent;
   border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
 .archive__button-pending-indicator {

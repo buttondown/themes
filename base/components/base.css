@@ -589,6 +589,11 @@ blockquote blockquote {
   width: 1.25rem;
 }
 
+.subscriber-toast__close svg {
+  height: 0.875rem;
+  width: 0.875rem;
+}
+
 .subscriber-toast__close:hover {
   opacity: 1;
 }
