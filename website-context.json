@@ -1865,12 +1865,15 @@
     },
     "Status": {
       "enum": [
-        "active",
+        "new",
         "deleting",
         "disabled",
+        "needs_review",
         "unconfirmed",
-        "permanently_active",
-        "permanently_disabled",
+        "approved",
+        "permanently_approved",
+        "rejected",
+        "permanently_rejected",
         "undeliverable",
         "staging",
         "prospective",
