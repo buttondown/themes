@@ -28,27 +28,25 @@
                 anonymous discovery widgets.
             {% endcomment %}
             {% if newsletter.is_archive_public %}
-                {% with latest_public_email=public_emails.object_list.first %}
-                    {% if latest_public_email %}
-                        <p>
-                            {% localized 'web.subscription.message.read_latest_edition' newsletter.locale %}:
-                            {% if newsletter.should_hide_issue_numbers %}
-                                <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
+                {% if latest_public_email %}
+                    <p>
+                        {% localized 'web.subscription.message.read_latest_edition' newsletter.locale %}:
+                        {% if newsletter.should_hide_issue_numbers %}
+                            <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
+                        {% else %}
+                            {% if latest_public_email.secondary_id %}
+                                <a href="{{ latest_public_email.get_absolute_url }}">#{{ latest_public_email.secondary_id }} — {{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
                             {% else %}
-                                {% if latest_public_email.secondary_id %}
-                                    <a href="{{ latest_public_email.get_absolute_url }}">#{{ latest_public_email.secondary_id }} — {{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
-                                {% else %}
-                                    <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
-                                {% endif %}
+                                <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
                             {% endif %}
-                        </p>
-                        <p>
-                            {% localized 'web.navigation.browse_full_archives' newsletter.locale %}
-                            <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.full_archives' newsletter.locale %}</a>
-                            {% localized 'web.navigation.of_this_newsletter' newsletter.locale %}.
-                        </p>
-                    {% endif %}
-                {% endwith %}
+                        {% endif %}
+                    </p>
+                    <p>
+                        {% localized 'web.navigation.browse_full_archives' newsletter.locale %}
+                        <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.full_archives' newsletter.locale %}</a>
+                        {% localized 'web.navigation.of_this_newsletter' newsletter.locale %}.
+                    </p>
+                {% endif %}
                 {% if newsletter.should_expose_rss %}
                     <p class="rss-suggestion">
                         {% localized "email.rss.suggestion_prefix" newsletter.locale %}
