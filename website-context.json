@@ -1583,6 +1583,10 @@
           "title": "Referral Code",
           "type": "string"
         },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
         "stripe_customer": {
           "anyOf": [
             {
@@ -1640,6 +1644,7 @@
         "newsletter",
         "referrer_url",
         "referral_code",
+        "source",
         "subscriber_type",
         "tags",
         "upgrade_url"
