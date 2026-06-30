@@ -37,6 +37,7 @@
             <p>{% localized 'web.email.subscription.form_text' newsletter.locale %}</p>
             {% include "subscriber_facing/snippets/subscribe_form.html" %}
         {% endif %}
+        {% include "subscriber_facing/snippets/post_navigation.html" %}
         {% include "subscriber_facing/snippets/comments.html" %}
     {% endif %}
 {% endblock content %}

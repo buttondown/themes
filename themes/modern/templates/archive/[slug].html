@@ -54,6 +54,7 @@
                         {% endwith %}
                     {% endif %}
                 </div>
+                {% include "subscriber_facing/snippets/post_navigation.html" %}
                 {% include "subscriber_facing/snippets/comments.html" %}
                 {% include "subscriber_facing/snippets/share_form.html" with title=email.subject|render_subject:email url=email.get_absolute_url newsletter=newsletter %}
             {% endif %}

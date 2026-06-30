@@ -82,6 +82,12 @@
                 { "id": "bar", "label": "Bar" },
                 { "id": "editorial", "label": "Editorial" }
             ]
+        },
+        "post_navigation": {
+            "type": "boolean",
+            "default": true,
+            "header": "Post navigation",
+            "description": "Show links to the previous and next post at the foot of each archived post"
         }
     }
 }

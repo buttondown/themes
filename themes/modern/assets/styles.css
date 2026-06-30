@@ -299,3 +299,8 @@ hr {
 .email-body-content {
   margin-top: calc(var(--space) * 4);
 }
+
+/* Shared rules live in components/post-navigation.css; modern only brands the type. */
+.post-navigation {
+  font-family: var(--font-brand);
+}

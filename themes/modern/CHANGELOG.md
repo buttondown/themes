@@ -1,5 +1,9 @@
 # Modern Theme Changelog
 
+## 2026-06-30
+
+- Added previous/next post navigation at the foot of each archived post, with a `post_navigation` setting to toggle it (#9432)
+
 ## 2026-06-19
 
 - Added an opt-in one-click "read the latest edition" link to the subscribe page (Latest issue link setting, off by default) (#9687)

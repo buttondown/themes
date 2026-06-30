@@ -1,5 +1,9 @@
 # Lovelace Theme Changelog
 
+## 2026-06-30
+
+- Added previous/next post navigation at the foot of each archived post, with a `post_navigation` setting to toggle it (#9432)
+
 ## 2026-06-18
 
 - Removed the `is_publicly_archived` template variable; custom templates should use `archival_mode == "enabled"` instead

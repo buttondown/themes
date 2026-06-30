@@ -1,5 +1,9 @@
 # Arbus Theme Changelog
 
+## 2026-06-30
+
+- Added a `post_navigation` setting to show previous/next links at the foot of each archived post (#9432)
+
 ## 2026-06-13
 
 - Fixed default font name so Source Serif 4 loads on archives (#9538)
