@@ -1153,6 +1153,10 @@
           "title": "Should Hide Social Media",
           "type": "boolean"
         },
+        "should_hide_upgrade_text": {
+          "title": "Should Hide Upgrade Text",
+          "type": "boolean"
+        },
         "should_immediately_show_payment_element": {
           "title": "Should Immediately Show Payment Element",
           "type": "boolean"
@@ -1392,6 +1396,7 @@
         "should_disable_non_premium_subscriptions",
         "should_expose_rss",
         "should_hide_social_media",
+        "should_hide_upgrade_text",
         "should_immediately_show_payment_element",
         "should_noindex_archive_page",
         "should_noindex_subscribe_page",
