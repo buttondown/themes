@@ -21,3 +21,23 @@
   padding: 0;
 }
 
+/* Media cards (media.html) ship hardcoded light colors inline for email. On the
+   web archive, override them in dark mode so the card doesn't stay light. */
+@media (prefers-color-scheme: dark) {
+  :root.supports-dark-mode .embedded-media,
+  :root.dark .embedded-media {
+    background: var(--color-background-offset) !important;
+    border-color: var(--color-background-offset) !important;
+  }
+
+  :root.supports-dark-mode .embedded-media-title,
+  :root.dark .embedded-media-title {
+    color: var(--color-foreground) !important;
+  }
+
+  :root.supports-dark-mode .embedded-media-subtitle,
+  :root.dark .embedded-media-subtitle {
+    color: var(--color-foreground-offset-2) !important;
+  }
+}
+
