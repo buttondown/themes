@@ -1,38 +1,42 @@
 @import "./variables.css";
 
-h1 {
-  font-family: var(--font-brand);
-  font-size: var(--font-size-large-3) !important;
-  font-weight: 700 !important;
-}
+/* ============================================================
+   Subscriber portal — one unified design system.
+   Layout/color/spacing follow design_handoff_subscriber_portal;
+   typography uses the existing --font-brand, except modals, which use the
+   system font.
+   Colors use the shared neutral tokens (--color-foreground/-background/
+   -action and their offsets) plus the status tokens (--color-success/
+   -warning/-error and --color-error-soft/-soft-border).
+   ============================================================ */
 
 body {
   background-color: var(--color-background);
 }
 
+/* ---- Page shell ---- */
 .manage-subscription {
   font-family: var(--font-brand);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   width: 100%;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2rem 1rem;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 24px 72px;
   flex: 1 1 0%;
 }
 
 .portal-back-link {
   display: inline-flex;
   align-items: center;
-  gap: calc(var(--space) / 4);
-  font-size: var(--font-size-small);
+  gap: 8px;
+  font-size: 14px;
   font-weight: 500;
-  color: var(--color-foreground-offset);
+  color: var(--color-foreground-offset-2);
   text-decoration: none;
-  margin-bottom: var(--space);
-  transition: color 0.2s ease-in-out;
+  margin-bottom: 32px;
+  transition: color 0.15s ease-in-out;
 
   svg {
     width: 16px;
@@ -48,125 +52,140 @@ body {
   margin-bottom: 2rem;
 }
 
-.manage-subscription .preferences-fields > * + * {
-  margin-top: 1.25rem;
-}
-
+/* ---- Typography ---- */
 .section-title {
-  font-size: var(--font-size-large-2);
+  font-size: 24px;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.25;
   color: var(--color-foreground);
+  margin: 0 0 6px;
 }
 
 .section-subtitle {
-  font-size: var(--font-size-base);
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
-  color: var(--color-foreground-offset);
-  margin-bottom: calc(var(--space) * 1.2);
-  text-align: left;
+  color: var(--color-foreground-offset-2);
+  margin: 0 0 22px;
 }
 
+/* ---- Buttons (the one button system) ---- */
+.portal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-family: var(--font-brand);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  padding: 12px 18px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.portal-btn--primary {
+  background: var(--color-action);
+  color: #fff;
+}
+.portal-btn--primary:hover {
+  opacity: 0.9;
+}
+
+.portal-btn--ghost {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  border-color: var(--color-background-offset);
+}
+.portal-btn--ghost:hover {
+  background: var(--color-background-card);
+}
+
+.portal-btn--danger {
+  background: var(--color-error-soft);
+  color: var(--color-error);
+  border-color: var(--color-error-soft-border);
+}
+.portal-btn--danger:hover {
+  background: #fbdcdc;
+  border-color: var(--color-error);
+}
+
+.portal-btn--danger-solid {
+  background: var(--color-error);
+  color: #fff;
+}
+.portal-btn--danger-solid:hover {
+  opacity: 0.9;
+}
+
+/* Push a button to the far end of its row (e.g. Unsubscribe / Cancel). */
+.portal-btn--end {
+  margin-left: auto;
+}
+
+.portal-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- Forms ---- */
 .input-label {
-  font-size: var(--font-size-base);
-  font-weight: 500;
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
   line-height: 1.4;
   color: var(--color-foreground);
-  margin-bottom: calc(var(--space) / 2);
-  display: block;
+  margin-bottom: 8px;
 }
 
 input[type="text"].input-field,
 input[type="email"].input-field,
-select.input-field {
+select.input-field,
+.modal-body .archive__stripe-input,
+.modal-body .archive__email-input {
   box-sizing: border-box;
   width: 100%;
-  height: calc(var(--space) * 2.5);
-  padding: 0 calc(var(--space) / 2);
-  font-size: var(--font-size-base);
+  padding: 13px 15px;
+  font-family: var(--font-brand);
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.4;
   color: var(--color-foreground);
   background-color: var(--color-background);
   border: 1px solid var(--color-background-offset);
-  border-radius: calc(var(--space) / 4);
-  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  border-radius: 10px;
+  transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out;
   outline: none;
 }
 
-.input-field:focus {
+.input-field:focus,
+.modal-body .archive__email-input:focus {
   border-color: var(--color-action);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-action) 10%, transparent);
+  box-shadow: 0 0 0 3px #dbe6ff;
 }
 
 .input-field:disabled {
-  background-color: var(--color-background-offset);
-  color: var(--color-foreground-offset-2);
-  cursor: not-allowed;
-}
-
-.btn-primary {
-  text-transform: uppercase;
-  justify-content: center;
-}
-
-.btn-primary.success {
-  background-color: var(--color-action);
-  color: var(--color-background);
-}
-
-.btn-primary.success:hover {
-  background-color: color-mix(in srgb, var(--color-action) 90%, black);
-}
-
-.btn-primary.error {
-  background-color: var(--color-action);
-  color: var(--color-background);
-}
-
-.btn-primary.error:hover {
-  background-color: color-mix(in srgb, var(--color-action) 90%, black);
-}
-
-.btn-primary.default {
-  background-color: var(--color-action);
-  color: var(--color-background);
-}
-
-.btn-primary.default:hover {
-  background-color: color-mix(in srgb, var(--color-action) 90%, black);
-}
-
-.btn-primary:disabled {
-  background-color: var(--color-background-offset);
+  background-color: var(--color-background-card);
   color: var(--color-foreground-offset-2);
   cursor: not-allowed;
 }
 
 .field-group {
-  margin-bottom: calc(var(--space) * 1.5);
+  margin-bottom: 20px;
 }
 
 .field-group--buttons {
   display: flex;
-  gap: calc(var(--space) / 2);
-}
-
-.field-group--buttons .archive__button {
-  width: fit-content;
-  flex: 0 0 auto;
-}
-
-.field-group--buttons .archive__button--secondary {
-  background-color: transparent !important;
-  color: var(--color-foreground-offset) !important;
-  border: 1px solid var(--color-background-offset) !important;
-
-  &:hover {
-    border-color: var(--color-foreground-offset) !important;
-    color: var(--color-foreground) !important;
-  }
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .field-group.disabled {
@@ -175,9 +194,9 @@ select.input-field {
 }
 
 .checkbox-field {
-  width: calc(var(--space) / 1.25);
-  height: calc(var(--space) / 1.25);
-  margin-right: calc(var(--space) / 2);
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
   cursor: pointer;
   accent-color: var(--color-action);
 }
@@ -188,55 +207,247 @@ select.input-field {
   cursor: pointer;
 }
 
-.section-divider {
-  margin: calc(var(--space) * 1.5) 0;
-  border-top: 1px solid var(--color-background-offset);
-  width: 100%;
+.checkbox-label .input-label {
+  margin-bottom: 0;
 }
 
-.invoices-list {
-  margin-bottom: var(--space);
+.helper-text {
+  font-size: 13px;
+  color: var(--color-foreground-offset-2);
+  margin-top: 8px;
+  overflow-wrap: anywhere;
+}
+
+.helper-text.gift-message {
+  white-space: pre-wrap;
+}
+
+.preferences-fields > * + * {
+  margin-top: 20px;
+}
+
+/* ---- Section divider ---- */
+.section-divider {
+  width: 100%;
+  margin: 36px 0 26px;
+  border: none;
+  border-top: 1px solid var(--color-background-offset);
+}
+
+/* ---- Plan summary card ---- */
+.plan-card {
+  border: 1px solid var(--color-background-offset);
+  border-radius: 16px;
+  background: #f5f8ff;
+  padding: 24px;
+  margin-bottom: 22px;
+}
+
+/* Non-active states tint the whole card rather than showing a separate banner —
+   the status pill + actions inside carry the meaning. Soft amber for paused /
+   ending-soon, soft red for a failed payment. */
+.plan-card--paused,
+.plan-card--churning {
+  background: #fff9ed;
+  border-color: #f3dca6;
+}
+.plan-card--past_due {
+  background: var(--color-error-soft);
+  border-color: var(--color-error-soft-border);
+}
+
+.plan-card__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.status-pill__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.status-pill--active {
+  color: #15803d;
+}
+.status-pill--active .status-pill__dot {
+  background: var(--color-success);
+}
+.status-pill--past_due {
+  color: #b91c1c;
+}
+.status-pill--past_due .status-pill__dot {
+  background: var(--color-error);
+}
+.status-pill--churning,
+.status-pill--paused {
+  color: #a16207;
+}
+.status-pill--churning .status-pill__dot,
+.status-pill--paused .status-pill__dot {
+  background: var(--color-warning);
+}
+
+.plan-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.plan-card__amount {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
   color: var(--color-foreground);
 }
+.plan-card__cadence {
+  font-size: 15px;
+  color: var(--color-foreground-offset-2);
+}
 
-.invoice-item {
+.plan-card__detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 18px 0;
+  border-top: 1px solid var(--color-background-offset);
+  border-bottom: 1px solid var(--color-background-offset);
+}
+.plan-card__detail-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-foreground-offset-2);
+  margin-bottom: 6px;
+}
+.plan-card__detail-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+.plan-card__mono {
+  letter-spacing: 0.05em;
+}
+.plan-card__muted {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-foreground-offset-2);
+}
+
+.plan-card__warning {
+  margin-top: 16px;
+  padding: 11px 13px;
+  background: var(--color-error-soft);
+  border: 1px solid var(--color-error-soft-border);
+  border-radius: 10px;
+  font-size: 13px;
+  color: #991b1b;
+}
+
+.plan-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+}
+/* The plan card packs up to four actions into a 680px column, so its buttons
+   run a touch tighter than the page default and wrap rather than overflow. */
+.plan-card__actions .portal-btn {
+  padding: 10px 12px;
+}
+.plan-card__spacer {
+  flex: 1;
+}
+
+/* ---- Billing history ---- */
+.billing-history {
+  border: 1px solid var(--color-background-offset);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.billing-history__header {
+  padding: 13px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--color-background-card);
+  border-bottom: 1px solid var(--color-background-offset);
+}
+.billing-history__row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: calc(var(--space) / 2) 0;
+  padding: 13px 18px;
+  font-size: 14px;
   border-bottom: 1px solid var(--color-background-offset);
-
-  &:last-child {
-    border-bottom: none;
-  }
-
-  a {
-    text-decoration: underline;
-    color: var(--color-action);
-  }
-}
-
-h3 {
-  font-size: var(--font-size-large);
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.025em;
-  margin-bottom: calc(var(--space) / 2);
   color: var(--color-foreground);
 }
+.billing-history__row:last-child {
+  border-bottom: none;
+}
+.billing-history__amount {
+  font-weight: 600;
+  color: var(--color-action);
+  text-decoration: none;
+}
+.billing-history__amount:hover {
+  text-decoration: underline;
+}
 
-/* Modal Styles */
+/* ---- Upgrade promo (free) ---- */
+.upgrade-promo {
+  border: 1px solid #d8e2ff;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #f4f7ff, #ffffff);
+  padding: 26px;
+}
+.upgrade-promo__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-action);
+}
+.upgrade-promo__body {
+  margin: 10px 0 18px;
+  font-size: 15px;
+  color: var(--color-foreground-offset-2);
+  line-height: 1.55;
+}
+
+/* ---- Comments (reuses .comment styles from comments.css) ---- */
+.manage-subscription .comment__content {
+  padding-left: 0;
+}
+.manage-subscription .comment__actions {
+  margin-left: 0;
+  align-items: center;
+}
+.manage-subscription .comment-delete-button {
+  margin-left: auto;
+}
+
+/* ============================================================
+   Modals
+   ============================================================ */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0);
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 24px;
   z-index: 1000;
+  background-color: rgba(0, 0, 0, 0);
   opacity: 0;
   transition: opacity 0.2s ease-out;
   backdrop-filter: blur(2px);
@@ -248,115 +459,251 @@ h3 {
 
 .modal-overlay.show {
   opacity: 1;
-  background-color: color-mix(in srgb, black 50%, transparent);
+  background-color: rgba(15, 17, 21, 0.45);
 }
 
 .modal-content {
+  /* Modals use the system font, not the newsletter's brand font. */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   background-color: var(--color-background);
-  border-radius: calc(var(--space) / 1.67);
-  box-shadow: 0 calc(var(--space) * 1.25) calc(var(--space) * 1.25)
-      calc(var(--space) * -0.25) color-mix(in srgb, black 10%, transparent),
-    0 calc(var(--space) / 2) calc(var(--space) / 2) calc(var(--space) * -0.25)
-      color-mix(in srgb, black 4%, transparent);
-  max-width: 400px;
-  width: 90%;
+  border: 1px solid var(--color-background-offset);
+  border-radius: 18px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+  max-width: 460px;
+  width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  transform: scale(0.8) translateY(var(--space));
+  transform: scale(0.96) translateY(8px);
   transition: transform 0.2s ease-out;
-  border: 1px solid var(--color-background-offset);
 }
 
 .modal-overlay.show .modal-content {
   transform: scale(1) translateY(0);
 }
 
+.modal-content--wide {
+  max-width: 480px;
+}
+
+/* Form controls don't inherit font-family, and the shared input/button rules
+   set --font-brand; pull them back onto the modal's system font. */
+.modal-content button,
+.modal-body .archive__stripe-input,
+.modal-body .archive__email-input {
+  font-family: inherit;
+}
+
 .modal-header {
-  padding: calc(var(--space) * 1.2) calc(var(--space) * 1.2) 0
-    calc(var(--space) * 1.2);
+  padding: 24px 26px 20px;
+  border-bottom: 1px solid var(--color-background-offset);
 }
 
 .modal-title {
-  font-size: var(--font-size-base);
-  color: var(--color-foreground);
-  font-family: var(--font-brand);
+  font-size: 22px;
   font-weight: 600;
-  margin: 0 0 calc(var(--space) / 2.5) 0;
+  line-height: 1.2;
+  color: var(--color-foreground);
+  margin: 0 0 4px;
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--color-foreground-offset-2);
+  margin: 0;
 }
 
 .modal-body {
-  padding: 0 calc(var(--space) * 1.2);
+  padding: 20px 26px;
 }
 
-.modal-body p,
-.modal-body label {
-  font-size: var(--font-size-base) !important;
-  line-height: 1.5;
-  color: var(--color-foreground-offset);
-  font-family: var(--font-brand);
-  margin: 0 0 calc(var(--space) * 1.2) 0;
-}
-
-.modal-body label {
-  display: flex;
-  align-items: center;
-  margin-bottom: calc(var(--space) / 2.5);
+.modal-body p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-foreground-offset-2);
+  margin: 0;
 }
 
 .modal-footer {
-  padding: 0 calc(var(--space) * 1.2) calc(var(--space) * 1.2)
-    calc(var(--space) * 1.2);
   display: flex;
-  gap: calc(var(--space) / 1.67);
   justify-content: flex-end;
+  gap: 10px;
+  padding: 20px 26px;
+  border-top: 1px solid var(--color-background-offset);
+  background: var(--color-background-card);
 }
 
-.modal-footer .btn-primary {
-  min-width: 80px;
+.modal-footer .portal-btn {
+  padding: 10px 16px;
 }
 
-.unsubscription-reasons-list {
-  margin-bottom: calc(var(--space) * 1.2);
+/* Change-plan: each plan as a selectable bordered card. */
+.plan-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.unsubscription-reasons-list input[type="radio"] {
-  margin-right: calc(var(--space) / 2.5);
+.plan-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 15px 16px;
+  margin: 0;
+  border: 1px solid var(--color-background-offset);
+  border-radius: 12px;
+  cursor: pointer;
 }
 
-.helper-text {
-  font-size: var(--font-size-extra-small);
-  color: var(--color-foreground-offset);
-  margin-top: calc(var(--space) / 5);
-  overflow-wrap: anywhere;
+.plan-option--selected {
+  border: 2px solid var(--color-action);
+  padding: 14px 15px;
+  background-color: #f5f8ff;
 }
 
-.helper-text.gift-message {
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
+.plan-option input[type="radio"] {
+  margin: 3px 0 0 0;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-action);
+  flex: 0 0 auto;
 }
 
-.checkbox-label .input-label {
-  margin-bottom: 0;
+.plan-option__body {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
-.btn-primary.update-button {
-  margin-top: var(--space);
+.plan-option__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.modal-body p:not(:first-child) {
-  margin-top: calc(var(--space) / 1.25);
+.plan-option__name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-foreground);
 }
 
-/* Comments Section — reuses .comment, .archive__comments-list styles from comments.css */
-.manage-subscription .comment__content {
-  padding-left: 0;
+.plan-option__price {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-foreground);
+  white-space: nowrap;
 }
 
-.manage-subscription .comment__actions {
-  margin-left: 0;
+.plan-option__description {
+  font-size: 13px;
+  color: var(--color-foreground-offset-2);
+  margin-top: 3px;
+}
+
+.plan-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 5px;
+  margin-left: 6px;
+}
+.plan-badge--current {
+  color: var(--color-action);
+  background: #e3ebff;
+}
+.plan-badge--save {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+/* Update payment method: the current-card summary row. */
+.card-summary {
+  display: flex;
   align-items: center;
+  gap: 12px;
+  padding: 13px 15px;
+  background: var(--color-background-card);
+  border: 1px solid var(--color-background-offset);
+  border-radius: 11px;
+  margin-bottom: 16px;
+}
+.card-summary__brand {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: var(--color-background);
+  border: 1px solid var(--color-background-offset);
+  color: var(--color-foreground);
+}
+.card-summary__digits {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-foreground);
+}
+.card-summary__expires {
+  font-size: 12px;
+  color: var(--color-foreground-offset-2);
+}
+.card-summary__current {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-foreground-offset-2);
 }
 
-.manage-subscription .comment-delete-button {
-  margin-left: auto;
+/* Card form (UpdatePaymentMethodForm) inside the payment modal. Stripe
+   Elements mount into the archive__* nodes; the inputs themselves inherit the
+   shared .input-field styling above. */
+.modal-body .archive__email-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin-bottom: 7px;
+}
+.modal-body .archive__card-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.modal-body .archive__email-input-container {
+  margin-bottom: 4px;
+}
+
+/* Side-by-side fields (expiry / cvc). */
+.field-row {
+  display: flex;
+  gap: 12px;
+}
+.field-row > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Unsubscribe-reason radio list. */
+.unsubscription-reasons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.unsubscription-reasons-list label {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.unsubscription-reasons-list input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-action);
 }

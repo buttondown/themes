@@ -28,6 +28,17 @@
   --color-foreground-offset-2: #737373;
   --color-action: var(--color-accent, oklch(42.4% 0.199 265.638));
 
+  /* Subscriber-portal redesign status colors (see design_handoff_subscriber_portal).
+     Neutrals (border/sidebar/input/muted-foreground) reuse the existing
+     background/foreground offset tokens above. */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  /* Soft error fill/border, shared by the danger button, past-due banner,
+     and plan-card warning. */
+  --color-error-soft: #fef2f2;
+  --color-error-soft-border: #f3c7c7;
+
   --color-background-dark: oklch(14.1% 0.005 285.823);
   --color-background-card-dark: oklch(21% 0.006 285.885);
   --color-background-offset-dark: oklch(37% 0.013 285.805);
