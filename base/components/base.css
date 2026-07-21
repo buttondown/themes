@@ -235,9 +235,14 @@ figcaption {
 figure img {
   border-radius: calc(var(--space) / 2);
   margin: 0;
-  width: 100%;
   max-width: 100%;
   transition: all 0.2s ease-in-out;
+}
+
+/* Images manually resized in the editor carry a width attribute; honor it
+   rather than stretching them to the full column. */
+figure img:not([width]) {
+  width: 100%;
 }
 
 p img {
