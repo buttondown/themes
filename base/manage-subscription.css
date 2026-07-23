@@ -525,6 +525,10 @@ select.input-field,
   margin: 0;
 }
 
+.modal-body p + p {
+  margin-top: 12px;
+}
+
 .modal-footer {
   display: flex;
   justify-content: flex-end;
@@ -694,6 +698,7 @@ select.input-field,
   display: flex;
   flex-direction: column;
   gap: 9px;
+  margin-top: 14px;
 }
 .unsubscription-reasons-list label {
   display: flex;
