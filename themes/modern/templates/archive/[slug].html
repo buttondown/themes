@@ -32,7 +32,7 @@
                 {% include "subscriber_facing/snippets/related_emails.html" %}
                 {% include "subscriber_facing/snippets/attachments.html" %}
                 <div class="card-container">
-                    {% if not subscriber %}
+                    {% if not subscriber and not comments_awaiting_confirmation %}
                         <div class="card-container-header">
                             {% if not newsletter.subscription_form_text %}
                                 {% localized 'web.email.subscription.form_text' newsletter.locale %}

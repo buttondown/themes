@@ -197,6 +197,22 @@
   }
 }
 
+/* A pending comment rendered in situ for its author only: dimmed like a
+   not-yet-developed photo, with a full-opacity nudge to confirm below it. */
+.archive__comment-body--awaiting-confirmation > .comment {
+  opacity: 0.55;
+}
+
+/* Matches .comment__content's left padding so the note aligns with the text. */
+.comment__pending-note {
+  padding-left: calc(36px + var(--space) * 0.75);
+  margin-top: calc(var(--space) * 0.25);
+  color: var(--color-foreground-offset);
+  font-family: var(--font-brand);
+  font-size: var(--font-size-extra-small);
+  font-weight: 600;
+}
+
 .comment-input__disclosure {
   color: var(--color-foreground-offset);
   text-align: center;

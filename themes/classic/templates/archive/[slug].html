@@ -45,7 +45,7 @@
                         {% endif %}
                     </p>
                 </div>
-                {% if not subscriber %}
+                {% if not subscriber and not comments_awaiting_confirmation %}
                     {% include "subscriber_facing/snippets/subscribe_form.html" %}
                 {% endif %}
                 {% include "subscriber_facing/snippets/related_emails.html" %}

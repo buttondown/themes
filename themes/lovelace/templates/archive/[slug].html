@@ -33,7 +33,7 @@
         <hr>
         {% include "subscriber_facing/snippets/related_emails.html" %}
         {% include "subscriber_facing/snippets/attachments.html" %}
-        {% if not subscriber %}
+        {% if not subscriber and not comments_awaiting_confirmation %}
             <p>{% localized 'web.email.subscription.form_text' newsletter.locale %}</p>
             {% include "subscriber_facing/snippets/subscribe_form.html" %}
         {% endif %}
