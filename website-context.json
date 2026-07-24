@@ -1866,6 +1866,7 @@
       "type": "object"
     },
     "SendingDomainStatus": {
+      "description": "The DNS verification status of a newsletter's custom sending domain.",
       "enum": [
         "none",
         "invalid",
