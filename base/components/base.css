@@ -271,6 +271,21 @@ figure[data-full-width="true"] img {
   height: auto;
 }
 
+/* On mobile, content images go edge-to-edge with no rounded corners,
+   matching the featured newsletter-image treatment below. The <figure> is a
+   centered flex column, so widening the image to 100vw bleeds it symmetrically
+   to both viewport edges (same mechanism as the zoomed full-width state). */
+@media (max-width: 600px) {
+  figure img {
+    border-radius: 0;
+  }
+
+  figure img:not([width]) {
+    max-width: 100vw;
+    width: 100vw;
+  }
+}
+
 .footer {
   color: var(--color-foreground-offset-2);
   font-family: var(--font-brand);
