@@ -1204,6 +1204,13 @@
           "title": "Socials",
           "type": "array"
         },
+        "sharing_networks": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Sharing Networks",
+          "type": "array"
+        },
         "sponsorship_text": {
           "anyOf": [
             {
@@ -1405,6 +1412,7 @@
         "should_send_subscription_confirmation_email",
         "simple_analytics_enabled",
         "socials",
+        "sharing_networks",
         "status",
         "subscription_button_text",
         "subscription_confirmation_redirect_url",
