@@ -66,7 +66,9 @@
                     </div>
                 </div>
             {% empty %}
-                {% if not subscriber_email %}
+                {% if search_query and newsletter.is_archive_searchable %}
+                    <div class="card">{% localized 'web.search.no_results' newsletter.locale query=search_query %}</div>
+                {% elif not subscriber_email %}
                     <div class="card">{% include "subscriber_facing/snippets/subscribe_form.html" %}</div>
                 {% else %}
                     <div class="card">{% localized 'web.message.empty.author_no_emails' newsletter.locale %}</div>

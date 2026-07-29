@@ -27,7 +27,11 @@
                     {% if newsletter.paid_subscriptions_status == 'active' and email.is_premium %}[{% localized 'web.post.label.premium' newsletter.locale %}]{% endif %}
                 </li>
             {% empty %}
-                <li>{% localized "web.message.empty.no_emails_published" newsletter.locale %}</li>
+                {% if search_query and newsletter.is_archive_searchable %}
+                    <li>{% localized "web.search.no_results" newsletter.locale query=search_query %}</li>
+                {% else %}
+                    <li>{% localized "web.message.empty.no_emails_published" newsletter.locale %}</li>
+                {% endif %}
             {% endfor %}
         </ul>
     {% if public_emails.has_other_pages %}
