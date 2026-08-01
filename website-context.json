@@ -2126,8 +2126,8 @@
       "title": "Premium Archive Url",
       "type": "string"
     },
-    "premium_rss_url": {
-      "title": "Premium Rss Url",
+    "subscriber_rss_url": {
+      "title": "Subscriber Rss Url",
       "type": "string"
     },
     "premium_subscribe_url": {
@@ -2163,7 +2163,7 @@
     "manage_premium_subscription_url",
     "manage_subscription_url",
     "premium_archive_url",
-    "premium_rss_url",
+    "subscriber_rss_url",
     "premium_subscribe_url",
     "subscribe_url",
     "unsubscribe_url",
