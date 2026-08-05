@@ -682,6 +682,15 @@ select.input-field,
 .modal-body .archive__email-input-container {
   margin-bottom: 4px;
 }
+.modal-body .archive__error-message {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: var(--color-error-soft);
+  border: 1px solid var(--color-error-soft-border);
+  color: var(--color-error);
+  font-size: 14px;
+  text-align: center;
+}
 
 /* Side-by-side fields (expiry / cvc). */
 .field-row {

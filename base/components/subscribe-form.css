@@ -277,14 +277,23 @@
   width: 100%;
 }
 
-.magic-link-toggle-button:hover {
-  background-color: var(--color-background-offset);
+.magic-link-toggle-button:hover .magic-link-toggle-text,
+.magic-link-toggle-button:focus-visible .magic-link-toggle-text {
+  text-decoration: underline;
 }
 
 .magic-link-toggle-text {
   color: var(--color-foreground);
   font-size: 14px;
   text-align: center;
+}
+
+.paywall-gate {
+  margin-bottom: calc(var(--space) * 2);
+}
+
+.paywall-gate > .card {
+  margin-bottom: 0;
 }
 
 .paywall-gate-free-subscribe {
@@ -296,7 +305,7 @@
   display: block;
   font: inherit;
   font-size: 14px;
-  margin: var(--space) auto 0;
+  margin: 16px auto 0;
   padding: 0;
   text-align: center;
   text-decoration: underline;
