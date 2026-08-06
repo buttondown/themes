@@ -11,6 +11,12 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.archive__social-share-link-container:has(
+    .archive__social-share-link:nth-child(1):last-child
+  ) {
+  grid-template-columns: 1fr;
+}
+
 .archive__social-share-link {
   text-decoration: none;
   text-align: center;
