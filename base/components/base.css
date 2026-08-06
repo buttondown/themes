@@ -536,6 +536,7 @@ blockquote blockquote {
 }
 
 .newsletter-icon {
+  object-fit: cover;
   height: var(--newsletter-icon-size);
   margin-bottom: calc(var(--space));
   width: var(--newsletter-icon-size);
