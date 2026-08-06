@@ -36,24 +36,6 @@ blockquote li {
   color: var(--color-foreground);
 }
 
-.buttondown-button {
-  border-radius: 9999px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  font-family: var(--font-brand);
-  margin-bottom: calc(var(--space) * 2);
-  margin-top: calc(var(--space) * 2);
-  transition: all 0.2s ease-in-out;
-}
-
-.buttondown-custom-button,
-.subscribe_button {
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    transform: scale(1.05);
-  }
-}
-
 .card-container--paywalled {
   position: relative;
   z-index: 1000;
@@ -241,15 +223,6 @@ hr {
     .newsletter-icon {
       display: none;
     }
-  }
-}
-
-.subscribe_button {
-  margin-bottom: calc(var(--space) * 2);
-  margin-top: calc(var(--space) * 2);
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    transform: scale(1.05);
   }
 }
 

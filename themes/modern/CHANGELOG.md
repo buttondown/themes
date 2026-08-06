@@ -1,5 +1,9 @@
 # Modern Theme Changelog
 
+## 2026-07-06
+
+- Removed unused legacy button styles (`.buttondown-button`, `.buttondown-custom-button`, `.subscribe_button`) (#8568)
+
 ## 2026-06-30
 
 - Added previous/next post navigation at the foot of each archived post, with a `post_navigation` setting to toggle it (#9432)
