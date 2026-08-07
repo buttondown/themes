@@ -140,6 +140,7 @@
 .header-brand-icon {
   height: 30px;
   width: 30px;
+  object-fit: cover;
   border-radius: 9999px;
   margin-right: 0;
 
