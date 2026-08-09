@@ -184,17 +184,6 @@
     "FilteredEmail": {
       "description": "A filtered version of an Email model that only exposes certain fields.\nThis is used to prevent exposing sensitive information in templates.",
       "properties": {
-        "DEPRECATED_email_type": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Deprecated Email Type"
-        },
         "absolute_url": {
           "title": "Absolute Url",
           "type": "string"
