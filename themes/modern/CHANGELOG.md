@@ -1,5 +1,9 @@
 # Modern Theme Changelog
 
+## 2026-08-11
+
+- Post navigation now keeps the newer and older links on one line when both titles fit, and wraps to two lines only when they do not (#10898)
+
 ## 2026-07-06
 
 - Removed unused legacy button styles (`.buttondown-button`, `.buttondown-custom-button`, `.subscribe_button`) (#8568)

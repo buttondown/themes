@@ -1,5 +1,9 @@
 # Classic Theme Changelog
 
+## 2026-08-11
+
+- Post navigation now keeps the newer and older links on one line when both titles fit, and wraps to two lines only when they do not (#10898)
+
 ## 2026-06-30
 
 - Added previous/next post navigation at the foot of each archived post, with a `post_navigation` setting to toggle it (#9432)
