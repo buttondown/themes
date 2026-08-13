@@ -302,9 +302,9 @@ select {
   box-sizing: border-box;
 }
 
-button,
-[type="submit"],
-a[type="button"] {
+button:not(:where(.portal-btn)),
+[type="submit"]:not(:where(.portal-btn)),
+a[type="button"]:not(:where(.portal-btn)) {
   background: var(--color-foreground);
   border: 1px solid var(--color-foreground);
   color: var(--color-background);
@@ -314,9 +314,9 @@ a[type="button"] {
   padding: 0.5rem;
 }
 
-button:hover,
-[type="submit"]:hover,
-a[type="button"]:hover {
+button:not(:where(.portal-btn)):hover,
+[type="submit"]:not(:where(.portal-btn)):hover,
+a[type="button"]:not(:where(.portal-btn)):hover {
   background: var(--color-background);
   color: var(--color-foreground);
 }

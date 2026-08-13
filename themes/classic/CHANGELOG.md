@@ -1,5 +1,9 @@
 # Classic Theme Changelog
 
+## 2026-08-12
+
+- Stopped the theme's generic button styling from overriding the subscriber portal's own buttons (#10915)
+
 ## 2026-08-11
 
 - Post navigation now keeps the newer and older links on one line when both titles fit, and wraps to two lines only when they do not (#10898)
