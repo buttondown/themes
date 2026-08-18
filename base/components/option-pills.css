@@ -1,0 +1,71 @@
+@import "../variables.css";
+
+/* Option pills — the choice control for multi-select metadata fields. Shared by
+   the subscribe form (via components/base.css) and the subscriber portal (via
+   manage-subscription.css), which are separate stylesheets over the same tokens.
+   Radius and spacing derive from --space and --corner-shape so a newsletter's
+   theme reshapes pills the same way it reshapes inputs and buttons. */
+
+.archive__option-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space) / 2.5);
+}
+
+.archive__option-pill {
+  align-items: center;
+  border: 1px solid var(--color-background-offset);
+  border-radius: var(--space);
+  color: var(--color-foreground);
+  corner-shape: var(--corner-shape);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  gap: calc(var(--space) / 4);
+  line-height: 1.3;
+  padding: calc(var(--space) / 2.5) calc(var(--space) * 0.7);
+  /* Anchors the visually-hidden checkbox below, so focusing it can't scroll the
+     page to a stray corner. */
+  position: relative;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+/* Hidden, never display:none — the real checkbox still takes focus, still
+   announces as a checkbox, and still submits with the no-JS form POST. */
+.archive__option-pill input[type="checkbox"] {
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.archive__option-pill:hover {
+  border-color: var(--color-foreground-offset-2);
+}
+
+.archive__option-pill:has(input[type="checkbox"]:checked) {
+  background-color: var(--color-action);
+  border-color: var(--color-action);
+  color: white;
+}
+
+/* A filled pill on its own can read as a button that has been pressed rather
+   than a box that is ticked, so selection also grows a checkmark. */
+.archive__option-pill:has(input[type="checkbox"]:checked)::before {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.25' d='M3 8.5l3.5 3.5L13 4.5'/%3e%3c/svg%3e");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  flex: none;
+  height: 0.85em;
+  width: 0.85em;
+}
+
+.archive__option-pill:has(input[type="checkbox"]:focus-visible) {
+  outline: 2px solid var(--color-action);
+  outline-offset: 2px;
+}

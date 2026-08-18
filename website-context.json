@@ -85,6 +85,9 @@
               "$ref": "#/$defs/SelectFieldConfig"
             },
             {
+              "$ref": "#/$defs/MultiselectFieldConfig"
+            },
+            {
               "$ref": "#/$defs/CheckboxFieldConfig"
             }
           ],
@@ -1707,6 +1710,34 @@
       "title": "Locale",
       "type": "string"
     },
+    "MultiselectFieldConfig": {
+      "properties": {
+        "type": {
+          "const": "multiselect",
+          "title": "Type",
+          "type": "string"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/$defs/SelectOptionConfig"
+          },
+          "minItems": 1,
+          "title": "Options",
+          "type": "array"
+        },
+        "required": {
+          "default": false,
+          "title": "Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "options"
+      ],
+      "title": "MultiselectFieldConfig",
+      "type": "object"
+    },
     "NewsletterPrice": {
       "description": "Price information for paid subscriptions.",
       "properties": {
@@ -1828,6 +1859,7 @@
           "items": {
             "$ref": "#/$defs/SelectOptionConfig"
           },
+          "minItems": 1,
           "title": "Options",
           "type": "array"
         },
@@ -1847,10 +1879,12 @@
     "SelectOptionConfig": {
       "properties": {
         "id": {
+          "minLength": 1,
           "title": "Id",
           "type": "string"
         },
         "label": {
+          "minLength": 1,
           "title": "Label",
           "type": "string"
         }

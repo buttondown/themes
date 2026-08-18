@@ -201,11 +201,48 @@
   }
 }
 
+.archive__subscribe-form-fieldset {
+  border: none;
+  margin: 0;
+  /* A fieldset's implicit min-content minimum width would stop its pills from
+     wrapping inside a narrow embed. */
+  min-width: 0;
+  padding: 0;
+}
+
+.archive__subscribe-form-hint {
+  color: var(--color-foreground-offset-2);
+  display: block;
+  font-size: var(--font-size-small);
+  font-weight: 400;
+  margin-top: calc(var(--space) / 8);
+}
+
 .archive__subscribe-form-label {
   align-items: center;
   display: flex;
   font-size: var(--font-size-base);
   gap: calc(var(--space) / 2);
+}
+
+/* Every other field carries its name in a placeholder; a group of options has
+   nowhere to put one, so this is the only visible field label on the form. */
+.archive__subscribe-form-legend {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: calc(var(--space) / 3);
+  padding: 0;
+}
+
+/* highlightRequiredFields() flashes `.required` on the element with id
+   sfi-<key>, which for a multi-select is the fieldset — it has no input of its
+   own for the `.card input.required` rule to outline. Ringing the group is the
+   equivalent; the 4px an input gets reads as a slab at this size. */
+.card .archive__subscribe-form-fieldset.required .archive__option-pills {
+  border-radius: calc(var(--space) / 2);
+  outline: 2px solid var(--color-error);
+  outline-offset: calc(var(--space) / 4);
 }
 
 .card input.required {
