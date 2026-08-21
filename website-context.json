@@ -116,6 +116,11 @@
           "const": "checkbox",
           "title": "Type",
           "type": "string"
+        },
+        "required": {
+          "default": false,
+          "title": "Required",
+          "type": "boolean"
         }
       },
       "required": [
