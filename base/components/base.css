@@ -428,6 +428,16 @@ ul li {
   }
 }
 
+/* Social icons render as <img> tags of monochrome black SVGs, so they can't
+   pick up --color-foreground the way inline SVGs do; invert them in dark mode.
+   Favicon fallbacks (google.com/s2/favicons) are full-color and stay as-is. */
+@media (prefers-color-scheme: dark) {
+  :root.supports-dark-mode .social-networks img:not([src*="favicons"]),
+  :root.dark .social-networks img:not([src*="favicons"]) {
+    filter: invert(1);
+  }
+}
+
 .subject {
   text-align: var(--text-header-alignment);
   margin-top: 0;
