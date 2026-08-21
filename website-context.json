@@ -134,6 +134,7 @@
         "high_rate_of_complaints",
         "high_rate_of_rejections",
         "incident",
+        "prohibited_email_domain",
         "seo",
         "suspicious_activity",
         "unapproved_usage",
