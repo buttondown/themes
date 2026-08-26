@@ -118,7 +118,9 @@ body {
   li {
     font-family: inherit;
   }
-  p ~ p {
+
+  /* Otherwise the last child's own margin stacks onto the card's padding. */
+  > *:last-child {
     margin-bottom: 0;
   }
 }
