@@ -57,6 +57,8 @@
         "archive-column-count": {
             "type": "number",
             "default": 3,
+            "min": 1,
+            "max": 6,
             "header": "Column count",
             "description": "Number of columns to display in the archive"
         },
