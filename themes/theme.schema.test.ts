@@ -31,68 +31,61 @@ describe("theme.schema.json", () => {
     });
   }
 
-  it("should reject a theme with missing required fields", () => {
-    const invalidTheme = {
-      name: "Invalid",
-      version: "1.0.0",
-    };
-    expect(validate(invalidTheme)).toBe(false);
-  });
-
-  it("should reject a theme with invalid version format", () => {
-    const invalidTheme = {
-      name: "Invalid",
-      version: "v1",
-      configuration: {},
-    };
-    expect(validate(invalidTheme)).toBe(false);
-  });
-
-  it("should reject a theme with invalid color format", () => {
-    const invalidTheme = {
-      name: "Invalid",
-      version: "1.0.0",
-      configuration: {
-        "color-accent": {
-          type: "color",
-          header: "Accent color",
-          default: "not-a-hex-color",
+  it.each([
+    [
+      "should reject a theme with missing required fields",
+      { name: "Invalid", version: "1.0.0" },
+      false,
+    ],
+    [
+      "should reject a theme with invalid version format",
+      { name: "Invalid", version: "v1", configuration: {} },
+      false,
+    ],
+    [
+      "should reject a theme with invalid color format",
+      {
+        name: "Invalid",
+        version: "1.0.0",
+        configuration: {
+          "color-accent": {
+            type: "color",
+            header: "Accent color",
+            default: "not-a-hex-color",
+          },
         },
       },
-    };
-    expect(validate(invalidTheme)).toBe(false);
-  });
-
-  it("should reject a select field without options", () => {
-    const invalidTheme = {
-      name: "Invalid",
-      version: "1.0.0",
-      configuration: {
-        layout: {
-          type: "select",
-          header: "Layout",
+      false,
+    ],
+    [
+      "should reject a select field without options",
+      {
+        name: "Invalid",
+        version: "1.0.0",
+        configuration: { layout: { type: "select", header: "Layout" } },
+      },
+      false,
+    ],
+    [
+      "should accept a valid select field with options",
+      {
+        name: "Valid",
+        version: "1.0.0",
+        configuration: {
+          layout: {
+            type: "select",
+            header: "Layout",
+            default: "grid",
+            options: [
+              { id: "grid", label: "Grid" },
+              { id: "list", label: "List" },
+            ],
+          },
         },
       },
-    };
-    expect(validate(invalidTheme)).toBe(false);
-  });
-
-  it("should accept a valid select field with options", () => {
-    const validTheme = {
-      name: "Valid",
-      version: "1.0.0",
-      configuration: {
-        layout: {
-          type: "select",
-          header: "Layout",
-          default: "grid",
-          options: [
-            { id: "grid", label: "Grid" },
-            { id: "list", label: "List" },
-          ],
-        },
-      },
-    };
-    expect(validate(validTheme)).toBe(true);
+      true,
+    ],
+  ])("%s", (_desc, theme, expected) => {
+    expect(validate(theme)).toBe(expected);
   });
 });
