@@ -1,5 +1,9 @@
 # Lovelace Theme Changelog
 
+## 2026-09-02
+
+- Fixed the subscription confirmation dialog appearing as floating, duplicated text
+
 ## 2026-08-12
 
 - Stopped the theme's generic button styling from overriding the subscriber portal's own buttons (#10915)

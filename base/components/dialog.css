@@ -1,0 +1,157 @@
+:root {
+  --motion-timing-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --z-dialog: 20;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    scale: 0.96;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes pop-out {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0.96;
+  }
+}
+
+/* Tailwind utilities used by Dialog.vue, scoped so they don't affect theme
+   styling. Colors use subscriber-facing CSS variables so dark mode works. */
+.buttondown-dialog-root .backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+.buttondown-dialog-root .bg-background {
+  background-color: var(--color-background);
+}
+.buttondown-dialog-root .bg-gray-100\/50 {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.buttondown-dialog-root .bg-white {
+  background-color: var(--color-background-card);
+}
+.buttondown-dialog-root .border {
+  border: 1px solid;
+}
+.buttondown-dialog-root .border-gray-300 {
+  border-color: var(--color-background-offset);
+}
+.buttondown-dialog-root .border-border {
+  border-color: var(--color-background-offset);
+}
+.buttondown-dialog-root .border-t {
+  border-top: 1px solid;
+}
+.buttondown-dialog-root .border-transparent {
+  border-color: transparent;
+}
+.buttondown-dialog-root .bottom-0 {
+  bottom: 0;
+}
+.buttondown-dialog-root .duration-200 {
+  transition-duration: 200ms;
+}
+.buttondown-dialog-root .fixed {
+  position: fixed;
+}
+.buttondown-dialog-root .flex {
+  display: flex;
+}
+.buttondown-dialog-root .flex-col {
+  flex-direction: column;
+}
+.buttondown-dialog-root .gap-4 {
+  gap: 1rem;
+}
+.buttondown-dialog-root .grow {
+  flex-grow: 1;
+}
+.buttondown-dialog-root .inset-0 {
+  inset: 0;
+}
+.buttondown-dialog-root .justify-between {
+  justify-content: space-between;
+}
+.buttondown-dialog-root .left-1\/2 {
+  left: 50%;
+}
+.buttondown-dialog-root .overflow-y-auto {
+  overflow-y: auto;
+}
+.buttondown-dialog-root .p-4 {
+  padding: 1rem;
+}
+.buttondown-dialog-root .pb-4 {
+  padding-bottom: 1rem;
+}
+.buttondown-dialog-root .pt-4 {
+  padding-top: 1rem;
+}
+.buttondown-dialog-root .px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.buttondown-dialog-root .rounded-lg {
+  border-radius: 0.5rem;
+}
+.buttondown-dialog-root .rounded-t-lg {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.buttondown-dialog-root .scroll-pb-20 {
+  scroll-padding-bottom: 5rem;
+}
+.buttondown-dialog-root .shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+.buttondown-dialog-root .sticky {
+  position: sticky;
+}
+.buttondown-dialog-root .text-foreground {
+  color: var(--color-foreground);
+}
+.buttondown-dialog-root .top-1\/2 {
+  top: 50%;
+}
+.buttondown-dialog-root .transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.buttondown-dialog-root .w-full {
+  width: 100%;
+}
+.buttondown-dialog-root .z-10 {
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .buttondown-dialog-root .md\:max-w-md {
+    max-width: 28rem;
+  }
+}

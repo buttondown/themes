@@ -1,7 +1,10 @@
+@import "../../../subscriber_facing/styles/components/dialog.css";
+
 /* Lovelace: a brutalist, nearly no-CSS theme */
 
 :root {
   --color-background: #fff;
+  --color-background-card: var(--color-background);
   --color-foreground: #000;
   --color-background-offset: #ddd;
   --color-action: #00f;
@@ -343,6 +346,8 @@ a[type="button"]:not(:where(.portal-btn)):hover {
 .sniper-link-button {
   align-items: center;
   display: inline-flex;
+  gap: 0.75rem;
+  justify-content: center;
   text-decoration: none;
 }
 
@@ -350,6 +355,31 @@ a[type="button"]:not(:where(.portal-btn)):hover {
   height: 1rem;
   object-fit: contain;
   width: 1rem;
+}
+
+.unactivated-section {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Keep dialogs as minimal as the rest of the theme. */
+.buttondown-dialog-root .backdrop-blur-sm {
+  backdrop-filter: none;
+}
+
+.buttondown-dialog-root .rounded-lg,
+.buttondown-dialog-root .rounded-t-lg {
+  border-radius: 0;
+}
+
+.buttondown-dialog-root .shadow-2xl {
+  box-shadow: none;
+}
+
+.buttondown-dialog-root .subscription-success-message {
+  margin-bottom: 0;
 }
 
 /* Cards - strip all styling */
