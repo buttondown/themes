@@ -1,5 +1,9 @@
 # Classic Theme Changelog
 
+## 2026-09-02
+
+- Fixed click-to-zoom on archive images: the zoomed image was cropped to the reading column instead of filling the viewport (#11236)
+
 ## 2026-08-12
 
 - Stopped the theme's generic button styling from overriding the subscriber portal's own buttons (#10915)

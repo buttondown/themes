@@ -6,10 +6,18 @@
   --newsletter-icon-size: 24px;
 }
 
+/* .app-container is the reading column here (not full-width as in Modern),
+   so the base stylesheet's overflow clip on it would crop zoomed and mobile
+   full-bleed images to the column. Let them bleed and clip at the viewport. */
+html {
+  overflow-x: hidden;
+}
+
 .app-container {
   flex: 1 0 auto;
   margin: 0 auto;
   max-width: calc(100% - var(--space) * 2);
+  overflow-x: visible;
   width: var(--width-content);
 }
 

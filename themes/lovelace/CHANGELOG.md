@@ -1,5 +1,9 @@
 # Lovelace Theme Changelog
 
+## 2026-09-03
+
+- Added click-to-zoom on archive images, which the theme had no styling for (#11236)
+
 ## 2026-09-02
 
 - Fixed the subscription confirmation dialog appearing as floating, duplicated text

@@ -289,6 +289,30 @@ img {
   height: auto;
 }
 
+/* Click-to-zoom: the subscriber-facing app toggles data-full-width on each
+   <figure>. The zoomed image is centered in the figure and widened to the
+   viewport. The clip only applies while something is zoomed, so wide content
+   on an un-zoomed page stays reachable by horizontal scroll as before. */
+html:has(figure[data-full-width="true"]) {
+  overflow-x: hidden;
+}
+
+figure[data-full-width="false"]:not([data-zoomable="false"]) img {
+  cursor: zoom-in;
+}
+
+figure[data-full-width="true"] {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+figure[data-full-width="true"] img {
+  cursor: zoom-out;
+  max-width: 100vw;
+  width: 100vw;
+}
+
 /* Forms - minimal styling */
 input[type="email"],
 input[type="text"],
