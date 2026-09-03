@@ -1170,10 +1170,6 @@
           "title": "Should Require Double Optin",
           "type": "boolean"
         },
-        "should_send_latest_email_to_new_subscribers": {
-          "title": "Should Send Latest Email To New Subscribers",
-          "type": "boolean"
-        },
         "should_send_subscription_confirmation_email": {
           "title": "Should Send Subscription Confirmation Email",
           "type": "boolean"
@@ -1405,7 +1401,6 @@
         "should_noindex_archive_page",
         "should_noindex_subscribe_page",
         "should_require_double_optin",
-        "should_send_latest_email_to_new_subscribers",
         "should_send_subscription_confirmation_email",
         "simple_analytics_enabled",
         "socials",
@@ -1670,10 +1665,6 @@
         "only_send_plaintext_emails",
         "subscription_button_text",
         "subscription_form_text",
-        "specific_email_to_send_to_new_subscribers",
-        "specific_email_to_send_to_new_subscribers_id",
-        "should_send_latest_email_to_new_subscribers",
-        "stripe_api_key",
         "should_expose_rss",
         "body_template",
         "custom_preamble"
