@@ -188,6 +188,15 @@ select.input-field,
   margin-bottom: 20px;
 }
 
+.save-changes-error {
+  padding: 12px 14px;
+  color: var(--color-error);
+  background: var(--color-error-soft);
+  border: 1px solid var(--color-error-soft-border);
+  border-radius: 10px;
+  font-size: var(--font-size-small);
+}
+
 .field-group--buttons {
   display: flex;
   flex-wrap: nowrap;
