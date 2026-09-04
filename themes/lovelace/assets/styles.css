@@ -4,10 +4,11 @@
 
 :root {
   --color-background: #fff;
-  --color-background-card: var(--color-background);
   --color-foreground: #000;
   --color-background-offset: #ddd;
   --color-action: #00f;
+  --corner-shape: square;
+  --font-brand: monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,7 +47,8 @@ a {
   margin: 0 auto;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 1rem;
   margin: 0 0 1rem 0;
 }
@@ -502,7 +504,6 @@ a[type="button"]:not(:where(.portal-btn)):hover {
   white-space: nowrap;
   border: 0;
 }
-
 
 /* Pinned/Featured email */
 li.featured {

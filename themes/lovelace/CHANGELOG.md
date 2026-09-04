@@ -3,6 +3,7 @@
 ## 2026-09-03
 
 - Added click-to-zoom on archive images, which the theme had no styling for (#11236)
+- Portal pages now inherit Lovelace's monospace type and square corners
 
 ## 2026-09-02
 
