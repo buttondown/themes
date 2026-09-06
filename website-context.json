@@ -599,10 +599,6 @@
           "title": "Custom Archive Template",
           "type": "string"
         },
-        "custom_archives_template": {
-          "title": "Custom Archives Template",
-          "type": "string"
-        },
         "custom_tracking_host": {
           "anyOf": [
             {
@@ -639,17 +635,6 @@
             }
           ],
           "title": "Custom Expired Trial Notification Subject"
-        },
-        "custom_expired_trial_notification_template": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Custom Expired Trial Notification Template"
         },
         "custom_gift_subscription_email_body": {
           "anyOf": [
@@ -980,14 +965,6 @@
           "title": "Is Archive Searchable",
           "type": "boolean"
         },
-        "is_custom_archive_template_enabled": {
-          "title": "Is Custom Archive Template Enabled",
-          "type": "boolean"
-        },
-        "is_custom_archives_template_enabled": {
-          "title": "Is Custom Archives Template Enabled",
-          "type": "boolean"
-        },
         "is_paid_subscription_free_trials_enabled": {
           "title": "Is Paid Subscription Free Trials Enabled",
           "type": "boolean"
@@ -1255,10 +1232,6 @@
         "template": {
           "$ref": "#/$defs/EmailTemplate"
         },
-        "thank_you_text": {
-          "title": "Thank You Text",
-          "type": "string"
-        },
         "tint_color": {
           "anyOf": [
             {
@@ -1351,7 +1324,6 @@
         "captcha_provider",
         "body_template",
         "custom_archive_template",
-        "custom_archives_template",
         "custom_email_template",
         "custom_preamble",
         "default_behavior_for_subscriber_imports",
@@ -1371,8 +1343,6 @@
         "image",
         "indexing_mode",
         "is_archive_searchable",
-        "is_custom_archive_template_enabled",
-        "is_custom_archives_template_enabled",
         "is_paid_subscription_free_trials_enabled",
         "is_sponsorship_enabled",
         "is_using_plausible",
@@ -1410,7 +1380,6 @@
         "subscription_confirmation_redirect_url",
         "subscription_redirect_url",
         "template",
-        "thank_you_text",
         "timezone",
         "unsubscription_reasons",
         "upgrade_text",
