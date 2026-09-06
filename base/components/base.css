@@ -31,7 +31,6 @@ a:hover {
   overflow-x: clip;
 }
 
-.route--upgrade-subscription-success .app,
 .route--unsubscription-success .app,
 .route--answer-survey .app,
 .route--answer-survey-source .app {
