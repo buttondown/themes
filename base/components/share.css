@@ -1,4 +1,4 @@
-.archive__social-share-link-container {
+.archive__social-share-link-container:not([hidden]) {
   border-radius: calc(var(--space));
   display: grid;
   grid-template-columns: repeat(3, 1fr);
