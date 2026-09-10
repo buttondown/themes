@@ -88,10 +88,7 @@ body {
   corner-shape: var(--corner-shape);
   cursor: pointer;
   text-decoration: none;
-  transition:
-    opacity 0.15s,
-    background 0.15s,
-    border-color 0.15s;
+  transition: opacity 0.15s, background 0.15s, border-color 0.15s;
 }
 
 .portal-btn--primary {
@@ -151,7 +148,9 @@ body {
 
 input[type="text"].input-field,
 input[type="email"].input-field,
+input[type="url"].input-field,
 select.input-field,
+textarea.input-field,
 .modal-body .archive__stripe-input,
 .modal-body .archive__email-input {
   box-sizing: border-box;
@@ -166,9 +165,7 @@ select.input-field,
   border: 1px solid var(--color-background-offset);
   border-radius: 10px;
   corner-shape: var(--corner-shape);
-  transition:
-    border-color 0.15s ease-out,
-    box-shadow 0.15s ease-out;
+  transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out;
   outline: none;
 }
 
