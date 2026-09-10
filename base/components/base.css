@@ -296,7 +296,7 @@ figure[data-full-width="true"] img {
   font-size: var(--font-size-small);
   padding: var(--space);
   text-align: center;
-  text-wrap: pretty;
+  text-wrap: balance;
 
   a {
     color: var(--color-foreground-offset);
