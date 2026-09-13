@@ -34,16 +34,5 @@
                 {% endif %}
             {% endfor %}
         </ul>
-    {% if public_emails.has_other_pages %}
-        <ul>
-            <li>
-                {% if public_emails.has_previous %}
-                    <a href="?page={{ public_emails.previous_page_number }}">&lt; prev</a>
-                {% endif %}
-                {% if public_emails.has_next %}
-                    <a href="?page={{ public_emails.next_page_number }}">next &gt;</a>
-                {% endif %}
-            </li>
-        </ul>
-    {% endif %}
+    {% include "subscriber_facing/snippets/pagination.html" with public_emails=public_emails newsletter=newsletter %}
 {% endblock content %}

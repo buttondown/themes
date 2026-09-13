@@ -1,5 +1,10 @@
 # Classic Theme Changelog
 
+## 2026-09-13
+
+- Post dates now match the archive index format and use the newsletter's language
+- Removed an unused footnotes include
+
 ## 2026-09-02
 
 - Fixed click-to-zoom on archive images: the zoomed image was cropped to the reading column instead of filling the viewport

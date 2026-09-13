@@ -1,5 +1,9 @@
 # Lovelace Theme Changelog
 
+## 2026-09-13
+
+- Fixed archive pagination dropping the search query, so "next" now stays within the search results
+
 ## 2026-09-03
 
 - Added click-to-zoom on archive images, which the theme had no styling for
