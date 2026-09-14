@@ -1,5 +1,12 @@
 # Lovelace Theme Changelog
 
+## 2026-09-14
+
+- The theme now shares the subscribe form's stylesheet with the other themes, so its fields, option pills, switches, sign-in prompts and loading spinner are styled instead of falling back to browser defaults
+- The subscribe page's "Subscribe" heading is now translated, instead of staying in English on newsletters set to another language
+- The newsletter description now uses the theme's description styling, and no longer emits an empty paragraph above itself
+- Removed two unmatched closing tags from the subscribe page's markup
+
 ## 2026-09-13
 
 - Fixed archive pagination dropping the search query, so "next" now stays within the search results

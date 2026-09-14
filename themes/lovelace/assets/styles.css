@@ -1,4 +1,6 @@
 @import "../../../subscriber_facing/styles/components/dialog.css";
+@import "../../../subscriber_facing/styles/components/option-pills.css";
+@import "../../../subscriber_facing/styles/components/subscribe-form.css";
 
 /* Lovelace: a brutalist, nearly no-CSS theme */
 
@@ -9,6 +11,10 @@
   --color-action: #00f;
   --corner-shape: square;
   --font-brand: monospace;
+  --font-size-base: 1rem;
+  --font-size-large: 1rem;
+  --font-size-small: 1rem;
+  --space: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,7 +67,6 @@ h2 {
 .header-navigation-toggle,
 .header-navigation-overlay,
 .header-brand-icon,
-.hidden-submit,
 .email-image,
 .newsletter-icon,
 .footer,
@@ -365,22 +370,16 @@ a[type="button"]:not(:where(.portal-btn)):hover {
 
 /* Override subscribe-form.css button styling to match brutalist theme */
 .archive__button {
+  background-color: var(--color-foreground) !important;
+  border: 1px solid var(--color-foreground) !important;
   border-radius: 0 !important;
+  color: var(--color-background) !important;
   text-transform: none !important;
 }
 
-.sniper-link-button {
-  align-items: center;
-  display: inline-flex;
-  gap: 0.75rem;
-  justify-content: center;
-  text-decoration: none;
-}
-
-.sniper-link-image {
-  height: 1rem;
-  object-fit: contain;
-  width: 1rem;
+.archive__button:hover {
+  background-color: var(--color-background) !important;
+  color: var(--color-foreground) !important;
 }
 
 .unactivated-section {

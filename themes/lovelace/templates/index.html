@@ -15,23 +15,23 @@
         <h1>{{ newsletter.name }}</h1>
     {% endif %}
     {% if newsletter.description %}
-        <p>{% autoescape off %}{% render_markdown_for_web newsletter.description newsletter %}{% endautoescape %}</p>
+        <div class="newsletter-description">
+            {% autoescape off %}{% render_markdown_for_web newsletter.description newsletter %}{% endautoescape %}
+        </div>
     {% endif %}
-        <h2>Subscribe</h2>
-        {% include "subscriber_facing/snippets/subscribe_form.html" %}</li>
-        
-        {% comment %}
-            Only show latest-issue / archive-link discovery widgets when the
-            archive is publicly visible.
-        {% endcomment %}
-        {% if newsletter.is_archive_public %}
-            {% if latest_public_email %}
-                <h2>{% localized 'web.navigation.start_reading' newsletter.locale %}</h2>
-                <ul>
-                    <li>{% localized 'web.navigation.latest' newsletter.locale %} <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a></li>
-                    <li>{% localized 'web.navigation.all' newsletter.locale %} <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.archive' newsletter.locale %}</a></li>
-                </ul>
-            {% endif %}
+    <h2>{% localized 'web.button.subscribe' newsletter.locale %}</h2>
+    {% include "subscriber_facing/snippets/subscribe_form.html" %}
+    {% comment %}
+        Only show latest-issue / archive-link discovery widgets when the
+        archive is publicly visible.
+    {% endcomment %}
+    {% if newsletter.is_archive_public %}
+        {% if latest_public_email %}
+            <h2>{% localized 'web.navigation.start_reading' newsletter.locale %}</h2>
+            <ul>
+                <li>{% localized 'web.navigation.latest' newsletter.locale %} <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a></li>
+                <li>{% localized 'web.navigation.all' newsletter.locale %} <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.archive' newsletter.locale %}</a></li>
+            </ul>
         {% endif %}
-    </ul>
+    {% endif %}
 {% endblock content %}
