@@ -4,10 +4,6 @@
   --newsletter-icon-size: 100px;
 }
 
-.app.suppressed {
-  filter: blur(5px);
-}
-
 .archive__social-links-link--generic {
   color: var(--color-foreground-offset-2);
   font-size: var(--font-size-extra-small);
@@ -87,11 +83,27 @@ div.image-gallery-embed {
   }
 }
 
+.email-body,
+.email-list,
+.subscribe {
+  background-color: var(--color-content-background, transparent);
+  border: calc(var(--content-border-width, 1) * 1px) solid
+    var(--color-content-border, transparent);
+  padding: 2rem;
+  margin: 3rem auto 0 auto;
+}
+
 .email-body {
   flex: 1;
-  margin: 0 auto;
   max-width: var(--width-content);
-  padding: 3rem 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.supports-dark-mode .email-body,
+  :root.dark .email-body {
+    background-color: var(--color-content-background-dark, transparent);
+    border-color: var(--color-content-border-dark, transparent);
+  }
 }
 
 .email-list {
@@ -101,11 +113,11 @@ div.image-gallery-embed {
   flex-direction: column;
   font-family: var(--font-brand);
   justify-content: center;
-  margin: 0 auto;
-  max-width: calc(100% - 2rem);
-  padding: calc(var(--space) * 2) 0;
-  width: 100%;
+  max-width: 100%;
+  padding: 1rem;
+
   @media (min-width: 640px) {
+    width: 100%;
     max-width: var(--width-content);
   }
   svg {
@@ -188,13 +200,6 @@ hr {
   margin: 0 auto;
 }
 
-.social-embeds {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--space) * 2);
-}
-
 .social-networks-container {
   color: var(--color-foreground-offset);
   margin-top: var(--space);
@@ -205,7 +210,6 @@ hr {
   flex: 1;
   flex-direction: column;
   justify-content: center;
-  margin: auto;
   max-width: var(--width-content);
   position: relative;
   @media (max-width: 600px) {
@@ -242,6 +246,7 @@ hr {
   font-family: var(--font-brand);
   margin-top: var(--space);
   text-align: center;
+  text-wrap: balance;
   a {
     color: var(--color-action);
   }
@@ -276,4 +281,9 @@ hr {
 /* Shared rules live in components/post-navigation.css; modern only brands the type. */
 .post-navigation {
   font-family: var(--font-brand);
+}
+
+.footer {
+  background-color: var(--color-content-background, transparent);
+  margin-top: 2rem;
 }

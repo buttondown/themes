@@ -14,7 +14,7 @@
 }
 
 .header-navigation-container.is-scrolled {
-  border-bottom-color: var(--color-background-offset);
+  border-bottom-color: var(--pattern-color, var(--color-background-offset));
 }
 
 .header-navigation-content {
@@ -213,7 +213,8 @@
     overflow-y: auto;
     transform: translateY(100%);
     transition: transform 200ms ease-out;
-    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1),
+    box-shadow:
+      0 -4px 6px -1px rgba(0, 0, 0, 0.1),
       0 -2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 

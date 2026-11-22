@@ -1,18 +1,24 @@
+@import "./link-card.css";
+
 .embedded-link {
   background: var(--color-background-offset);
-  text-decoration: none;
   font-family: var(--font-brand);
 }
 
-.embedded-link > div {
+.link-card {
   transition: all 0.2s ease-in-out;
 }
 
-.embedded-link:hover > div {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) !important;
-  border-color: var(--color-foreground-offset-2) !important;
-  margin-top: -2px !important;
-  margin-bottom: 2px !important;
+.embedded-link:hover .link-card {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-color: var(--color-foreground-offset-2);
+  margin-top: -2px;
+  margin-bottom: 2px;
+}
+
+.email-body-content bluesky-post {
+  display: block;
+  margin-bottom: var(--space);
 }
 
 .tiktok-embed {

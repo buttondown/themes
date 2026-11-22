@@ -1,5 +1,5 @@
 @import "../variables.css";
-@import "dialog.css";
+@import "./dialog.css";
 
 /* Keyframes sorted alphabetically by name */
 @keyframes spin {
@@ -93,6 +93,7 @@
   outline-width: 4px !important;
 }
 
+.email-content .buttondown-subscribe-form,
 .email-content .subscribe-form {
   margin-bottom: calc(var(--space) * 2);
   margin-top: calc(var(--space) * 2);
@@ -276,6 +277,7 @@ a.subscription-success-button:hover {
 
 /* #subscribe-form and .subscribe-form block, internal selectors alphabetized */
 #subscribe-form,
+.buttondown-subscribe-form,
 .subscribe-form,
 .subscribe-modal-body {
   container-name: subscribe-form;
@@ -287,6 +289,13 @@ a.subscription-success-button:hover {
     line-height: 1.25rem;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+    text-align: center;
+  }
+  .contact-author-email {
+    color: var(--color-foreground-offset-2);
+    font-size: var(--font-size-small);
+    margin-top: calc(var(--space) * -0.5);
+    overflow-wrap: anywhere;
     text-align: center;
   }
   .disabled {
@@ -336,6 +345,12 @@ a.subscription-success-button:hover {
     padding-left: calc(var(--space));
     padding-right: calc(var(--space));
     padding-top: calc(var(--space) / 2);
+  }
+  .recognized-sign-in {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space) / 2);
   }
   .required-marker {
     color: var(--color-foreground-offset-2);
@@ -441,4 +456,3 @@ a.subscription-success-button:hover {
     }
   }
 }
-

@@ -1,6 +1,6 @@
 :root {
   --motion-timing-ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --z-dialog: 20;
+  --z-index-dialog: 20;
 }
 
 @keyframes fade-in {
@@ -45,7 +45,7 @@
 
 /* Tailwind utilities used by Dialog.vue, scoped so they don't affect theme
    styling. Colors use subscriber-facing CSS variables so dark mode works. */
-.buttondown-dialog-root .backdrop-blur-sm {
+.buttondown-dialog-root .backdrop-blur-xs {
   backdrop-filter: blur(4px);
 }
 .buttondown-dialog-root .bg-background {

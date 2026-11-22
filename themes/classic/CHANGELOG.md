@@ -1,5 +1,25 @@
 # Classic Theme Changelog
 
+## 2026-11-03
+
+- Sentences on the archive index now end with the newsletter language's full stop, such as `।` in Nepali, instead of a hardcoded `.` (E-5866)
+
+## 2026-10-28
+
+- The content above a paywall or subscriber wall on an archived post no longer fades out; the shared `.email-body-paywall` class stays as a styling hook (E-5721)
+
+## 2026-10-27
+
+- Removed the suppressed-email blur class and "Content Unavailable" notice, since the `suppressed` email status no longer exists
+
+## 2026-10-09
+
+- Archived posts now show their Bluesky and Twitter cross-posts, hidden by the "Social embeds" setting; the setting previously did nothing on this theme (E-5558)
+
+## 2026-09-21
+
+- The archive's premium label now reads `archival_mode`, since `email.is_premium` now means the email was sent only to paid subscribers (#11721)
+
 ## 2026-09-13
 
 - Post dates now match the archive index format and use the newsletter's language

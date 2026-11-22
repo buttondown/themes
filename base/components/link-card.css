@@ -1,0 +1,44 @@
+.embedded-link {
+  text-decoration: none;
+}
+
+.link-card {
+  width: 100%;
+  background: var(--color-background);
+  border: 1px solid var(--color-background-offset);
+  border-radius: 5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  overflow: auto;
+}
+
+.link-image-container {
+  border-bottom: 1px solid var(--color-background-offset);
+}
+
+.link-image {
+  width: 100%;
+  display: block;
+  aspect-ratio: 2;
+  object-fit: contain;
+}
+
+.link-body {
+  color: var(--color-foreground);
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.link-title {
+  margin-top: 1em;
+  margin-bottom: 0;
+  line-height: 1.25em;
+  font-size: 14px;
+}
+
+.link-description {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 1em;
+}

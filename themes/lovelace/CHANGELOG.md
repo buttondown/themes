@@ -1,5 +1,37 @@
 # Lovelace Theme Changelog
 
+## 2026-11-16
+
+- The "already subscribed" sign-in message no longer indents its first line, and the sign-in link confirmation now has space above it (#13372)
+
+## 2026-10-28
+
+- Kept dialog backdrops unblurred after the Tailwind 4 upgrade
+
+## 2026-10-27
+
+- Removed the suppressed-email "Content Unavailable" notice, since the `suppressed` email status no longer exists
+
+## 2026-10-16
+
+- The subscription confirmation page and its error page now center their buttons; button links are no longer underlined (#12301)
+
+## 2026-10-09
+
+- Archived posts now show their Bluesky and Twitter cross-posts, hidden by the "Social embeds" setting; the theme previously ignored the setting (E-5558)
+
+## 2026-10-06
+
+- Link previews now use the theme's colors in light and dark mode (#12053)
+
+## 2026-09-21
+
+- The archive's premium label now reads `archival_mode`, since `email.is_premium` now means the email was sent only to paid subscribers (#11721)
+
+## 2026-09-18
+
+- Sign-in confirmations now appear as styled, dismissible notifications instead of unstyled page content
+
 ## 2026-09-14
 
 - The theme now shares the subscribe form's stylesheet with the other themes, so its fields, option pills, switches, sign-in prompts and loading spinner are styled instead of falling back to browser defaults

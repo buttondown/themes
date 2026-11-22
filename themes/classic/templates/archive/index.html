@@ -31,7 +31,7 @@
                     <div class="email-teaser">{{ email.rendered_html_for_teaser|safe }}</div>
                     <div class="email-metadata">
                         {% if newsletter.paid_subscriptions_status == 'active' %}
-                            {% if email.is_premium %}
+                            {% if email.archival_mode == 'enabled_for_paid_subscribers' %}
                                 <div class="email-metadata-price">
                                     {% include "subscriber_facing/svg/currency-dollar.svg" %}
                                     <div class="email-metadata-price-text">{% localized 'web.post.label.premium' newsletter.locale %}</div>

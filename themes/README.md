@@ -45,6 +45,8 @@ The `newsletter.theme_configuration` attribute exposes theme-defined tokens in t
 </style>
 ```
 
+Tokens of type `select` are also set as `data-` attributes on `<body>`, with underscores changed to dashes (for example, `blockquote_style` becomes `data-blockquote-style`). Use these attributes when a token needs a CSS selector, not a variable.
+
 Setting tokens via the UI is equivalent to writing custom CSS that overrides those variables. The accent color for archives is driven by `color-accent` / `color-accent-dark` in `theme_configuration` and surfaced via `--color-action` in `subscriber_facing/styles/variables.css`.
 
 ### 2. Custom CSS

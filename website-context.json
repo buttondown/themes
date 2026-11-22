@@ -384,6 +384,10 @@
           ],
           "title": "Secondary Id"
         },
+        "should_show_images_for_related_emails": {
+          "title": "Should Show Images For Related Emails",
+          "type": "boolean"
+        },
         "slug": {
           "anyOf": [
             {
@@ -461,6 +465,7 @@
         "metadata",
         "related_email_ids",
         "related_emails",
+        "should_show_images_for_related_emails",
         "source",
         "status",
         "subject",
@@ -487,6 +492,10 @@
         "address": {
           "title": "Address",
           "type": "string"
+        },
+        "allow_search_indexing": {
+          "title": "Allow Search Indexing",
+          "type": "boolean"
         },
         "archive_navigation_links": {
           "items": {
@@ -527,6 +536,13 @@
           "title": "Autonomy Fields",
           "type": "array"
         },
+        "blocked_ai_user_agents": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Blocked Ai User Agents",
+          "type": "array"
+        },
         "bluesky_username": {
           "anyOf": [
             {
@@ -544,17 +560,6 @@
         "body_template": {
           "title": "Body Template",
           "type": "string"
-        },
-        "buysellads_url": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Buysellads Url"
         },
         "cached_analytics_data": {
           "anyOf": [
@@ -594,10 +599,6 @@
             }
           ],
           "title": "Theme Configuration"
-        },
-        "custom_archive_template": {
-          "title": "Custom Archive Template",
-          "type": "string"
         },
         "custom_tracking_host": {
           "anyOf": [
@@ -657,17 +658,6 @@
             }
           ],
           "title": "Custom Gift Subscription Email Subject"
-        },
-        "custom_gift_subscription_email_template": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Custom Gift Subscription Email Template"
         },
         "custom_preamble": {
           "title": "Custom Preamble",
@@ -805,10 +795,6 @@
           ],
           "title": "Custom Subscription Confirmed Email Text"
         },
-        "default_behavior_for_subscriber_imports": {
-          "title": "Default Behavior For Subscriber Imports",
-          "type": "string"
-        },
         "description": {
           "title": "Description",
           "type": "string"
@@ -857,17 +843,6 @@
           ],
           "title": "Fathom Code"
         },
-        "fathom_subscribe_code": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Fathom Subscribe Code"
-        },
         "footer": {
           "anyOf": [
             {
@@ -900,10 +875,6 @@
             }
           ],
           "title": "Google Tag Manager Code"
-        },
-        "h2_redirect_url": {
-          "title": "H2 Redirect Url",
-          "type": "string"
         },
         "header": {
           "anyOf": [
@@ -938,6 +909,10 @@
           ],
           "title": "Icon"
         },
+        "icon_alt_text": {
+          "title": "Icon Alt Text",
+          "type": "string"
+        },
         "icon_url": {
           "anyOf": [
             {
@@ -957,9 +932,6 @@
         "image": {
           "title": "Image",
           "type": "string"
-        },
-        "indexing_mode": {
-          "$ref": "#/$defs/IndexingMode"
         },
         "is_archive_searchable": {
           "title": "Is Archive Searchable",
@@ -1123,24 +1095,12 @@
           ],
           "title": "Should Hide Issue Numbers"
         },
-        "should_hide_social_media": {
-          "title": "Should Hide Social Media",
-          "type": "boolean"
-        },
         "should_hide_upgrade_text": {
           "title": "Should Hide Upgrade Text",
           "type": "boolean"
         },
         "should_immediately_show_payment_element": {
           "title": "Should Immediately Show Payment Element",
-          "type": "boolean"
-        },
-        "should_noindex_archive_page": {
-          "title": "Should Noindex Archive Page",
-          "type": "boolean"
-        },
-        "should_noindex_subscribe_page": {
-          "title": "Should Noindex Subscribe Page",
           "type": "boolean"
         },
         "should_require_double_optin": {
@@ -1316,17 +1276,17 @@
         "absolute_url",
         "account",
         "address",
+        "allow_search_indexing",
         "archive_navigation_links",
         "archive_theme",
         "archive_visibility",
         "automatically_remind_unconfirmed_subscribers",
         "autonomy_fields",
+        "blocked_ai_user_agents",
         "captcha_provider",
         "body_template",
-        "custom_archive_template",
         "custom_email_template",
         "custom_preamble",
-        "default_behavior_for_subscriber_imports",
         "description",
         "disablement_reason",
         "domain",
@@ -1334,14 +1294,13 @@
         "email_domain",
         "enabled_features",
         "effective_locale",
-        "h2_redirect_url",
         "hidden_settings",
         "honeypot_field_name",
         "icon",
+        "icon_alt_text",
         "icon_url",
         "id",
         "image",
-        "indexing_mode",
         "is_archive_searchable",
         "is_paid_subscription_free_trials_enabled",
         "is_sponsorship_enabled",
@@ -1365,11 +1324,8 @@
         "should_be_private",
         "should_disable_non_premium_subscriptions",
         "should_expose_rss",
-        "should_hide_social_media",
         "should_hide_upgrade_text",
         "should_immediately_show_payment_element",
-        "should_noindex_archive_page",
-        "should_noindex_subscribe_page",
         "should_require_double_optin",
         "should_send_subscription_confirmation_email",
         "simple_analytics_enabled",
@@ -1634,19 +1590,10 @@
         "only_send_plaintext_emails",
         "subscription_button_text",
         "subscription_form_text",
-        "should_expose_rss",
         "body_template",
         "custom_preamble"
       ],
       "title": "HiddenSettings",
-      "type": "string"
-    },
-    "IndexingMode": {
-      "enum": [
-        "enabled",
-        "disabled"
-      ],
-      "title": "IndexingMode",
       "type": "string"
     },
     "Locale": {
@@ -1806,7 +1753,6 @@
         "collecting_data",
         "replicating_state",
         "creating_product",
-        "needs_auditing",
         "active",
         "disconnected",
         "disabled"
@@ -1914,6 +1860,7 @@
       "type": "object"
     },
     "UnexpandableStripeSubscription": {
+      "description": "A subscriber's paid subscription in Stripe.",
       "properties": {
         "subscription_id": {
           "description": "The Stripe subscription ID (e.g. `sub_...`).",

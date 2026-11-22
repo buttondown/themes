@@ -4,8 +4,8 @@
 
   /* Typography */
   /* Note: "Inter" provides Cyrillic support as a fallback for languages like Russian */
-  --font-brand: var(--font-accent, "Hex Franklin"), "Inter", system-ui,
-    sans-serif;
+  --font-brand:
+    var(--font-accent, "Hex Franklin"), "Inter", system-ui, sans-serif;
   --font-prose: var(
     --font-body,
     "Source Serif 4 Variable",
@@ -16,8 +16,9 @@
     Times,
     serif
   );
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono",
-    Consolas, "Liberation Mono", Menlo, monospace;
+  --font-mono:
+    "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Consolas,
+    "Liberation Mono", Menlo, monospace;
 
   /* Colors */
   --color-background: oklch(98.5% 0 0);
@@ -62,7 +63,7 @@
   /* Z-index scale (shared with author-facing design system) */
   --z-featured: 1;
   --z-header: 10;
-  --z-dialog: 20;
+  --z-index-dialog: 20;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -81,8 +82,7 @@
 
 @font-face {
   font-family: "Hex Franklin";
-  src: url("https://d33wubrfki0l68.cloudfront.net/409516e806160febfc4d1d7902107ae378404d3f/fd4dc/fonts/hex-franklin/hex-franklin-0.2.woff2")
-    format("woff2");
+  src: url("../../fonts/hex-franklin-0.2.woff2") format("woff2");
   font-weight: 1 999;
   font-stretch: 0% 100%;
 }

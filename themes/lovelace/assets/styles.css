@@ -1,4 +1,5 @@
 @import "../../../subscriber_facing/styles/components/dialog.css";
+@import "../../../subscriber_facing/styles/components/link-card.css";
 @import "../../../subscriber_facing/styles/components/option-pills.css";
 @import "../../../subscriber_facing/styles/components/subscribe-form.css";
 
@@ -338,7 +339,8 @@ select {
 
 button:not(:where(.portal-btn)),
 [type="submit"]:not(:where(.portal-btn)),
-a[type="button"]:not(:where(.portal-btn)) {
+a[type="button"]:not(:where(.portal-btn)),
+a.buttondown-button {
   background: var(--color-foreground);
   border: 1px solid var(--color-foreground);
   color: var(--color-background);
@@ -346,22 +348,47 @@ a[type="button"]:not(:where(.portal-btn)) {
   font-family: monospace;
   font-size: 1rem;
   padding: 0.5rem;
+  text-decoration: none;
+}
+
+.buttondown-button {
+  display: block;
+  margin: 1rem auto;
+  width: fit-content;
+}
+
+.archive-login-gate-form .buttondown-button {
+  display: inline-block;
+  margin: 0;
 }
 
 button:not(:where(.portal-btn)):hover,
 [type="submit"]:not(:where(.portal-btn)):hover,
-a[type="button"]:not(:where(.portal-btn)):hover {
+a[type="button"]:not(:where(.portal-btn)):hover,
+a.buttondown-button:hover {
   background: var(--color-background);
   color: var(--color-foreground);
 }
 
 /* Subscribe form */
 #subscribe-form,
+.buttondown-subscribe-form,
 .subscribe-form {
   max-width: 100%;
+
+  .confirmation-email-message {
+    line-height: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+  }
+  .recognized-sign-in {
+    align-items: flex-start;
+  }
 }
 
 #subscribe-form form,
+.buttondown-subscribe-form form,
 .subscribe-form form {
   display: flex;
   flex-direction: column;
@@ -382,6 +409,48 @@ a[type="button"]:not(:where(.portal-btn)):hover {
   color: var(--color-foreground) !important;
 }
 
+.subscriber-toast {
+  align-items: center;
+  background: var(--color-background);
+  border: 1px solid var(--color-foreground);
+  color: var(--color-foreground);
+  display: flex;
+  font-family: var(--font-brand);
+  gap: calc(var(--space) / 2);
+  left: 50%;
+  max-width: calc(100vw - (var(--space) * 2));
+  padding: calc(var(--space) / 2);
+  position: fixed;
+  top: var(--space);
+  transform: translateX(-50%);
+  width: max-content;
+  z-index: 1000;
+}
+
+.subscriber-toast__close {
+  align-items: center;
+  background: none;
+  border: 0;
+  color: inherit;
+  display: inline-flex;
+  flex: none;
+  height: var(--font-size-base);
+  justify-content: center;
+  padding: 0;
+  width: var(--font-size-base);
+}
+
+.subscriber-toast__close:hover {
+  background: none;
+  color: var(--color-action);
+}
+
+.subscriber-toast__close svg {
+  display: block;
+  height: var(--font-size-base);
+  width: var(--font-size-base);
+}
+
 .unactivated-section {
   align-items: flex-start;
   display: flex;
@@ -390,7 +459,7 @@ a[type="button"]:not(:where(.portal-btn)):hover {
 }
 
 /* Keep dialogs as minimal as the rest of the theme. */
-.buttondown-dialog-root .backdrop-blur-sm {
+.buttondown-dialog-root .backdrop-blur-xs {
   backdrop-filter: none;
 }
 
@@ -403,8 +472,22 @@ a[type="button"]:not(:where(.portal-btn)):hover {
   box-shadow: none;
 }
 
+.buttondown-dialog-root [role="dialog"] > .grow {
+  padding-bottom: var(--space);
+}
+
 .buttondown-dialog-root .subscription-success-message {
   margin-bottom: 0;
+}
+
+.buttondown-dialog-root .subscription-success-message strong {
+  overflow-wrap: break-word;
+}
+
+@media (width < 576px) {
+  .buttondown-dialog-root [role="dialog"] > .sticky.bottom-0 {
+    padding-bottom: calc(var(--space) * 1.5);
+  }
 }
 
 /* Cards - strip all styling */

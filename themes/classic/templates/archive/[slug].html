@@ -9,10 +9,10 @@
     {% include "subscriber_facing/snippets/metadata/email.html" %}
 {% endblock extra_head %}
 {% block content %}
-    <div class="app{% if email.status == 'suppressed' %} suppressed{% endif %}">
+    <div class="app">
         <article class="email-body">
             {% include "subscriber_facing/snippets/email_detail_header.html" with newsletter=newsletter %}
-            {% if email.show_teaser %}
+            {% if email.show_teaser and subscriber_facing_authentication.email_address != newsletter.owning_account.email_address %}
                 <div class="email-body-paywall">{{ email.rendered_html_for_teaser|safe }}</div>
                 <div class="card-container card-container--paywalled">
                     {% if email.is_subscriberwalled %}
@@ -26,7 +26,9 @@
                             {% include "subscriber_facing/snippets/subscribe_form.html" with show_paywall_login_fallback=True %}
                         {% endif %}
                     {% endif %}
-                    <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
+                    {% if not email.is_subscriberwalled %}
+                        <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
+                    {% endif %}
                 </div>
             {% else %}
                 {% include "subscriber_facing/snippets/email--content.html" with newsletter=newsletter email=email subscriber=subscriber %}
@@ -50,14 +52,11 @@
                 {% endif %}
                 {% include "subscriber_facing/snippets/related_emails.html" %}
                 {% include "subscriber_facing/snippets/attachments.html" %}
+                {% include "subscriber_facing/snippets/social_embeds.html" %}
                 {% include "subscriber_facing/snippets/share_form.html" with title=email.subject|render_subject:email url=email.get_absolute_url newsletter=newsletter %}
                 {% include "subscriber_facing/snippets/post_navigation.html" %}
                 {% include "subscriber_facing/snippets/comments.html" %}
             {% endif %}
         </article>
     </div>
-    {% include "subscriber_facing/snippets/hidden_email_message.html" %}
-    {% if not newsletter.should_hide_social_embeds %}
-        {% include "subscriber_facing/snippets/bluesky_embeds.html" %}
-    {% endif %}
 {% endblock content %}

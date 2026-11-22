@@ -24,7 +24,9 @@
                         <div class="card-container-header">{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</div>
                     {% endif %}
                     {% include "subscriber_facing/snippets/subscribe_form.html" with show_paywall_login_fallback=True %}
-                    <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
+                    {% if not email.is_subscriberwalled %}
+                        <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
+                    {% endif %}
                 </div>
             {% else %}
                 {% include "subscriber_facing/snippets/email_frontmatter.html" with newsletter=newsletter email=email %}
@@ -34,25 +36,13 @@
                 <div class="card-container">
                     {% if not subscriber and not comments_awaiting_confirmation %}
                         <div class="card-container-header">
-                            {% if not newsletter.subscription_form_text %}
+                            {% if not newsletter.subscription_form_text and not newsletter_json.should_be_private %}
                                 {% localized 'web.email.subscription.form_text' newsletter.locale %}
                             {% endif %}
                         </div>
                         {% include "subscriber_facing/snippets/subscribe_form.html" %}
                     {% endif %}
-                    {% if not newsletter.should_hide_social_embeds %}
-                        {% with bluesky_url=email.bluesky_url twitter_url=email.twitter_url %}
-                            {% if bluesky_url or twitter_url %}
-                                <div class="card-container-header">{% localized 'web.email.social.links_header' newsletter.locale %}</div>
-                                <div class="social-embeds">
-                                    {% if bluesky_url %}
-                                        {% include "bluesky_web.html" with at_uri=bluesky_url %}
-                                    {% endif %}
-                                    {% include "subscriber_facing/snippets/email-twitter-url.html" with email=email %}
-                                </div>
-                            {% endif %}
-                        {% endwith %}
-                    {% endif %}
+                    {% include "subscriber_facing/snippets/social_embeds.html" %}
                 </div>
                 {% include "subscriber_facing/snippets/post_navigation.html" %}
                 {% include "subscriber_facing/snippets/comments.html" %}

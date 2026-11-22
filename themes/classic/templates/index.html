@@ -32,27 +32,25 @@
                     <p>
                         {% localized 'web.subscription.message.read_latest_edition' newsletter.locale %}:
                         {% if newsletter.should_hide_issue_numbers %}
-                            <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
+                            <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a>{% localized 'web.punctuation.full_stop' newsletter.locale %}
                         {% else %}
                             {% if latest_public_email.secondary_id %}
-                                <a href="{{ latest_public_email.get_absolute_url }}">#{{ latest_public_email.secondary_id }} — {{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
+                                <a href="{{ latest_public_email.get_absolute_url }}">#{{ latest_public_email.secondary_id }} — {{ latest_public_email.subject|render_subject:latest_public_email }}</a>{% localized 'web.punctuation.full_stop' newsletter.locale %}
                             {% else %}
-                                <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a>.
+                                <a href="{{ latest_public_email.get_absolute_url }}">{{ latest_public_email.subject|render_subject:latest_public_email }}</a>{% localized 'web.punctuation.full_stop' newsletter.locale %}
                             {% endif %}
                         {% endif %}
                     </p>
                     <p>
                         {% localized 'web.navigation.browse_full_archives' newsletter.locale %}
                         <a href='{% mutable_url "public-archive" newsletter.username %}'>{% localized 'web.navigation.full_archives' newsletter.locale %}</a>
-                        {% localized 'web.navigation.of_this_newsletter' newsletter.locale %}.
+                        {% localized 'web.navigation.of_this_newsletter' newsletter.locale %}{% localized 'web.punctuation.full_stop' newsletter.locale %}
                     </p>
                 {% endif %}
-                {% if newsletter.should_expose_rss %}
-                    <p class="rss-suggestion">
-                        {% localized "email.rss.suggestion_prefix" newsletter.locale %}
-                        <a href='{% mutable_url "rss" newsletter.username %}'>{% localized "email.rss.suggestion_link" newsletter.locale %}</a>.
-                    </p>
-                {% endif %}
+                <p class="rss-suggestion">
+                    {% localized "email.rss.suggestion_prefix" newsletter.locale %}
+                    <a href='{% mutable_url "rss" newsletter.username %}'>{% localized "email.rss.suggestion_link" newsletter.locale %}</a>{% localized 'web.punctuation.full_stop' newsletter.locale %}
+                </p>
             {% endif %}
             {% include "subscriber_facing/snippets/sponsorships.html" %}
         </div>

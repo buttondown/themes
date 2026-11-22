@@ -1,5 +1,39 @@
 # Modern Theme Changelog
 
+## 2026-11-16
+- Added additional padding to the archive email list
+
+## 2026-11-06
+- Adjusted the padding and margin around the email list, to match the email content body
+- Added background color to the email list, footer, and the container on the subscribe page
+
+## 2026-11-05
+
+- Added a `background_pattern` option that puts a geometric design (chevron, circles, graph paper, grid, hive, polka dots, ramen, or scanner) behind your pages, with `color-pattern` and `color-pattern-dark` options for its color
+- Added `color-content-background`, `color-content-border` (and their `-dark` versions), and `content-border-width` options that style the content area separately from the page background; the colors accept an opacity and default to fully transparent, so the page background shows behind your content until you set them
+- Adjusted the padding and margin around the email content body
+- The bottom border of the navigation now uses `color-pattern` when a background pattern is set
+
+## 2026-10-28
+
+- The content above a paywall or subscriber wall on an archived post no longer fades out; the shared `.email-body-paywall` class stays as a styling hook (E-5721)
+
+## 2026-10-27
+
+- Removed the suppressed-email blur style and "Content Unavailable" notice, since the `suppressed` email status no longer exists
+
+## 2026-10-09
+
+- Moved the social embeds block to a shared snippet so the Classic and Lovelace themes render it too (E-5558)
+
+## 2026-09-21
+
+- The archive's premium label now reads `archival_mode`, since `email.is_premium` now means the email was sent only to paid subscribers (#11721)
+
+## 2026-09-14
+
+- The "read the latest edition" link on the subscribe page now wraps onto lines of even length instead of leaving a single word alone on its last line
+
 ## 2026-08-12
 
 - Stopped the theme's generic button styling from overriding the subscriber portal's own buttons

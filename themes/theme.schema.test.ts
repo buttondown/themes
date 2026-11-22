@@ -1,5 +1,4 @@
 import Ajv from "ajv";
-import addFormats from "ajv-formats";
 import { describe, expect, it } from "vitest";
 
 import arbusTheme from "./arbus/theme.json";
@@ -8,8 +7,7 @@ import lovelaceTheme from "./lovelace/theme.json";
 import modernTheme from "./modern/theme.json";
 import schema from "./theme.schema.json";
 
-const ajv = new Ajv({ allErrors: true, strict: false });
-addFormats(ajv);
+const ajv = new Ajv({ allErrors: true });
 
 const validate = ajv.compile(schema);
 
@@ -80,6 +78,21 @@ describe("theme.schema.json", () => {
               { id: "grid", label: "Grid" },
               { id: "list", label: "List" },
             ],
+          },
+        },
+      },
+      true,
+    ],
+    [
+      "should accept a color default with an alpha channel",
+      {
+        name: "Valid",
+        version: "1.0.0",
+        configuration: {
+          "color-content-background": {
+            type: "color",
+            header: "Content",
+            default: "#FFFFFF00",
           },
         },
       },

@@ -245,8 +245,8 @@
   padding: calc(var(--space) * 0.5);
   font-family: var(--font-brand);
   font-size: var(--font-size-small);
-  color: #000;
-  background-color: #fff;
+  color: var(--color-foreground);
+  background-color: var(--color-background);
   transition: border-color 0.2s ease-in-out;
   corner-shape: var(--corner-shape);
   border-radius: calc(var(--space) * 0.5);

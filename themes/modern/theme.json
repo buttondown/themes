@@ -59,14 +59,75 @@
         "color-background": {
             "type": "color",
             "default": "#FAFAFA",
-            "header": "Background color",
-            "description": "Page background color"
+            "header": "Background",
+            "description": "Page background color and pattern"
         },
         "color-background-dark": {
             "type": "color",
             "default": "#1A1A1E",
             "header": "Background color (dark mode)",
             "description": "Page background color for dark mode"
+        },
+        "color-pattern": {
+            "type": "color",
+            "default": "#DCE6F7",
+            "header": "Pattern color",
+            "description": "Color of the background pattern"
+        },
+        "color-pattern-dark": {
+            "type": "color",
+            "default": "#26303F",
+            "header": "Pattern color (dark mode)",
+            "description": "Color of the background pattern for dark mode"
+        },
+        "background_pattern": {
+            "type": "select",
+            "default": "none",
+            "header": "Background pattern",
+            "description": "Add a geometric design to the background of your pages.",
+            "options": [
+                { "id": "none", "label": "None" },
+                { "id": "chevron", "label": "Chevron" },
+                { "id": "circles", "label": "Circles" },
+                { "id": "graph", "label": "Graph paper" },
+                { "id": "grid", "label": "Grid" },
+                { "id": "hive", "label": "Hive" },
+                { "id": "dots", "label": "Polka dots" },
+                { "id": "ramen", "label": "Ramen" },
+                { "id": "scanner", "label": "Scanner" }
+            ]
+        },
+        "color-content-background": {
+            "type": "color",
+            "default": "#FFFFFF00",
+            "header": "Content",
+            "description": "Background color, border color, and border width of the content area on posts and similar pages. Lower the opacity to let the page background show through."
+        },
+        "color-content-background-dark": {
+            "type": "color",
+            "default": "#23232800",
+            "header": "Content color (dark mode)",
+            "description": "Background color of the content area for dark mode"
+        },
+        "color-content-border": {
+            "type": "color",
+            "default": "#E4E4E700",
+            "header": "Content border color",
+            "description": "Border color of the content area"
+        },
+        "color-content-border-dark": {
+            "type": "color",
+            "default": "#3A3A4000",
+            "header": "Content border color (dark mode)",
+            "description": "Border color of the content area for dark mode"
+        },
+        "content-border-width": {
+            "type": "number",
+            "default": 1,
+            "min": 0,
+            "max": 8,
+            "header": "Content border width",
+            "description": "Border width of the content area, in pixels"
         },
         "blockquote_style": {
             "type": "select",

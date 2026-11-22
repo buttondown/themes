@@ -65,8 +65,8 @@
                             "description": { "type": "string" },
                             "default": {
                                 "type": "string",
-                                "description": "Default hex color value",
-                                "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                                "description": "Default hex color value, with an optional alpha channel",
+                                "pattern": "^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
                             }
                         },
                         "additionalProperties": false

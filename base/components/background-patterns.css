@@ -1,0 +1,195 @@
+/* Remixed from https://www.magicpattern.design/tools/css-backgrounds */
+[data-background-pattern] {
+  --pattern-color: var(
+    --color-pattern,
+    color-mix(in srgb, var(--color-action) 15%, var(--color-background))
+  );
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.supports-dark-mode [data-background-pattern],
+  :root.dark [data-background-pattern] {
+    --pattern-color: var(
+      --color-pattern-dark,
+      color-mix(in srgb, var(--color-action) 15%, var(--color-background))
+    );
+  }
+}
+
+body[data-background-pattern] {
+  background-attachment: fixed;
+}
+
+body[data-background-pattern] .app-container {
+  background: inherit;
+}
+
+[data-background-pattern="chevron"] {
+  isolation: isolate;
+}
+
+[data-background-pattern="chevron"]:not(body) {
+  overflow: hidden;
+  position: relative;
+}
+
+[data-background-pattern="chevron"]::before {
+  background-color: var(--pattern-color);
+  content: "";
+  inset: 0;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M-4 12 4 4l8 8 8-8' fill='none' stroke='%23000'/%3E%3C/svg%3E")
+    0 0 / 16px 16px;
+  /* This position is for the picker */
+  position: absolute;
+  z-index: -1;
+}
+
+body[data-background-pattern="chevron"]::before {
+  /* This position is for the actual background */
+  position: fixed;
+}
+
+body[data-background-pattern="chevron"] .app-container {
+  background: transparent;
+}
+
+[data-background-pattern="circles"] {
+  background-image: repeating-radial-gradient(
+    circle at 50% 0,
+    var(--color-background) 0,
+    var(--color-background) 8.8px,
+    var(--pattern-color) 9px,
+    var(--pattern-color) 9.8px,
+    var(--color-background) 10px
+  );
+}
+
+[data-background-pattern="dots"] {
+  background-image:
+    radial-gradient(var(--pattern-color) 1px, transparent 1px),
+    radial-gradient(var(--pattern-color) 1px, transparent 1px);
+  background-position:
+    0 0,
+    5px 5px;
+  background-size: 10px 10px;
+}
+
+[data-background-pattern="graph"] {
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent 1.67px,
+      var(--color-background) 1.67px,
+      var(--color-background) 5px,
+      transparent 5px,
+      transparent 6.67px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1.67px,
+      var(--color-background) 1.67px,
+      var(--color-background) 5px,
+      transparent 5px,
+      transparent 6.67px
+    ),
+    linear-gradient(to bottom, var(--pattern-color) 0.6px, transparent 0.6px),
+    linear-gradient(to right, var(--pattern-color) 0.6px, transparent 0.6px);
+  background-position:
+    0 0,
+    0 0,
+    0 -0.2px,
+    -0.2px 0;
+  background-size:
+    100% 100%,
+    100% 100%,
+    20px 20px,
+    20px 20px;
+}
+
+[data-background-pattern="grid"] {
+  background-image:
+    linear-gradient(var(--pattern-color) 1px, transparent 1px),
+    linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+[data-background-pattern="hive"] {
+  background-image:
+    radial-gradient(
+      circle farthest-side at 0% 50%,
+      var(--color-background) 5px,
+      transparent 0
+    ),
+    radial-gradient(
+      circle farthest-side at 0% 50%,
+      var(--pattern-color) 5px,
+      transparent 0
+    ),
+    linear-gradient(
+      var(--color-background) 4px,
+      transparent 0,
+      transparent 25.4px,
+      var(--color-background) 0
+    ),
+    linear-gradient(
+      150deg,
+      var(--color-background) calc(25% - 0.5px),
+      var(--pattern-color) 0 calc(25% + 0.5px),
+      transparent 0 calc(75% - 0.5px),
+      var(--pattern-color) 0 calc(75% + 0.5px),
+      var(--color-background) 0
+    ),
+    linear-gradient(
+      30deg,
+      var(--color-background) calc(25% - 0.5px),
+      var(--pattern-color) 0 calc(25% + 0.5px),
+      transparent 0 calc(75% - 0.5px),
+      var(--pattern-color) 0 calc(75% + 0.5px),
+      var(--color-background) 0
+    ),
+    linear-gradient(90deg, var(--pattern-color) 1px, var(--color-background) 0);
+  background-position:
+    10.5px 15px,
+    9.5px 15px,
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+  background-size: 20px 30px;
+}
+
+[data-background-pattern="scanner"] {
+  background-image: repeating-linear-gradient(
+    0deg,
+    var(--pattern-color),
+    var(--pattern-color) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+}
+
+[data-background-pattern="ramen"] {
+  background-image:
+    radial-gradient(
+      circle at 50% 100%,
+      transparent 4.5px,
+      var(--pattern-color) 4.7px,
+      var(--pattern-color) 5.3px,
+      transparent 5.5px,
+      transparent
+    ),
+    radial-gradient(
+      circle at 50% 0.5px,
+      transparent 4.5px,
+      var(--pattern-color) 4.7px,
+      var(--pattern-color) 5.3px,
+      transparent 5.5px,
+      transparent
+    );
+  background-position:
+    0 0,
+    -10px -0.5px;
+  background-size: 20px 15px;
+}

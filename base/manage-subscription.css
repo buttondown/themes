@@ -290,10 +290,12 @@ textarea.input-field,
   height: 7px;
   border-radius: 50%;
 }
-.status-pill--active {
+.status-pill--active,
+.status-pill--trialing {
   color: #15803d;
 }
-.status-pill--active .status-pill__dot {
+.status-pill--active .status-pill__dot,
+.status-pill--trialing .status-pill__dot {
   background: var(--color-success);
 }
 .status-pill--past_due {
@@ -443,7 +445,11 @@ textarea.input-field,
 }
 
 /* ---- Comments (reuses .comment styles from comments.css) ---- */
-.manage-subscription .comment__content {
+.manage-subscription .archive__comment-item {
+  padding: 0 var(--space);
+}
+.manage-subscription .comment__content,
+.manage-subscription .comment__footer {
   padding-left: 0;
 }
 .manage-subscription .comment__actions {

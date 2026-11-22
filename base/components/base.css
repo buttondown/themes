@@ -1,7 +1,8 @@
 @import "../variables.css";
+@import "../../../rendered_email/instagram.css";
 @import "../../../styles/vendor/pygments.css";
 @import "../components/attachments.css";
-@import "../components/base.css";
+@import "../components/background-patterns.css";
 @import "../components/codehilite.css";
 @import "../components/comments.css";
 @import "../components/embeds.css";
@@ -143,6 +144,18 @@ body {
   margin-top: calc(var(--space) * 2);
   padding-bottom: calc(var(--space));
   text-align: center;
+  text-wrap: balance;
+}
+
+.social-embeds {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space) * 2);
+}
+
+.social-embeds bluesky-post {
+  max-width: 100%;
 }
 
 .card--takeover {
@@ -183,10 +196,6 @@ date {
   font-size: var(--font-size-small);
   text-align: var(--text-header-alignment);
   margin-bottom: calc(var(--space) / 4);
-}
-
-.email-body-paywall {
-  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
 
 .email-image {
@@ -539,10 +548,6 @@ blockquote {
 [data-blockquote-style="editorial"] blockquote p,
 [data-blockquote-style="editorial"] blockquote li {
   font-size: var(--font-size-large);
-}
-
-blockquote blockquote {
-  margin-bottom: 0;
 }
 
 .email-list-header {

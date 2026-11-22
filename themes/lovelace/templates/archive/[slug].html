@@ -27,16 +27,21 @@
             <p><strong>{% localized "email.premium.cta.read_full_issue" newsletter.locale %}</strong></p>
         {% endif %}
         {% include "subscriber_facing/snippets/subscribe_form.html" with show_paywall_login_fallback=True %}
-        <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
+        {% if not email.is_subscriberwalled %}
+            <script nonce="{{ CSP_NONCE }}">var VARIANT = 'paywalled_archive_page';</script>
+        {% endif %}
     {% else %}
         {% include "subscriber_facing/snippets/email--content.html" with newsletter=newsletter email=email subscriber=subscriber %}
         <hr>
         {% include "subscriber_facing/snippets/related_emails.html" %}
         {% include "subscriber_facing/snippets/attachments.html" %}
         {% if not subscriber and not comments_awaiting_confirmation %}
-            <p>{% localized 'web.email.subscription.form_text' newsletter.locale %}</p>
+            {% if not newsletter_json.should_be_private %}
+                <p>{% localized 'web.email.subscription.form_text' newsletter.locale %}</p>
+            {% endif %}
             {% include "subscriber_facing/snippets/subscribe_form.html" %}
         {% endif %}
+        {% include "subscriber_facing/snippets/social_embeds.html" %}
         {% include "subscriber_facing/snippets/post_navigation.html" %}
         {% include "subscriber_facing/snippets/comments.html" %}
     {% endif %}
