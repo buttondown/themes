@@ -16,4 +16,4 @@ This repository is a mirror of the archive themes from the [Buttondown](https://
 ## Organization
 
 - **`base/`** — Shared foundations: CSS variables (`variables.css`), component styles, and design tokens used by all themes.
-- **`themes/`** — Individual themes (classic, modern, lovelace, arbus). Each has a `theme.json` config, `assets/styles.css`, and optional templates. Themes without templates fall back to modern's. See `theme.schema.json` for the config spec.
+- **`themes/`** — Individual themes (classic, modern, lovelace). Each has a `theme.json` config, `assets/styles.css`, and optional templates. Themes without templates fall back to modern's. See `theme.schema.json` for the config spec.

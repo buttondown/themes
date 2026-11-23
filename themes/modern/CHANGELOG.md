@@ -1,6 +1,9 @@
 # Modern Theme Changelog
 
 ## 2026-11-16
+
+- Added an `Image gallery` option to `archive_index_layout` that shows your archive as a grid of images, with an `archive-column-count` option for the number of columns
+- Added a `show-description` option that shows or hides the description of each post in the archive
 - Added additional padding to the archive email list
 
 ## 2026-11-06

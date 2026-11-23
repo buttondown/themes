@@ -5,9 +5,8 @@ Archive themes control the look and layout of your newsletter's public-facing pa
 ## Available themes
 
 - **classic** — Minimal layout with left-aligned text, ideal for text-focused newsletters
-- **modern** — Card-based layout with large images, the default theme
+- **modern** — Card-based layout with large images, the default theme. Its `archive_index_layout` option also offers a two-column grid and an image gallery
 - **lovelace** — Similar to modern with layout variations
-- **arbus** — Instagram-style grid layout for image-heavy newsletters (templates fall back to modern)
 
 ## Shared foundations
 
@@ -27,7 +26,7 @@ Each theme's `assets/styles.css` imports the base stylesheet and layers theme-sp
   templates/          # Optional — theme-specific page templates
 ```
 
-**Template fallback:** If a theme doesn't define a template for a given path, it falls back to the modern theme's template. For example, arbus has no templates and uses modern's `archive/[slug].html` and `archive/index.html`.
+**Template fallback:** If a theme doesn't define a template for a given path, it falls back to the modern theme's template.
 
 ## Customization
 

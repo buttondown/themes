@@ -2,7 +2,7 @@ import { execSync } from "node:child_process";
 
 import { describe, expect, it } from "vitest";
 
-const THEMES = ["arbus", "classic", "lovelace", "modern"] as const;
+const THEMES = ["classic", "lovelace", "modern"] as const;
 const PREFIX = "app/assets/themes";
 
 /**

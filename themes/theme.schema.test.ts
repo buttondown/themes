@@ -1,7 +1,6 @@
 import Ajv from "ajv";
 import { describe, expect, it } from "vitest";
 
-import arbusTheme from "./arbus/theme.json";
 import classicTheme from "./classic/theme.json";
 import lovelaceTheme from "./lovelace/theme.json";
 import modernTheme from "./modern/theme.json";
@@ -12,7 +11,6 @@ const ajv = new Ajv({ allErrors: true });
 const validate = ajv.compile(schema);
 
 const THEMES = {
-  arbus: arbusTheme,
   classic: classicTheme,
   lovelace: lovelaceTheme,
   modern: modernTheme,

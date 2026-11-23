@@ -287,3 +287,146 @@ hr {
   background-color: var(--color-content-background, transparent);
   margin-top: 2rem;
 }
+
+[data-archive-index-layout="gallery"] {
+  --archive-image-height: 300px;
+  --gallery-dialog-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --gallery-dropdown-shadow: 0 5px 10px -2px var(--color-background-offset),
+    0 5px 10px -2px var(--color-background-offset);
+
+  .email-title {
+    font-weight: bold;
+    margin-bottom: calc(var(--space) / 4);
+  }
+
+  .email-image {
+    display: block;
+  }
+
+  .email-image img {
+    height: var(--archive-image-height);
+    object-fit: cover;
+    border-radius: calc(var(--space) / 2);
+    overflow: hidden;
+    border: 1px solid var(--color-foreground-offset-2);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .email-description {
+    order: 2;
+  }
+
+  .email-image-placeholder,
+  .email-image img {
+    margin-bottom: calc(var(--space) / 2);
+  }
+
+  .email-list {
+    max-width: none;
+    display: grid;
+    gap: var(--space);
+    width: calc(100vw - 2rem);
+
+    @media (width >= 500px) {
+      padding-top: 0;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (width > 900px) {
+      padding-top: 0;
+      grid-template-columns: repeat(var(--archive-column-count, 3), 1fr);
+    }
+
+    hr {
+      display: none;
+    }
+  }
+
+  .email-image-placeholder {
+    height: var(--archive-image-height);
+    background-color: var(--color-background-offset);
+    border-radius: calc(var(--space) / 2);
+  }
+
+  .email-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .email-link {
+    display: grid;
+    grid-template-areas:
+      "image"
+      "title"
+      "description"
+      "metadata";
+
+    .email,
+    .email-header {
+      display: contents;
+    }
+
+    .email-image {
+      grid-area: image;
+    }
+
+    .email-title,
+    .email-description,
+    .email-metadata {
+      text-align: center;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .email-title {
+      grid-area: title;
+    }
+
+    .email-description {
+      grid-area: description;
+    }
+
+    .email-metadata {
+      grid-area: metadata;
+    }
+
+    &:hover {
+      background-color: inherit;
+
+      .email-title,
+      .email-description,
+      .email-metadata {
+        color: var(--color-action);
+      }
+
+      .email-image img {
+        outline: calc(var(--space) / 4) solid var(--color-action);
+      }
+    }
+  }
+
+  .email.featured {
+    margin-top: 0;
+  }
+
+  .modal-content,
+  .subscription-success-dialog {
+    box-shadow: var(--gallery-dialog-shadow);
+  }
+
+  .archive__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space);
+    width: 100%;
+    padding: 0;
+  }
+
+  .cta-dropdown-menu {
+    box-shadow: var(--gallery-dropdown-shadow);
+  }
+}

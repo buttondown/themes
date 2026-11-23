@@ -14,11 +14,28 @@
             "type": "select",
             "default": "single",
             "header": "Archive layout",
-            "description": "Single column, or a two-column grid on wide screens",
+            "description": "Single column, a two-column grid on wide screens, or an image gallery",
             "options": [
                 { "id": "single", "label": "Single column" },
-                { "id": "grid", "label": "Two-column grid" }
+                { "id": "grid", "label": "Two-column grid" },
+                { "id": "gallery", "label": "Image gallery" }
             ]
+        },
+        "archive-column-count": {
+            "type": "number",
+            "default": 3,
+            "min": 1,
+            "max": 6,
+            "header": "Gallery column count",
+            "description": "Number of columns in the image gallery layout"
+        },
+        "show-description": {
+            "type": "boolean",
+            "default": true,
+            "header": "Show description?",
+            "description": "Show the description of each post in the archive",
+            "storageKey": "email-description-display",
+            "storageValues": { "true": "block", "false": "none" }
         },
         "dark_mode": {
             "type": "boolean",
