@@ -290,9 +290,10 @@ hr {
 
 [data-archive-index-layout="gallery"] {
   --archive-image-height: 300px;
-  --gallery-dialog-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --gallery-dropdown-shadow: 0 5px 10px -2px var(--color-background-offset),
+  --gallery-dialog-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --gallery-dropdown-shadow:
+    0 5px 10px -2px var(--color-background-offset),
     0 5px 10px -2px var(--color-background-offset);
 
   .email-title {
@@ -329,12 +330,10 @@ hr {
     width: calc(100vw - 2rem);
 
     @media (width >= 500px) {
-      padding-top: 0;
       grid-template-columns: repeat(2, 1fr);
     }
 
     @media (width > 900px) {
-      padding-top: 0;
       grid-template-columns: repeat(var(--archive-column-count, 3), 1fr);
     }
 

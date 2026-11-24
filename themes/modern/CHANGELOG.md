@@ -1,5 +1,8 @@
 # Modern Theme Changelog
 
+## 2026-11-23
+- Added padding to `.email-list` on larger screens to accommodate the "image gallery" layout
+
 ## 2026-11-16
 
 - Added an `Image gallery` option to `archive_index_layout` that shows your archive as a grid of images, with an `archive-column-count` option for the number of columns
