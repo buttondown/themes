@@ -57,7 +57,7 @@ a:hover {
   border-radius: var(--space);
   box-sizing: border-box;
   corner-shape: var(--corner-shape);
-  font-family: var(--font-family-sans);
+  font-family: var(--font-brand);
   font-size: var(--font-size-base);
   font-weight: 500;
   line-height: 1.5rem;

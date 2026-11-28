@@ -245,7 +245,7 @@
 
 .subscription-success-message {
   color: var(--color-foreground-offset);
-  font-family: var(--font-family-sans);
+  font-family: var(--font-brand);
   font-size: var(--font-size-large);
   line-height: calc(var(--font-size-large) * 1.4);
   margin: 0;
@@ -337,7 +337,7 @@ a.subscription-success-button:hover {
     border: 1px solid var(--color-background-offset);
     border-radius: calc(var(--space));
     corner-shape: var(--corner-shape);
-    font-family: var(--font-family-sans);
+    font-family: var(--font-brand);
     font-size: var(--font-size-base);
     font-weight: 500;
     line-height: 1.5rem;

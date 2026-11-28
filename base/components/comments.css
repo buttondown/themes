@@ -287,7 +287,7 @@
 .comment-input__back-link {
   display: flex;
   align-items: center;
-  font-family: var(--font-family-sans);
+  font-family: var(--font-brand);
   font-size: var(--font-size-small);
   text-decoration: none;
   color: var(--color-foreground);
